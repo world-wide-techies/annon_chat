@@ -11,7 +11,7 @@ The document will be updated from time to time to meet project expectations and 
 During the development of the project, branches will be created for specific features/components/function development.
 PR will be created against this issue and will be merged to the `development` branch of the repository.
 
-To find new issues please visit [Projects](https://github.com/annonymousauthority/Carai/projects?query=is%3Aopen) or visit the [Issue](https://github.com/world-wide-techies/annon_chat/issues)  tab.
+To find new issues please visit [Projects](https://github.com/world-wide-techies/annon_chat/projects?query=is%3Aopen) or visit the [Issue](https://github.com/world-wide-techies/annon_chat/issues)  tab.
 A developer can request for clarification of an issue before going on so to ensure full compliance with development expectations and requirements.
 
 ### FOLDERS AND NAMING STYLE
