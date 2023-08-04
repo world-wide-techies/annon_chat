@@ -1,5 +1,5 @@
 import React from "react";
-// import USER1 from 
+import USER1 from "@"
 
 const Testimonials = () => {
   {
