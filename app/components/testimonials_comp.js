@@ -49,7 +49,7 @@ const Testimonials = () => {
           <div className="self-stretch h-[216px] flex-col justify-center items-start gap-2 flex">
             <div className="w-[673px] shadow justify-start items-end inline-flex">
               <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
-                <div className="w-[18px] h-5 relative">
+                <div className="w-[11px] h-5 relative">
                   <Image
                     src={CONTAINER}
                     alt=""
