@@ -4,16 +4,6 @@ import USER2 from "@/public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
 import CHECKER from "@/public/assets/images/checker.png";
 const Testimonials = () => {
-  {
-    &quot;AnonChat is a game-changer! I use it for confidential
-        work discussions with my team members, and it&apos;s been a
-        breeze. The anonymity adds an extra layer of comfort, and we
-        can brainstorm ideas without any inhibitions. Plus, the chat
-        disappearing after we&apos;re done? Genius! Highly recommend
-        it for anyone looking for secure and spontaneous
-        conversations. 🙌&quot;
-  }
-
   return (
     <>
       <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
@@ -23,13 +13,12 @@ const Testimonials = () => {
             <div className="self-stretch shadow justify-end items-center inline-flex">
               <div className="w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-end items-end inline-flex">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
-                &quot;AnonChat is a game-changer! I use it for confidential
-        work discussions with my team members, and it&apos;s been a
-        breeze. The anonymity adds an extra layer of comfort, and we
-        can brainstorm ideas without any inhibitions. Plus, the chat
-        disappearing after we&apos;re done? Genius! Highly recommend
-        it for anyone looking for secure and spontaneous
-        conversations. 🙌&quot;
+                  "AnonChat is a game-changer! I use it for confidential work
+                  discussions with my team members, and it's been a breeze. The
+                  anonymity adds an extra layer of comfort, and we can
+                  brainstorm ideas without any inhibitions. Plus, the chat
+                  disappearing after we're done? Genius! Highly recommend it for
+                  anyone looking for secure and spontaneous conversations. 🙌"
                 </div>
                 <div className="self-stretch text-right text-white text-base font-normal leading-tight">
                   Sarah N., 23
