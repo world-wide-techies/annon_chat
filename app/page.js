@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Testimonials_comp from './components/testimonials_comp'
 
 
 export default function Home() {
