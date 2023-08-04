@@ -28,15 +28,15 @@ const steps = [
     title: "Chat, Laugh, and Share! ",
     titleIcon: "🎭😂",
     description:
-      "Now the fun part - talk it up, laugh it out, and share your thoughts like you're on top of the world! Chat about life, dreams, or simply what's popping'. It's your secret space to explore without a care. Let the good vibes flow, and remember, it's just you two in this exclusive zone. 🎶💃",
+      "Now the fun part - talk it up, laugh it out, and share your thoughts like you're on top of the world! Chat about life, dreams, or simply what's popping. It's your secret space to explore without a care. Let the good vibes flow, and remember, it's just you two in this exclusive zone. 🎶💃",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <div className="w-full bg-gray-300 ">
-      <div className="grid grid-cols-7">
-        <div className="col-span-2 flex items-center justify-center">
+    <div className="w-full bg-[#f9f5ff] font-lexend">
+      <div className="grid lg:grid-cols-7">
+        <div className="col-span-2 hidden lg:flex items-center justify-center">
           <Image
             src="/assets/images/how_it_works_img_1.png"
             alt="img"
@@ -45,30 +45,31 @@ const HowItWorks = () => {
           />
         </div>
 
-        <div className="col-span-3 drop-shadow-2xl bg-white ">
-          <div className=" p-10 ">
+        <div className="col-span-3 shadow-2xl bg-white ">
+          <div className=" px-12 py-6 ">
             <p className="text-center text-29xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
               How It Works!
             </p>
             <div className="mt-4">
               {steps.map(({ description, title, id, titleIcon }) => (
                 <div key={id} className="grid grid-cols-6 gap-4 mt-6">
-                  <div className="col-span-1 ">
-                  <div className="rounded-full border border-[#755BDF] w-20 h-20">
-                  <p className="text-45xl text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
-                    {id}
-                  </p>
-                  
-                  </div>
+                  <div className="col-span-1 flex items-center">
+                    <div className="rounded-full border border-[#755BDF] w-20 h-[77px]">
+                      <p className="text-[54px] text-center text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
+                        {id}
+                      </p>
+                    </div>
                   </div>
                   <div className="col-span-5">
                     <div className="flex items-center">
                       <p className="text-5xl font-normal text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
                         {title}{" "}
                       </p>
-                      <span>{titleIcon}</span>
+                       <span>{titleIcon}</span>
                     </div>
-                    <p className="text-sm text-neutral-600-light">{description}</p>
+                    <p className="text-sm text-neutral-600-light font-roboto ">
+                      {description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -85,7 +86,7 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        <div className="col-span-2 flex items-center justify-center">
+        <div className="col-span-2 hidden lg:flex items-center justify-center">
           <Image
             src="/assets/images/how_it_works_img_1.png"
             alt="img"
