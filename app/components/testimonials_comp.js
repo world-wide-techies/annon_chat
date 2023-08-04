@@ -113,7 +113,7 @@ const Testimonials = () => {
         </div>
         <div className="w-[434px] h-[434px] left-[-66px] top-[642px] absolute">
          
-         <I/>
+         <Image/>
           <Image
             className="w-[434px] h-[434px] left-[66px] top-[2px] absolute"
             src={USER1}
