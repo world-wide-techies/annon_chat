@@ -18,7 +18,6 @@ const Testimonials_comp = () => {
                   anyone looking for secure and spontaneous conversations. 🙌"
                 </div>
                 <div className="self-stretch text-right text-white text-base font-normal leading-tight">
-                  {" "}
                   Sarah N., 23
                   <br />
                   👩‍💼💻
