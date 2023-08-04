@@ -10,8 +10,8 @@ const Testimonials = () => {
   return (
     <div>
       <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
-        <div className="h-[730px] py-2 left-[205px] top-[227px] absolute flex-col justify-start items-start gap-12 inline-flex">
-          <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
+        <div className="relative h-[730px] py-2 left-[205px] top-[227px] absolute flex-col justify-start items-start gap-12 inline-flex">
+          <div className="absolute self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className=" self-stretch shadow justify-end items-center inline-flex">
               <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-start items-end inline-flex">
                 <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
