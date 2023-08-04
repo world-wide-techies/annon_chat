@@ -45,10 +45,6 @@ const Testimonials = () => {
                       alt=""
                       className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
                     />
-                    <img
-                      className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
-                      src={CHECKER}
-                    />
                   </div>
                 </div>
               </div>
