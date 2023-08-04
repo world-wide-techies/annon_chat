@@ -9,7 +9,7 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 const Testimonials = () => {
   return (
     <div>
-      <div className="w-full h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
+      <div className="w-[2440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className=" h-[730px] py-2 flex-col  gap-12 inline-flex">
           <div className=" self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className=" self-stretch shadow justify-end items-center inline-flex">
