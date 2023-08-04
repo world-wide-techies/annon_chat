@@ -54,7 +54,7 @@ const Testimonials = () => {
                     src={CONTAINER}
                     alt=""
                     className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
-                  />{" "}
+                  />
                 </div>
               </div>
               <div className="grow shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px] flex-col justify-end items-end inline-flex">
