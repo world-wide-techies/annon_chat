@@ -119,6 +119,8 @@ const Testimonials = () => {
           What Our Users Are Saying!
         </div>
         <div className="w-[558px] h-[558px] left-[944px] top-[523px] absolute">
+        <Image src={USER1} alt="" className="w-[434px] h-[434px] left-[66px] top-[2px] absolute" />
+         
           <img
             className="w-[558px] h-[558px] left-0 top-[110px] absolute"
             src="https://via.placeholder.com/558x558"
