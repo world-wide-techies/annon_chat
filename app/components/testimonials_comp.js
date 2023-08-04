@@ -15,7 +15,7 @@ const Testimonials = () => {
           <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className="self-stretch shadow justify-end items-center inline-flex">
               <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-start items-end inline-flex">
-                <div className="w-[11px] h-5 right-[-6px] bottom-[-4px] absolute">
+                <div className="w-[11px] h-5 right-[-5px] bottom-[-4px] absolute">
                   <Image
                     src={CONTAINER1}
                     alt=""
