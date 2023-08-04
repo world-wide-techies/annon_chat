@@ -114,7 +114,7 @@ const Testimonials = () => {
         <div className="w-[434px] h-[434px] left-[-66px] top-[642px] absolute">
           <img
             className="w-[434px] h-[434px] left-[66px] top-[2px] absolute"
-            src="https://via.placeholder.com/434x434"
+            src={USER1}
           />
         </div>
         <div className="w-[887px] left-[276px] top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
