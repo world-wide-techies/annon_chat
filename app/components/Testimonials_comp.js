@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const Testimonials_comp = () => {
-
-
   return (
-    <>
+    <div>
       
-    </>
+    </div>
   )
 }
 
-export default Testimonials_comp;
+export default Testimonials_comp
