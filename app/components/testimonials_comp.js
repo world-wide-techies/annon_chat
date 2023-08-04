@@ -59,9 +59,15 @@ const Testimonials = () => {
                 </div>
               </div>
               <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px] flex-col justify-end items-end inline-flex">
-               
-               
-               <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
+                <div className="w-[11px] h-5 ">
+                  <Image
+                    src={CONTAINER}
+                    alt=""
+                    className="w-10 h-[9.50px] left-[0px] bottom-[0px] absolute"
+                  />
+                  sdsdsdsdds
+                </div>
+                <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
                   "As a college student, AnonChat has been a lifesaver for
                   collaborating on group projects. It's so easy to create a chat
                   room and share the link with my classmates. We can discuss our
