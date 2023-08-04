@@ -53,7 +53,7 @@ const Testimonials = () => {
                   <Image
                     src={CONTAINER}
                     alt=""
-                    className="w-4 h-[9.50px] left-[-0.22px] bottom-[0px] absolute"
+                    className="w-4 h-[9.50px] left-[0px] bottom-[0px] absolute"
                   />
                   sdsdsdsdds
                 </div>
