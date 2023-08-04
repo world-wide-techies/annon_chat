@@ -15,15 +15,14 @@ const Testimonials = () => {
           <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className="self-stretch shadow justify-end items-center inline-flex">
               <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-start items-end inline-flex">
-              <div className="w-[11px] h-5 left-[-4px] bottom-[-1px] absolute">
+                <div className="w-[11px] h-5 right-[-4px] bottom-[-1px] absolute">
                   <Image
                     src={CONTAINER1}
                     alt=""
                     className="w-[11px] h-[20px]  "
                   />
-                  
                 </div>
-               
+
                 <div className="self-stretch text-white text-base font-normal leading-tight">
                   &quot;AnonChat is a game-changer! I use it for confidential
                   work discussions with my team members, and it&apos;s been a
@@ -58,9 +57,7 @@ const Testimonials = () => {
           </div>
           <div className="self-stretch h-[216px] flex-col justify-center items-start gap-2 flex">
             <div className="w-[673px] shadow justify-start items-end inline-flex">
-              <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
-                
-              </div>
+              <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex"></div>
               <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px] flex-col justify-end items-end inline-flex">
                 <div className="w-[11px] h-5 left-[-4px] bottom-[-1px] absolute">
                   <Image
@@ -68,7 +65,6 @@ const Testimonials = () => {
                     alt=""
                     className="w-[11px] h-[20px]  "
                   />
-                  
                 </div>
                 <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
                   "As a college student, AnonChat has been a lifesaver for
