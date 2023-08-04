@@ -4,6 +4,16 @@ import USER2 from "@/public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
 import CHECKER from "@/public/assets/images/checker.png";
 const Testimonials = () => {
+  {
+    // &quot;AnonChat is a game-changer! I use it for confidential
+    //     work discussions with my team members, and it&apos;s been a
+    //     breeze. The anonymity adds an extra layer of comfort, and we
+    //     can brainstorm ideas without any inhibitions. Plus, the chat
+    //     disappearing after we&apos;re done? Genius! Highly recommend
+    //     it for anyone looking for secure and spontaneous
+    //     conversations. 🙌&quot;
+  }
+
   return (
     <>
       <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
@@ -11,15 +21,14 @@ const Testimonials = () => {
         <div className="h-[730px] py-2 left-[205px] top-[227px] absolute flex-col justify-start items-start gap-12 inline-flex">
           <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className="self-stretch shadow justify-end items-center inline-flex">
-              <div className="w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-start items-end inline-flex">
+              <div className="w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-end items-end inline-flex">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
-                  &quot;AnonChat is a game-changer! I use it for confidential
-                  work discussions with my team members, and it&apos;s been a
-                  breeze. The anonymity adds an extra layer of comfort, and we
-                  can brainstorm ideas without any inhibitions. Plus, the chat
-                  disappearing after we&apos;re done? Genius! Highly recommend
-                  it for anyone looking for secure and spontaneous
-                  conversations. 🙌&quot;
+                  "AnonChat is a game-changer! I use it for confidential work
+                  discussions with my team members, and it's been a breeze. The
+                  anonymity adds an extra layer of comfort, and we can
+                  brainstorm ideas without any inhibitions. Plus, the chat
+                  disappearing after we're done? Genius! Highly recommend it for
+                  anyone looking for secure and spontaneous conversations. 🙌"
                 </div>
                 <div className="self-stretch text-right text-white text-base font-normal leading-tight">
                   Sarah N., 23
@@ -94,7 +103,7 @@ const Testimonials = () => {
                     14:37
                   </div>
                   <div className="w-[15px] h-3.5 relative opacity-80">
-                    <Image
+                  <Image
                       src={CHECKER}
                       alt=""
                       className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
