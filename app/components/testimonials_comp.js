@@ -113,17 +113,20 @@ const Testimonials = () => {
           </div>
         </div>
         <div className="w-[434px] h-[434px] left-[-66px] top-[642px] absolute">
-          <Image src={USER1} alt="" className="w-[434px] h-[434px] left-[66px] top-[2px] absolute" />
+          <Image
+            src={USER1}
+            alt=""
+            className="w-[434px] h-[434px] left-[66px] top-[2px] absolute"
+          />
         </div>
         <div className="w-[887px] left-[276px] top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
           What Our Users Are Saying!
         </div>
         <div className="w-[558px] h-[558px] left-[944px] top-[523px] absolute">
-        <Image src={USER1} alt=""  className="w-[558px] h-[558px] left-0 top-[110px] absolute" />
-         
-          <img
-           
-            src="https://via.placeholder.com/558x558"
+          <Image
+            src={USER2}
+            alt=""
+            className="w-[558px] h-[558px] left-0 top-[110px] absolute"
           />
         </div>
       </div>
