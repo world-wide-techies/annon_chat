@@ -63,7 +63,7 @@ const Testimonials = () => {
                   <Image
                     src={CONTAINER}
                     alt=""
-                    className="w-[] h-[20px]  "
+                    className="w-[11px] h-[20px]  "
                   />
                   
                 </div>
