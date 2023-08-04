@@ -11,7 +11,7 @@ const Testimonials_comp = () => {
               <div className="w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-end items-end inline-flex">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
                   "AnonChat is a game-changer! I use it for confidential work
-                  discussions with my team members, and it's been a breeze. The
+                  discussions with my team members, and it&apos;s been a breeze. The
                   anonymity adds an extra layer of comfort, and we can
                   brainstorm ideas without any inhibitions. Plus, the chat
                   disappearing after we&apos;re done? Genius! Highly recommend it for
