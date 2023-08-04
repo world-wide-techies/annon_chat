@@ -120,7 +120,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="w-[434px] h-[434px] left-0 top-[642px] absolute">
+        <div className="w-[434px] h-[434px] left-0 bottom-o absolute">
           <Image
             src={USER1}
             alt=""
@@ -134,7 +134,7 @@ const Testimonials = () => {
           <Image
             src={USER2}
             alt=""
-            className="w-[500px] h-[558px] left-0 top-[110px] absolute"
+            className="w-[500px] h-[558px] "
           />
         </div>
       </div>
