@@ -127,7 +127,7 @@ const Testimonials = () => {
             className="w-[434px] h-[434px] left-[66px] top-[2px] absolute"
           />
         </div>
-        <div className="w-[887px] left-0 ml-[50%] top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
+        <div className="w-[887px] left-0 ml-[-50%] top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
           What Our Users Are Saying!
         </div>
         <div className="w-[558px] h-[558px] right-0 bottom-0 absolute">
