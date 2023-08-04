@@ -14,7 +14,7 @@ const Testimonials_comp = () => {
                   discussions with my team members, and it's been a breeze. The
                   anonymity adds an extra layer of comfort, and we can
                   brainstorm ideas without any inhibitions. Plus, the chat
-                  disappearing after we&rsquo,re done? Genius! Highly recommend it for
+                  disappearing after we're done? Genius! Highly recommend it for
                   anyone looking for secure and spontaneous conversations. 🙌"
                 </div>
                 <div className="self-stretch text-right text-white text-base font-normal leading-tight">
