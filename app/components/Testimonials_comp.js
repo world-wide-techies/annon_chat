@@ -1,6 +1,14 @@
 
 
+import React from 'react'
 
+function Testimonials_comp() {
+  return (
+    <div>Testimonials_comp</div>
+  )
+}
+
+export default Testimonials_comp
 
 
 
