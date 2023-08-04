@@ -8,7 +8,7 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 
 const Testimonials = () => {
   return (
-    <>
+    <div>
       <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className="h-[730px] py-2 left-[205px] top-[227px] absolute flex-col justify-start items-start gap-12 inline-flex">
           <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
@@ -138,7 +138,7 @@ const Testimonials = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
