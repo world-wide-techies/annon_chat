@@ -1,6 +1,6 @@
 import React from "react";
 import USER1 from "../public/assets/images/testimonials_img_1.png";
-
+import image 
 const Testimonials = () => {
   {
     // &quot;AnonChat is a game-changer! I use it for confidential
