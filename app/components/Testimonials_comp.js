@@ -1,15 +1,10 @@
-import React from 'react'
+import React from "react";
 
 const Testimonials = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default Testimonials
-
+export default Testimonials;
 
 {
   // &quot;AnonChat is a game-changer! I use it for confidential
