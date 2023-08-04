@@ -103,9 +103,10 @@ const Testimonials = () => {
                     14:37
                   </div>
                   <div className="w-[15px] h-3.5 relative opacity-80">
-                    <img
+                    <Image
+                      src={CHECKER}
+                      alt=""
                       className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
-                      src="https://via.placeholder.com/16x10"
                     />
                   </div>
                 </div>
