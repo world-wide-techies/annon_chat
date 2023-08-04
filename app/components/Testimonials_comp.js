@@ -1,10 +1,10 @@
-import React from "react";
 
-const Testimonials_comp = () => {
-  return <div></div>;
-}
 
-export default Testimonials_comp;
+
+
+
+
+
 
 // {&quot;AnonChat is a game-changer! I use it for confidential
 //     work discussions with my team members, and it&apos;s been a
