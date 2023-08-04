@@ -1,6 +1,6 @@
 import React from "react";
 import USER1 from "@/public/assets/images/testimonials_img_1.png";
-import USER2 from "@/public/assets/images/testimonials_img_1.png";
+import USER2 from "@/public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
 const Testimonials = () => {
   {
