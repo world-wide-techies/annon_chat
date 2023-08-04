@@ -65,7 +65,7 @@ const Testimonials = () => {
                     alt=""
                     className="w-10 h-[9.50px]  "
                   />
-                  sdsdsdsdds
+                  
                 </div>
                 <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
                   "As a college student, AnonChat has been a lifesaver for
