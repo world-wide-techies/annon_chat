@@ -120,7 +120,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="w-[434px] h-[434px] left-0 top-[642px] absolute">
+        <div className="w-[434px] h-[434px] left-0 bottom-0 absolute">
           <Image
             src={USER1}
             alt=""
