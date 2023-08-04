@@ -2,7 +2,7 @@ import React from "react";
 import USER1 from "@/public/assets/images/testimonials_img_1.png";
 import USER2 from "@/public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
-import CHECKER from "@/public/assets/images/checker.png"
+import CHECKER from "@/public/assets/images/checker.png";
 const Testimonials = () => {
   {
     // &quot;AnonChat is a game-changer! I use it for confidential
@@ -40,6 +40,11 @@ const Testimonials = () => {
                     14:37
                   </div>
                   <div className="w-[15px] h-3.5 relative opacity-80">
+                    <Image
+                      src={}
+                      alt=""
+                      className="w-[500px] h-[558px] left-0 top-[110px] absolute"
+                    />
                     <img
                       className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
                       src={CHECKER}
