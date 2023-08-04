@@ -51,7 +51,7 @@ const Testimonials = () => {
               <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
                 <div className="w-[11px] h-5 relative">
                   <Image
-                    src={CHECKER}
+                    src={CONTAINER}
                     alt=""
                     className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
                   />{" "}
