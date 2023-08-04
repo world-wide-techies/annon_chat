@@ -47,7 +47,13 @@ const Testimonials = () => {
           <div className="self-stretch h-[216px] flex-col justify-center items-start gap-2 flex">
             <div className="w-[673px] shadow justify-start items-end inline-flex">
               <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
-                <div className="w-[11px] h-5 relative">  </div>
+                <div className="w-[11px] h-5 relative">
+                  <Image
+                    src={CHECKER}
+                    alt=""
+                    className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
+                  />{" "}
+                </div>
               </div>
               <div className="grow shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px] flex-col justify-end items-end inline-flex">
                 <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
