@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Testimonials_comp = () => {
+const Testimonials = () => {
   return (
     <div>
       
@@ -8,7 +8,7 @@ const Testimonials_comp = () => {
   )
 }
 
-export default Testimonials_comp
+export default Testimonials
 
 
 {
