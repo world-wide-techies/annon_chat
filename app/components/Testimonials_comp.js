@@ -117,7 +117,7 @@ const Testimonials_comp = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Testimonials_comp;
