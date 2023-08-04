@@ -59,11 +59,11 @@ const Testimonials = () => {
                 </div>
               </div>
               <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px] flex-col justify-end items-end inline-flex">
-                <div className="w-[11px] h-5 ">
+                <div className="w-[11px] h-5 bottom-0 absolute">
                   <Image
                     src={CONTAINER}
                     alt=""
-                    className="w-10 h-[9.50px] left-[0px] bottom-[0px] absolute"
+                    className="w-10 h-[9.50px]  absolute"
                   />
                   sdsdsdsdds
                 </div>
