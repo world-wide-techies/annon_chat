@@ -7,7 +7,7 @@ const Testimonials_comp = () => {
         <div className="w-[641.11px] h-[930.76px] left-[123.95px] top-[-29.76px] absolute"></div>
         <div className="h-[730px] py-2 left-[205px] top-[227px] absolute flex-col justify-start items-start gap-12 inline-flex">
           <div className="self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
-            <div className="self-stretch shadow justify-end items-center inline-flex">
+            <div className="flex self-stretch shadow justify-end items-center inline-flex">
               <div className=" w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col inline-flex justify-end items-end ">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
                   &quot;AnonChat is a game-changer! I use it for confidential
