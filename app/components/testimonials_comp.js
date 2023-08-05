@@ -13,7 +13,7 @@ const Testimonials = () => {
         <div className=" ">
           <div className=" self-stretch h-[195px] flex-col justify-center items-end gap-2 flex">
             <div className=" self-stretch shadow ">
-              <div className="w-[673px] self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
+              <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
                 <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
                   <Image
                     src={CONTAINER1}
