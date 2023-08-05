@@ -88,9 +88,13 @@ const Testimonials = () => {
                   conversations fresh and exciting. AnonChat has become our
                   go-to platform for meaningful heart-to-heart talks. ❤️🗣️"
                 </div>
-                <div className="self-stretch text-white text-base font-normal leading-tight">
-                  Lisa M., 27 👩‍👧‍👦💕
+
+                <div className="text-right text-white text-base font-normal leading-tight">
+                  Lisa M., 27
+                  <br />
+                  👩‍👧‍👦💕
                 </div>
+
                 <div className="pl-2.5 pt-2 justify-end items-center gap-1 flex">
                   <div className="text-white text-[13px] font-normal leading-none">
                     14:37
