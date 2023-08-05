@@ -11,7 +11,7 @@ const Testimonials = () => {
     <div>
       <div className="w-full h-full relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className="flex flex-col h-screen w-screen justify-center place-items-center">
-          <div className="h-[195px] flex-col justify-center items-end flex">
+          <div className="h-[195px] flex-col justify-center items-start flex">
             <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
               <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
                 <Image
@@ -50,45 +50,9 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="h-[195px] flex-col justify-center  flex">
-            <div className="w-[673px] relative self-stretch px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
-              <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
-                <Image
-                  src={CONTAINER1}
-                  alt=""
-                  className="w-[11px] h-[20px]  "
-                />
-              </div>
 
-              <div className="self-stretch text-white text-base font-normal leading-tight">
-                &quot;AnonChat is a game-changer! I use it for confidential work
-                discussions with my team members, and it&apos;s been a breeze.
-                The anonymity adds an extra layer of comfort, and we can
-                brainstorm ideas without any inhibitions. Plus, the chat
-                disappearing after we&apos;re done? Genius! Highly recommend it
-                for anyone looking for secure and spontaneous conversations.
-                🙌&quot;
-              </div>
-              <div className="self-stretch text-right text-white text-base font-normal leading-tight">
-                Sarah N., 23
-                <br />
-                👩‍💼💻
-              </div>
-              <div className="pl-2.5 pt-2 justify-end items-center gap-1 inline-flex">
-                <div className="text-white text-[13px] font-normal leading-none">
-                  14:37
-                </div>
-                <div className="w-[15px] h-3.5 relative opacity-80">
-                  <Image
-                    src={CHECKER}
-                    alt=""
-                    className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
 
+          
           <div className="self-stretch h-[216px] ">
             <div className="w-[673px] shadow ">
               <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px]">
