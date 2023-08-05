@@ -21,7 +21,7 @@ const Testimonials = () => {
                 />
               </div>
 
-              <div className="self-stretch text-white text-base font-normal leading-tight">
+              <div className="text-white text-base font-normal leading-tight">
                 &quot;AnonChat is a game-changer! I use it for confidential work
                 discussions with my team members, and it&apos;s been a breeze.
                 The anonymity adds an extra layer of comfort, and we can
@@ -55,7 +55,7 @@ const Testimonials = () => {
               <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
                 <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
               </div>
-              <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
+              <div className="text-neutral-800 text-base font-normal leading-tight">
                 "As a college student, AnonChat has been a lifesaver for
                 collaborating on group projects. It's so easy to create a chat
                 room and share the link with my classmates. We can discuss our
