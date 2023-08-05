@@ -75,7 +75,7 @@ const Testimonials = () => {
                   <br />
                 </div>
                 <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
-                  David K., 20  👨‍🎓📚
+                  David K., 20 👨‍🎓📚
                   <br />
                 </div>
                 <div className="pl-2.5 pt-2 justify-end items-end inline-flex">
@@ -102,7 +102,7 @@ const Testimonials = () => {
                   go-to platform for meaningful heart-to-heart talks. ❤️🗣️"
                 </div>
                 <div className="self-stretch text-white text-base font-normal leading-tight">
-                  Lisa M., 27  👩‍👧‍👦💕
+                  Lisa M., 27 👩‍👧‍👦💕
                 </div>
                 <div className="pl-2.5 pt-2 justify-end items-center gap-1 inline-flex">
                   <div className="text-white text-[13px] font-normal leading-none">
