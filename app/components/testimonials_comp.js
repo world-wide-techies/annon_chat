@@ -11,7 +11,7 @@ const Testimonials = () => {
     <div>
       <div className="w-full h-full relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className="flex flex-col h-screen w-screen justify-center items-center">
-          <div className="w-[673px] relative self-stretch justify-end px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
+          <div className="w-[673px] relative px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
