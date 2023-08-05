@@ -82,6 +82,41 @@ const Testimonials = () => {
             </div>
           </div>
 
+
+
+          <div className="h-[195px] flex-col  flex">
+            <div className="w-[673px] shadow ">
+              <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px]">
+                <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
+                  <Image
+                    src={CONTAINER}
+                    alt=""
+                    className="w-[11px] h-[20px]  "
+                  />
+                </div>
+                <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
+                  "As a college student, AnonChat has been a lifesaver for
+                  collaborating on group projects. It's so easy to create a chat
+                  room and share the link with my classmates. We can discuss our
+                  ideas without the pressure of face-to-face interactions, and
+                  it keeps our conversations focused and efficient. Thanks to
+                  AnonChat, group projects have become way less stressful! 🎓💬"
+                  <br />
+                </div>
+                <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
+                  David K., 20 👨‍🎓📚
+                  <br />
+                </div>
+                <div className="pl-2.5 pt-2 ">
+                  <div className="text-zinc-500 text-[13px] font-normal leading-none">
+                    14:37
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <div className="self-stretch h-[216px] ">
             <div className="w-[673px] shadow ">
               <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px]">
