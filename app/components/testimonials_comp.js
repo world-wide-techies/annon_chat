@@ -90,7 +90,7 @@ const Testimonials = () => {
               <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
                 <div className="w-[11px] h-5 relative" />
               </div>
-              <div className="grow shrink basis-0 self-stretch px-3 py-1.5 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] flex-col justify-end items-end gap-4 inline-flex">
+              <div className="grow shrink basis-0 self-stretch px-3 py-1.5 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px]">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
                   "I love using AnonChat to catch up with my long-distance
                   friends. It feels like we're having a secret rendezvous! 😄
