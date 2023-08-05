@@ -67,25 +67,24 @@ const Testimonials = () => {
             </div>
           </div>
 
-
           <div className="w-[673px] relative px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
 
             <div className="self-stretch text-white text-base font-normal leading-tight">
-                "I love using AnonChat to catch up with my long-distance
-                friends. It feels like we're having a secret rendezvous! 😄 The
-                anonymous feature lets us share our innermost thoughts without
-                any reservations, making our chats more intimate and authentic.
-                Plus, the time-limited aspect keeps our conversations fresh and
-                exciting. AnonChat has become our go-to platform for meaningful
-                heart-to-heart talks. ❤️🗣️"
-              </div>
+              "I love using AnonChat to catch up with my long-distance friends.
+              It feels like we're having a secret rendezvous! 😄 The anonymous
+              feature lets us share our innermost thoughts without any
+              reservations, making our chats more intimate and authentic. Plus,
+              the time-limited aspect keeps our conversations fresh and
+              exciting. AnonChat has become our go-to platform for meaningful
+              heart-to-heart talks. ❤️🗣️"
+            </div>
             <div className="self-stretch text-right text-white text-base font-normal leading-tight">
-              Sarah N., 23
+              Lisa M., 27
               <br />
-              👩‍💼💻
+              👩‍👧‍👦💕
             </div>
             <div className="pl-2.5 pt-2 justify-end items-center gap-1 flex">
               <div className="text-white text-[13px] font-normal leading-none">
