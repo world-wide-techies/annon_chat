@@ -91,7 +91,7 @@ const Testimonials = () => {
                 <div className="self-stretch text-white text-base font-normal leading-tight">
                   Lisa M., 27 👩‍👧‍👦💕
                 </div>
-                <div className="pl-2.5 pt-2 justify-end items-center gap-1 inline-flex">
+                <div className="pl-2.5 pt-2 justify-end items-center gap-1 flex">
                   <div className="text-white text-[13px] font-normal leading-none">
                     14:37
                   </div>
