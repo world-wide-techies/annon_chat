@@ -50,7 +50,7 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="h-[195px] flex-col  flex">
+          <div className="h-[195px] ">
             <div className="w-[673px] relative  px-3 py-4 bg-white rounded-[11px]">
               <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
                 <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
