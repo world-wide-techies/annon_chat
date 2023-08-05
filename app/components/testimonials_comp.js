@@ -84,7 +84,7 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch h-[207px]">
+          <div className=" h-[207px]">
             <div className="w-[673px] shadow ">
               <div className="grow shrink basis-0 self-stretch px-3 py-1.5 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px]">
                 <div className="self-stretch text-white text-base font-normal leading-tight">
