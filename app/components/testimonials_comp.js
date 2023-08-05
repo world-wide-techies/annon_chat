@@ -77,7 +77,7 @@ const Testimonials = () => {
                   David K., 20 👨‍🎓📚
                   <br />
                 </div>
-                <div className="pl-2.5 pt-2 justify-end items-end inline-flex">
+                <div className="pl-2.5 pt-2 ">
                   <div className="text-zinc-500 text-[13px] font-normal leading-none">
                     14:37
                   </div>
