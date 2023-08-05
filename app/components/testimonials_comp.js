@@ -52,7 +52,7 @@ const Testimonials = () => {
 
           <div className="h-[195px] flex-col  flex">
             <div className="w-[673px] shadow ">
-              <div className="grow relative shrink basis-0 self-stretch px-3 py-1.5 bg-white rounded-[11px]">
+              <div className="grow relative px-3 py-1.5 bg-white rounded-[11px]">
                 <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
                   <Image
                     src={CONTAINER}
