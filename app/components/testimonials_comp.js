@@ -69,7 +69,7 @@ const Testimonials = () => {
                 <br />
               </div>
               <div className="pl-2.5 pt-2 ">
-                <div className="text-zinc-500 text-[13px] font-normal leading-none">
+                <div className="text-right text-zinc-500 text-[13px] font-normal leading-none">
                   14:37
                 </div>
               </div>
