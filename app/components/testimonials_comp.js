@@ -48,9 +48,6 @@ const Testimonials = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[0.10px] h-5 flex-col justify-end items-start inline-flex">
-              <div className="w-[11px] h-5 relative" />
-            </div>
           </div>
           <div className="self-stretch h-[216px] ">
             <div className="w-[673px] shadow ">
