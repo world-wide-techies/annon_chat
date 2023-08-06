@@ -74,7 +74,7 @@ const Testimonials = () => {
 
             <div className="self-stretch text-white text-base font-normal leading-tight">
               "I love using AnonChat to catch up with my long-distance friends.
-              It feels like we're having a secret rendezvous! 😄 The anonymous
+              It feels like we&apos;re having a secret rendezvous! 😄 The anonymous
               feature lets us share our innermost thoughts without any
               reservations, making our chats more intimate and authentic. Plus,
               the time-limited aspect keeps our conversations fresh and
