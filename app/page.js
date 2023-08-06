@@ -4,7 +4,9 @@ import Testimonials from "./components/testimonials_comp";
 export default function Home() {
   return (
     <>
-      <Testimonials />
+      <div className="w-[1440px] h-[1078px]">
+        <Testimonials />
+      </div>
     </>
   );
 }
