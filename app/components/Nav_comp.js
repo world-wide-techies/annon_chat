@@ -3,7 +3,7 @@ import React from "react";
 const Nav = () => {
   return (
     <div>
-      <div className="w-[1440px] h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center gap-2 inline-flex">
+      <div className="w-[1440px] h-[86px] px-[100px] py-4 bg-blue-200 bg-opacity-5 shadow justify-between items-center gap-2 inline-flex">
         <div className="text-center text-white text-[40px] font-medium leading-[54px]">
           AnonChat!
         </div>
