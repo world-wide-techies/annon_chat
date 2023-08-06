@@ -10,7 +10,7 @@ const Testimonials = () => {
   return (
     <div>
       <div className="w-full h-full relative bg-gradient-to-b from-indigo-500 to-indigo-800">
-        <div className="w-[1029px] relative flex flex-col h-screen space-y-4 justify-center items-center">
+        <div className="w-[1029px] flex flex-col h-screen space-y-4 items-center">
           <div className=" w-[673px] relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
