@@ -10,8 +10,8 @@ const Testimonials = () => {
   return (
     <div>
       <div className="w-full h-full relative bg-gradient-to-b from-indigo-500 to-indigo-800">
-        <div className="relative flex flex-col h-screen w-screen gap-4 justify-center items-center">
-          <div className=" w-[673px] relative px-3 py-4 bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
+        <div className="relative flex flex-col h-screen w-screen space-y-4 justify-center items-center">
+          <div className=" w-[673px] relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -43,7 +43,7 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="w-[673px] relative  px-3 py-4 bg-white rounded-[11px]">
+          <div className="w-[673px] relative self-start  px-3 py-4 bg-white rounded-[11px]">
             <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
               <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -67,7 +67,7 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="w-[673px] relative px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
+          <div className="w-[673px] relative self-end px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
