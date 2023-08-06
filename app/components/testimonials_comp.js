@@ -106,7 +106,7 @@ const Testimonials = () => {
         <div className="w-[887px] left-1/2 transform -translate-x-1/2 top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
           What Our Users Are Saying!
         </div>
-        <div className="w-[558px] h-[558px] right-[-50px]  bottom-0 ml-[-10px] absolute">
+        <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-100px] absolute">
           <Image src={USER2} alt="" className="w-[500px] h-[558px]" />
         </div>
       </div>
