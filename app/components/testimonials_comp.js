@@ -48,12 +48,12 @@ const Testimonials = () => {
               <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
             </div>
             <div className="text-neutral-800 text-base font-normal leading-tight">
-              "As a college student, AnonChat has been a lifesaver for
+            &quot;As a college student, AnonChat has been a lifesaver for
               collaborating on group projects. It's so easy to create a chat
               room and share the link with my classmates. We can discuss our
               ideas without the pressure of face-to-face interactions, and it
               keeps our conversations focused and efficient. Thanks to AnonChat,
-              group projects have become way less stressful! 🎓💬"
+              group projects have become way less stressful! 🎓💬&quot;
               <br />
             </div>
             <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
