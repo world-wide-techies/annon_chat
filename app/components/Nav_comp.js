@@ -8,7 +8,7 @@ const Nav = () => {
           AnonChat!
         </div>
 
-        <div className="text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner justify-center items-center  flex">
+        <div className="text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner justify-center items-center">
           Start a Chat
         </div>
       </div>
