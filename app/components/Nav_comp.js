@@ -5,7 +5,7 @@ const Nav = () => {
     <div>
       <div className="w-[1440px] h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center gap-2 inline-flex">
         <div className="justify-center items-center gap-2 flex">
-          <div className="text-center text-red-100 text-[40px] font-medium leading-[54px]">
+          <div className="text-center text-white-100 text-[40px] font-medium leading-[54px]">
             AnonChat!
           </div>
         </div>
