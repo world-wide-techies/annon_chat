@@ -48,12 +48,13 @@ const Testimonials = () => {
               <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
             </div>
             <div className="text-neutral-800 text-base font-normal leading-tight">
-            &quot;As a college student, AnonChat has been a lifesaver for
-              collaborating on group projects. It&apos;s so easy to create a chat
-              room and share the link with my classmates. We can discuss our
-              ideas without the pressure of face-to-face interactions, and it
-              keeps our conversations focused and efficient. Thanks to AnonChat,
-              group projects have become way less stressful! 🎓💬&quot;
+              &quot;As a college student, AnonChat has been a lifesaver for
+              collaborating on group projects. It&apos;s so easy to create a
+              chat room and share the link with my classmates. We can discuss
+              our ideas without the pressure of face-to-face interactions, and
+              it keeps our conversations focused and efficient. Thanks to
+              AnonChat, group projects have become way less stressful!
+              🎓💬&quot;
               <br />
             </div>
             <div className="self-stretch text-neutral-800 text-base font-normal leading-tight">
@@ -73,13 +74,13 @@ const Testimonials = () => {
             </div>
 
             <div className="self-stretch text-white text-base font-normal leading-tight">
-              "I love using AnonChat to catch up with my long-distance friends.
-              It feels like we&apos;re having a secret rendezvous! 😄 The anonymous
-              feature lets us share our innermost thoughts without any
-              reservations, making our chats more intimate and authentic. Plus,
-              the time-limited aspect keeps our conversations fresh and
+              &quot;I love using AnonChat to catch up with my long-distance
+              friends. It feels like we&apos;re having a secret rendezvous! 😄
+              The anonymous feature lets us share our innermost thoughts without
+              any reservations, making our chats more intimate and authentic.
+              Plus, the time-limited aspect keeps our conversations fresh and
               exciting. AnonChat has become our go-to platform for meaningful
-              heart-to-heart talks. ❤️🗣️"
+              heart-to-heart talks. ❤️🗣️&quot;
             </div>
             <div className="self-stretch text-right text-white text-base font-normal leading-tight">
               Lisa M., 27
