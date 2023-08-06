@@ -9,7 +9,7 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 const Testimonials = () => {
   return (
     <div>
-      <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
+      <div className="w-full h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
           <div className=" w-[673px] relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
@@ -100,13 +100,13 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="w-[434px] h-[434px] left-0 bottom-0 absolute">
+        <div className="w-[434px] h-[434px] left-[-20px] bottom-0 absolute">
           <Image src={USER1} alt="" className="w-[434px] h-[434px]" />
         </div>
         <div className="w-[887px] left-1/2 transform -translate-x-1/2 top-[100px] absolute text-center text-white text-5xl font-medium leading-[54px]">
           What Our Users Are Saying!
         </div>
-        <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-100px] absolute">
+        <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-110px] absolute">
           <Image src={USER2} alt="" className="w-[500px] h-[558px]" />
         </div>
       </div>
