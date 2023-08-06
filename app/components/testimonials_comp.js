@@ -49,7 +49,7 @@ const Testimonials = () => {
             </div>
             <div className="text-neutral-800 text-base font-normal leading-tight">
             &quot;As a college student, AnonChat has been a lifesaver for
-              collaborating on group projects. It's so easy to create a chat
+              collaborating on group projects. It&apos;s so easy to create a chat
               room and share the link with my classmates. We can discuss our
               ideas without the pressure of face-to-face interactions, and it
               keeps our conversations focused and efficient. Thanks to AnonChat,
