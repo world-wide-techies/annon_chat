@@ -9,8 +9,6 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 const Testimonials = () => {
   return (
     <>
-      <div className="w-[1440px] h-[1078px]  bg-[(@/public/assets/backgrounds/testimonials_bg.png')] ">
-        <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
           <div className=" w-[673px] relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
