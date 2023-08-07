@@ -4,9 +4,8 @@ import Testimonials from "./components/testimonials_comp";
 
 export default function Home() {
   return (
-    <div className="bg-testimonials_bg">
-      <Nav />
-      <Testimonials />
+    <div >
+     
     </div>
   );
 }
