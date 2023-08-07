@@ -9,7 +9,7 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 const Testimonials = () => {
   return (
     <>
-      <div className="w-[1440px] h-[1078px] relative bg-gradient-to-b from-indigo-500 to-indigo-800">
+      <div className="w-full h-full relative bg-gradient-to-b from-indigo-500 to-indigo-800">
         <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
           <div className=" w-[673px] relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
