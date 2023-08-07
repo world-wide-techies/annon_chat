@@ -5,7 +5,7 @@ import Image from "next/image";
 import CHECKER from "@/public/assets/images/checker.png";
 import CONTAINER from "@/public/assets/images/container.png";
 import CONTAINER1 from "@/public/assets/images/container1.png";
-import TESTIMONIALBG from "@/public/assets/images/testimonial_bg.png";
+import TESTIMONIALBG from "@/public/assets/images/testimonials_bg.png";
 const Testimonials = () => {
   return (
     <>
