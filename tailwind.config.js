@@ -44,6 +44,9 @@ module.exports = {
       "11xl": "30px",
       "41xl": "60px",
     },
+    backgroundImage :{
+      "purple-bg": 'url("/assets/backgrounds/backGround Image.png")'
+    }
   },
 
   plugins: [],
