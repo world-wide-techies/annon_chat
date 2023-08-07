@@ -1,6 +1,4 @@
-import React from "react";
-
-const Nav = () => {
+function Nav() {
   return (
     <div>
       <div className="w-full h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center inline-flex">
@@ -14,6 +12,6 @@ const Nav = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Nav;
