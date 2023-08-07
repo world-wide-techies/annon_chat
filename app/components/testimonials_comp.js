@@ -6,6 +6,17 @@ import CHECKER from "@/public/assets/images/checker.png";
 import CONTAINER from "@/public/assets/images/container.png";
 import CONTAINER1 from "@/public/assets/images/container1.png";
 
+import React from 'react'
+
+function testimonials_comp() {
+  return (
+    <div>testimonials_comp</div>
+  )
+}
+
+export default testimonials_comp
+
+
 const Testimonials = () => {
   return (
     <>
