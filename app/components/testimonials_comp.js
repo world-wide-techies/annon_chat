@@ -17,7 +17,7 @@ function testimonials_comp() {
 export default testimonials_comp
 
 
-const Testimonials = () => {
+function Testimonials () {
   return (
     <>
       <div className="w-full h-[1078px] relative bg-hero-bg bg-contain ">
