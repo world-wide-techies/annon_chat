@@ -27,6 +27,10 @@ module.exports = {
         "81xl": "100px",
         "2xs": "11px",
       },
+      backgroundImage: {
+        "hero-bg": "url('/assets/background/bg-img.jpg')",
+        "testimonials_bg": "url('/assets/backgrounds/testimonials_bg.png')",
+      },
     },
     fontSize: {
       xl: "20px",
