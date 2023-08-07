@@ -5,8 +5,7 @@ import CHECKER from "@/public/assets/images/checker.png";
 import CONTAINER from "@/public/assets/images/container.png";
 import CONTAINER1 from "@/public/assets/images/container1.png";
 
-
-function Testimonials () {
+function Testimonials() {
   return (
     <>
       <div className="w-full h-[1078px] relative bg-hero-bg bg-contain ">
@@ -113,6 +112,6 @@ function Testimonials () {
       </div>
     </>
   );
-};
+}
 
 export default Testimonials;
