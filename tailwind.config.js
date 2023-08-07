@@ -29,7 +29,10 @@ module.exports = {
       },
       backgroundImage: {
         "hero-bg": "url('/assets/background/bg-img.jpg')",
+<<<<<<< HEAD
         "testimonials_bg": "url('/assets/backgrounds/testimonials_bg.png')",
+=======
+>>>>>>> 846db56d7fa2287857f9158757a65d70536721fa
       },
     },
     fontSize: {
