@@ -32,9 +32,9 @@ const steps = [
   },
 ];
 
-const HowItWorks = () => {
+function HowItWorks () {
   return (
-    <div className="w-full bg-[#f9f5ff] font-lexend">
+    <section className="w-full bg-[#f9f5ff] font-lexend">
       <div className="grid lg:grid-cols-7">
         <div className="col-span-2 hidden lg:flex items-center justify-center">
           <Image
@@ -95,7 +95,7 @@ const HowItWorks = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
