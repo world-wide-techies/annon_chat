@@ -5,3 +5,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .hero-bottom {
+    border-bottom-left-radius: 50% 25%;
+    border-bottom-right-radius: 50% 25%;
+    margin-bottom: 72.46px;
+    fill: #fff;
+    box-shadow: 0px 16px 15px 0px rgba(63, 47, 179, 0.12) inset;
+    flex-shrink: 0;
+  }
+}

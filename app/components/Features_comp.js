@@ -6,7 +6,7 @@ import featuresImg3 from "../public/assets/images/features_img_3.png";
 import featuresImg4 from "../public/assets/images/features_img_4.png";
 import featuresImg5 from "../public/assets/images/features_img_5.png";
 
-const Features_comp = () => {
+function Features(){
 return (
   <div>
     <h2 className="text-center text-21xl font-medium text-transparent bg-clip-text bg-gradient-to-t from-[#F24F9D] to-[#5F4AFF]">
@@ -77,4 +77,4 @@ return (
 );
 };
 
-export default Features_comp;
+export default Features;

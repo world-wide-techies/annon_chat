@@ -27,6 +27,9 @@ module.exports = {
         "81xl": "100px",
         "2xs": "11px",
       },
+      backgroundImage: {
+        "hero-bg": "url('/assets/background/bg-img.jpg')",
+      },
     },
     fontSize: {
       xl: "20px",
@@ -41,6 +44,9 @@ module.exports = {
       "11xl": "30px",
       "41xl": "60px",
     },
+    backgroundImage :{
+      "purple-bg": 'url("/assets/backgrounds/backGround Image.png")'
+    }
   },
 
   plugins: [],
