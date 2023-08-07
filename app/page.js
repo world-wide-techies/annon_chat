@@ -4,11 +4,11 @@ import Testimonials from './components/testimonials_comp'
 
 export default function Home() {
   return (
-    <>
+    <div className='bg-hero-'>
       <Nav/>
       <Testimonials/>
            
        
-    </>
+    </div>
   )
 }
