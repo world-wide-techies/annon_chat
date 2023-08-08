@@ -1,17 +1,18 @@
-
-
 # annon_chat
+
 ## Description
+
 An Anonymous Chat platform that connects individuals to converse allowing users to engage in real-time, anonymous conversations with other users. Whether it's seeking advice, discussing shared interests, or simply having fun, this app ensures that users can connect without revealing their identities.
 
 This document is to help developers understand the platform and the development requirements of the project.
 The document will be updated from time to time to meet project expectations and standards.
 
 # DEVELOPMENT
+
 During the development of the project, branches will be created for specific features/components/function development.
 PR will be created against this issue and will be merged to the `development` branch of the repository.
 
-To find new issues please visit [Projects](https://github.com/world-wide-techies/annon_chat/projects?query=is%3Aopen) or visit the [Issue](https://github.com/world-wide-techies/annon_chat/issues)  tab.
+To find new issues please visit [Projects](https://github.com/world-wide-techies/annon_chat/projects?query=is%3Aopen) or visit the [Issue](https://github.com/world-wide-techies/annon_chat/issues) tab.
 A developer can request for clarification of an issue before going on so to ensure full compliance with development expectations and requirements.
 
 ### FOLDERS AND NAMING STYLE
@@ -51,10 +52,9 @@ A branch can only be merged by owner [Augustine](https://github.com/annonymousau
 But can be approved by anyone.
 
 ### TEAM
+
 - [Augustine](https://github.com/annonymousauthority) - Team Lead
 - [Remi](https://github.com/Remi-dee) - Software Developer
 - [Oyinbrakemi](https://github.com/Oyinbrakemigrace) - Frontend Developer
-- [Chidera](https://github.com/zer0szn) - web developer
+- [Chidera](https://github.com/spadechaser) - web developer
 - [Ibukunolu](https://github.com/Dev-IbukunBee) - Frontend Developer
-
-
