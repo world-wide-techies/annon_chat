@@ -22,28 +22,12 @@ module.exports = {
         lexend: "Lexend",
         SfProText: "'SF Pro Text'",
       },
-      borderRadius: {
-        "90xl": "109px",
-        "81xl": "100px",
-        "2xs": "11px",
-      },
+      
       backgroundImage: {
         "hero-bg": "url('/assets/background/bg-img.jpg')",
       },
     },
-    fontSize: {
-      xl: "20px",
-      "21xl": "40px",
-      sm: "14px",
-      "29xl": "48px",
-      smi: "13px",
-      base: "16px",
-      "5xl": "24px",
-      "45xl": "64px",
-      lg: "18px",
-      "11xl": "30px",
-      "41xl": "60px",
-    },
+    
     backgroundImage :{
       "purple-bg": 'url("/assets/backgrounds/backGround Image.png")'
     }
