@@ -1,66 +1,79 @@
 import Image from "next/image";
-import LeftVector from "@/public/assets/images/hero_image_1.png";
-import RightVector from "@/public/assets/images/hero_img_2.png";
-import Chat from "@/public/assets/images/hero_chat_convo.png";
-import ChatIcon from "@/public/assets/images/chat_icon.png";
-import ArrowIcon from "@/public/assets/images/circle_arrow_icon.png";
 
 export default function Hero() {
   return (
-    <div className="relative bg-center bg-cover w-full h-[1230px] bg-hero-bg mx-auto hero-bottom">
+    <div className="relative bg-center bg-cover w-full lg:h-[1331px] h-[1135px] bg-hero-bg mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
       <div className="max-w-[1440px] h-screen mx-auto">
         <div className="flex items-center justify-center gap-4 mx-auto">
           <div className="p-[40px] mx-auto">
-            <h1 className="font-lexend text-41xl text-center leading-normal font-normal text-base-white">
+            <h1 className="font-lexend lg:text-6xl text-center leading-normal font-normal text-base-white text-3xl">
               Chat Anonymously, <br /> Anywhere! Anytime!
             </h1>
-            <p className="text-center font-lexend leading-[28px] tracking-[0.28px] text-base-white text-base">
+            <p className="text-center font-lexend lg:leading-loose lg:tracking-normal leading-5 tracking-[0.16px] text-base-white lg:text-xl text-base">
               Level Up Your Convos, Chat Incognito with AnonChat! 🕶️💬
             </p>
-            <div className="mt-[20px] flex flex-row items-center justify-center gap-[15px]">
-              <button className="rounded-90xl bg-base-white flex flex-row py-3 px-8 items-center justify-center gap-[10px] font-lexend text-sm leading-[28px] tracking-[-0.01em]">
+            <div className="mt-[31px] lg:flex gap-[15px] grid grid-rows-2 items-center justify-center">
+              <button className="rounded-full bg-base-white flex lg:py-3 lg:px-8 py-2 px-4  items-center justify-center gap-[10px] font-lexend text-sm leading-[28px] tracking-[-0.01em] text-[#755BDF]">
                 <span>
-                  <Image src={ChatIcon} alt="chat icon" />
+                  <Image
+                    src="/assets/images/chat_icon.png"
+                    width={24}
+                    height={24}
+                    alt="chat icon"
+                  />
                 </span>
                 Start a Chat
               </button>
 
               <span>
-                <button className="rounded-90xl flex flex-row py-3 px-8 items-center justify-center gap-[10px] border-[2px] border-solid border-base-white tracking-[-0.01em] font-lexend text-sm font-normal leading[28px] text-base-white">
+                <button className="rounded-full flex lg:py-3 lg:px-8 py-2 px-4 items-center justify-center gap-[10px] border-[2px] border-solid border-base-white tracking-[-0.01em] font-lexend text-sm font-normal leading[28px] text-base-white">
                   <span>
-                    <Image src={ArrowIcon} alt="arrow icon" />
+                    <Image
+                      src="/assets/images/circle_arrow_icon.png"
+                      width={24}
+                      height={24}
+                      alt="arrow icon"
+                    />
                   </span>
                   Join a Chat
                 </button>
               </span>
             </div>
-            <div className="flex items-center justify-center mt-[120px]">
+            <figure className=" flex items-center justify-center lg:mt-[120px] mt-[96px]">
               <Image
-                src={Chat}
+                src="/assets/images/hero_chat_convo.png"
                 alt="chat"
                 width={400}
-                height={757}
-                className="object-contain"
+                height={700}
+                objectFit="contain"
+                quality={100}
+                className="opacity-75"
               />
-            </div>
+            </figure>
             <div
               className="absolute flex items-center justify-center
             top-[200px] left-[calc(50%_-_720px)]"
             >
-              <div className="top-0 left-[130px] w-[340.55px] h-[687px] transform rotate-[-11.70] shrink-0 mt-5">
+              <figure className="w-[473px] h-[742px] top-0 left-[130px] transform rotate-[-11.70] flex-shrink-0 hidden lg:block">
                 <Image
-                  src={LeftVector}
+                  src="/assets/images/hero_image_1.png"
                   alt="vector image"
-                  className="object-contain"
+                  width={500}
+                  height={500}
+                  objectFit="contain"
+                  quality={100}
                 />
-              </div>
-              <div className="absolute top-0 left-[1011px] w-[492.942px] h-[624.071px] transform rotate-[22.92] shrink-0 overflow-hidden">
+              </figure>
+              <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block">
                 <Image
-                  src={RightVector}
+                  src="/assets/images/hero_img_2.png"
+                  width={500}
+                  height={500}
+                  quality={100}
                   alt="vector image"
-                  className="object-contain "
+                  objectFit="contain"
                 />
-              </div>
+              </figure>
             </div>
           </div>
         </div>
