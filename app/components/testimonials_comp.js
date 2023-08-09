@@ -5,14 +5,12 @@ import CHECKER from "@/public/assets/images/checker.png";
 import CONTAINER from "@/public/assets/images/container.png";
 import CONTAINER1 from "@/public/assets/images/container1.png";
 
-
-
 function Testimonials() {
   return (
     <>
       <div className="w-full h-[1078px] relative bg-hero-bg bg-contain ">
         <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
-          <div className=" w-[673px] shadow relative px-3 py-4 self-end bg-gradient-to-r  from-fuchsia-800 to-pink-500 rounded-[11px] ">
+          <div className=" w-[673px] shadow relative px-3 py-4 self-end bg-custom-gradient rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -40,12 +38,11 @@ function Testimonials() {
                   alt=""
                   className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
                 />
-             
               </div>
             </div>
           </div>
 
-          <div className="w-[673px] relative self-start  px-3 py-4 bg-white rounded-[11px]">
+          <div className="w-[673px] relative self-start  px-3 py-4  bg-white rounded-[11px]">
             <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
               <Image src={CONTAINER} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -70,11 +67,7 @@ function Testimonials() {
             </div>
           </div>
 
-          <div className="w-[673px] relative self-end px-3 py-4 bg-custom-gradient  rounded-[11px] "
-          // style={{
-          //   background: 'linear-gradient(to right, #F472B6, #8B5CF6)',
-          // }}
-          >
+          <div className="w-[673px] relative self-end px-3 py-4 bg-custom-gradient  rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>

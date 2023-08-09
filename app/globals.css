@@ -6,7 +6,9 @@
 @tailwind components;
 @tailwind utilities;
 
- @layer utilities {
+
+
+@layer utilities {
   .hero-bottom {
     border-bottom-left-radius: 50% 15%;
     border-bottom-right-radius: 50% 15%;
@@ -24,7 +26,6 @@
     flex-shrink: 0;
   }
   .bg-custom-gradient {
-  background: linear-gradient(to right, #8B5CF6, #F472B6);
+    background: linear-gradient(47deg, #7F0B9E 2.23%, #FD429C 100%)
+  }
 }
-
-} 
