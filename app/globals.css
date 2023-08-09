@@ -6,7 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer utilities {
+ @layer utilities {
   .hero-bottom {
     border-bottom-left-radius: 50% 15%;
     border-bottom-right-radius: 50% 15%;
@@ -23,4 +23,4 @@
     box-shadow: 0px 16px 15px 0px rgba(63, 47, 179, 0.12) inset;
     flex-shrink: 0;
   }
-} */
+} 

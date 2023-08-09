@@ -5,8 +5,6 @@ import CHECKER from "@/public/assets/images/checker.png";
 import CONTAINER from "@/public/assets/images/container.png";
 import CONTAINER1 from "@/public/assets/images/container1.png";
 
-
-
 function Testimonials() {
   return (
     <>
@@ -40,7 +38,6 @@ function Testimonials() {
                   alt=""
                   className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute"
                 />
-             
               </div>
             </div>
           </div>
@@ -70,7 +67,12 @@ function Testimonials() {
             </div>
           </div>
 
-          <div className="w-[673px] relative self-end px-3 py-4 bg-gradient-to-r from-fuchsia-800 to-pink-500 rounded-[11px] ">
+          <div
+            className="w-[673px] relative self-end px-3 py-4 bg-gradient-to from-fuchsia-800 to-pink-500 rounded-[11px] "
+            style={{
+              background: "linear-gradient(to right, #fuchsia-800, #pink-500)",
+            }}
+          >
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
