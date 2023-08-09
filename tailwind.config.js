@@ -25,6 +25,7 @@ module.exports = {
 
       backgroundImage: {
         "hero-bg": "url('/assets/background/bg-img.jpg')",
+        "testimonials_bg": "url('/assets/backgrounds/testimonials_bg.png')",
       },
     },
 
