@@ -4,8 +4,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-alpha-white-90">
-      <div className="w-full px-12 md:flex items-center justify-between font-roboto text-sm font-semibold  mt-10 text-transparent bg-clip-text bg-gradient-to-b from-[#755BDF] to-[#2C1FA3]">
+    <footer className="bg-alpha-white-90 shadow-2xl">
+      <div className="w-full px-12 md:flex items-center justify-between font-roboto text-sm font-semibold mt-10 features-text-color">
         <div className="leading-5 text-center md:text-left">
           © {new Date().getFullYear()} AnonChat. All rights reserved.
         </div>

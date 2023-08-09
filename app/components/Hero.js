@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import NavBar from "./navBar_comp";
 
 export default function Hero() {
   const [showCTA, setShowCTA] = useState(true);
@@ -9,6 +10,7 @@ export default function Hero() {
 
   return (
     <div className="relative bg-center bg-cover w-full lg:h-[1331px] h-[1135px] bg-hero-bg mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
+      <NavBar />
       <div className="max-w-[1440px] h-screen mx-auto">
         <div className="flex items-center justify-center gap-4 mx-auto">
           <div className="p-[40px] mx-auto">

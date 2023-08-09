@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function NavBar() {
   return (
     <div>
@@ -6,8 +8,14 @@ function NavBar() {
           AnonChat!
         </div>
 
-        <div className="text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner">
-          Start a Chat
+        <div className="flex flex-row justify-center text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner">
+          <Image
+            src="/assets/images/chat_icon.png"
+            width={24}
+            height={24}
+            alt="chat icon"
+          />
+          <p className="mx-2 text-[20px]">Start a Chat</p>
         </div>
       </div>
     </div>
