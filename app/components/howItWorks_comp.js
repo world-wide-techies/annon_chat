@@ -32,7 +32,7 @@ const steps = [
   },
 ];
 
-function HowItWorks () {
+function HowItWorks() {
   return (
     <section className="w-full bg-[#f9f5ff] font-lexend">
       <div className="grid lg:grid-cols-7">
@@ -97,6 +97,6 @@ function HowItWorks () {
       </div>
     </section>
   );
-};
+}
 
 export default HowItWorks;

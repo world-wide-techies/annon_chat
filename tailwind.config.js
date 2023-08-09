@@ -22,9 +22,9 @@ module.exports = {
         lexend: "Lexend",
         SfProText: "'SF Pro Text'",
       },
-
       backgroundImage: {
         "hero-bg": "url('/assets/background/bg-img.jpg')",
+        "testimonials_bg": "url('/assets/backgrounds/testimonials_bg.png')",
       },
     },
 
