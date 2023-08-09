@@ -23,4 +23,8 @@
     box-shadow: 0px 16px 15px 0px rgba(63, 47, 179, 0.12) inset;
     flex-shrink: 0;
   }
+  .bg-custom-gradient {
+  background: linear-gradient(to right, #8B5CF6, #F472B6);
+}
+
 } 
