@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap"); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* @layer utilities {
   .hero-bottom {
     border-bottom-left-radius: 50% 15%;
     border-bottom-right-radius: 50% 15%;
@@ -23,4 +23,4 @@
     box-shadow: 0px 16px 15px 0px rgba(63, 47, 179, 0.12) inset;
     flex-shrink: 0;
   }
-}
+} */
