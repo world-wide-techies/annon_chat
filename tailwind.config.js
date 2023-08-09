@@ -29,7 +29,7 @@ module.exports = {
     },
 
     backgroundImage: {
-      "purple-bg": 'url("/assets/backgrounds/backGround Image.png")',
+      "purple-bg": 'url("/assets/background/bg-img.jpg")',
     },
   },
 

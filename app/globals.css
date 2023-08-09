@@ -23,4 +23,20 @@
     box-shadow: 0px 16px 15px 0px rgba(63, 47, 179, 0.12) inset;
     flex-shrink: 0;
   }
+  .bg-custom-gradient{
+    background: var(--gradients-background-radial-03, radial-gradient(137.05% 100.00% at 50.00% -0.00%, #FFF9C7 5.59%, #FFE4F8 51.56%, #FFF 100%));
+  }
+  .features-text-color{
+    background: var(--gradients-solid-02, linear-gradient(180deg, #755BDF 0%, #2C1FA3 100%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  }
+
+  .heading-text-color{
+    background: var(--gradients-solid-03, linear-gradient(180deg, #F24F9D 0%, #5F4AFF 100%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  }
 }
