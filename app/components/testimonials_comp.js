@@ -1,18 +1,18 @@
-import USER1 from "@/public/assets/images/testimonials_img_1.png";
-import USER2 from "@/public/assets/images/testimonials_img_2.png";
+import USER1 from "../../public/assets/images/testimonials_img_1.png";
+import USER2 from "../../public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
-import CHECKER from "@/public/assets/images/checker.png";
-import CONTAINER from "@/public/assets/images/container.png";
-import CONTAINER1 from "@/public/assets/images/container1.png";
+import CHECKER from "../../public/assets/images/checker.png";
+import CONTAINER from "../../public/assets/images/container.png";
+import CONTAINER1 from "../../public/assets/images/container1.png";
 
 function Testimonials() {
   return (
     <>
-      <div className="w-full h-full relative bg-hero-bg bg-cover">
+      <div className="w-full h-full relative bg-testimonials-bg bg-cover">
         <div className="w-[887px] flex justify-center mx-auto text-center text-white text-[35px] font-medium leading-[54px]">
           <h1 className="mt-[70px]">What Our Users Are Saying!</h1>
         </div>
-        <div className="w-[1029px] h-full flex flex-col space-y-7 justify-center mx-auto mb-[50px]">
+        <div className="w-[1029px] h-screen flex flex-col space-y-7 justify-center mx-auto my-[50px]">
           <div className=" w-[673px] shadow relative px-3 py-4 self-end chat-bg rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />

@@ -23,7 +23,9 @@ module.exports = {
         SfProText: "'SF Pro Text'",
       },
       backgroundImage: {
-        "hero-bg": "url('/assets/backgrounds/backGround_Image.png')",
+        "hero-bg": "url('/assets/backgrounds/hero_bg.png')",
+        "testimonials-bg": "url('/assets/backgrounds/testimonials_bg.png')",
+        "finalCta-bg": "url('/assets/backgrounds/finalCta_bg.png')",
       },
     },
   },
