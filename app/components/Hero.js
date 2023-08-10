@@ -106,7 +106,7 @@ export default function Hero() {
                   height={500}
                   objectFit="contain"
                   quality={100}
-                  draggable={false}
+                  draggable="false"
                 />
               </figure>
               <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block">
@@ -117,7 +117,7 @@ export default function Hero() {
                   quality={100}
                   alt="vector image"
                   objectFit="contain"
-                  draggable={false}
+                  draggable="false"
                 />
               </figure>
             </div>
