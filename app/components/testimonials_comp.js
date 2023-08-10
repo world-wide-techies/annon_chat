@@ -1,9 +1,9 @@
-import USER1 from "../../public/assets/images/testimonials_img_1.png";
-import USER2 from "../../public/assets/images/testimonials_img_2.png";
+import USER1 from "@/public/assets/images/testimonials_img_1.png";
+import USER2 from "@/public/assets/images/testimonials_img_2.png";
 import Image from "next/image";
-import CHECKER from "../../public/assets/images/checker.png";
-import CONTAINER from "../../public/assets/images/container.png";
-import CONTAINER1 from "../../public/assets/images/container1.png";
+import CHECKER from "@/public/assets/images/checker.png";
+import CONTAINER from "@/public/assets/images/container.png";
+import CONTAINER1 from "@/public/assets/images/container1.png";
 
 function Testimonials() {
   return (
