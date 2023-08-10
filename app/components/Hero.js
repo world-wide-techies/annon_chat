@@ -28,6 +28,7 @@ export default function Hero() {
                       src="/assets/images/chat_icon.png"
                       width={24}
                       height={24}
+                      draggable="false"
                       alt="chat icon"
                     />
                   </span>
@@ -47,6 +48,7 @@ export default function Hero() {
                         src="/assets/images/circle_arrow_icon.png"
                         width={24}
                         height={24}
+                        draggable="false"
                         alt="arrow icon"
                       />
                     </span>
@@ -80,7 +82,7 @@ export default function Hero() {
               </form>
             )}
 
-            <figure className=" flex items-center justify-center lg:mt-[120px] mt-[96px]">
+            <figure className="flex items-center justify-center lg:mt-[120px] mt-[96px]">
               <Image
                 src="/assets/images/hero_chat_convo.png"
                 alt="chat"
@@ -89,6 +91,7 @@ export default function Hero() {
                 objectFit="contain"
                 quality={100}
                 className="opacity-75"
+                draggable="false"
               />
             </figure>
             <div
@@ -103,6 +106,7 @@ export default function Hero() {
                   height={500}
                   objectFit="contain"
                   quality={100}
+                  draggable={false}
                 />
               </figure>
               <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block">
@@ -113,6 +117,7 @@ export default function Hero() {
                   quality={100}
                   alt="vector image"
                   objectFit="contain"
+                  draggable={false}
                 />
               </figure>
             </div>
