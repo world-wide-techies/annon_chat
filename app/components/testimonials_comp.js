@@ -9,10 +9,10 @@ function Testimonials() {
   return (
     <>
       <div className="w-full h-full relative bg-hero-bg bg-cover">
-        <div className="w-[887px] mx-auto  flex justify-center text-center text-white text-[35px] font-medium leading-[54px]">
-          <h1 className="mt-7">What Our Users Are Saying!</h1>
+        <div className="w-[887px] flex justify-center mx-auto text-center text-white text-[35px] font-medium leading-[54px]">
+          <h1 className="mt-[70px]">What Our Users Are Saying!</h1>
         </div>
-        <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
+        <div className="w-[1029px] h-full flex flex-col space-y-7 justify-center mx-auto mb-[50px]">
           <div className=" w-[673px] shadow relative px-3 py-4 self-end chat-bg rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />

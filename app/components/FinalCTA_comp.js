@@ -7,7 +7,7 @@ import finalCtaImg from "../../public/assets/images/final_cta_img_1.png";
 function FinalCTA() {
   return (
     <div className="">
-      <div className="bg-purple-bg bg-cover flex flex-row justify-between p-4 rounded-[90px] w-[90%] m-auto shadow-lg">
+      <div className="bg-hero-bg bg-cover flex flex-row justify-between p-4 rounded-[90px] w-[90%] m-auto shadow-lg">
         <div className="m-auto">
           <p className="text-4xl text-white mb-5">Ready to Chat Now?</p>
           <div className="flex flex-row gap-4">
