@@ -6,8 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer utilities {
   .hero-bottom {
     border-bottom-left-radius: 50% 15%;
@@ -26,6 +24,39 @@
     flex-shrink: 0;
   }
   .bg-custom-gradient {
-    background: linear-gradient(47deg, #7F0B9E 2.23%, #FD429C 100%)
+    background: var(
+      --gradients-background-radial-03,
+      radial-gradient(
+        137.05% 100% at 50% -0%,
+        #fff9c7 5.59%,
+        #ffe4f8 51.56%,
+        #fff 100%
+      )
+    );
+  }
+  .features-text-color {
+    background: var(
+      --gradients-solid-02,
+      linear-gradient(180deg, #755bdf 0%, #2c1fa3 100%)
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .heading-text-color {
+    background: var(
+      --gradients-solid-03,
+      linear-gradient(180deg, #f24f9d 0%, #5f4aff 100%)
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chat-bg {
+    background: linear-gradient(47deg, #7f0b9e 2.23%, #fd429c 100%);
   }
 }

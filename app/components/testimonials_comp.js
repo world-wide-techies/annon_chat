@@ -8,9 +8,12 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 function Testimonials() {
   return (
     <>
-      <div className="w-full h-[1078px] relative bg-hero-bg bg-contain ">
+      <div className="w-full h-full relative bg-hero-bg bg-cover">
+        <div className="w-[887px] mx-auto  flex justify-center text-center text-white text-[35px] font-medium leading-[54px]">
+          <h1 className="mt-7">What Our Users Are Saying!</h1>
+        </div>
         <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
-          <div className=" w-[673px] shadow relative px-3 py-4 self-end bg-custom-gradient rounded-[11px] ">
+          <div className=" w-[673px] shadow relative px-3 py-4 self-end chat-bg rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -67,7 +70,7 @@ function Testimonials() {
             </div>
           </div>
 
-          <div className="w-[673px] relative self-end px-3 py-4 bg-custom-gradient  rounded-[11px] ">
+          <div className="w-[673px] relative self-end px-3 py-4 chat-bg rounded-[11px] ">
             <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
               <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
             </div>
@@ -103,9 +106,7 @@ function Testimonials() {
         <div className="w-[434px] h-[434px] left-[-20px] bottom-0 absolute">
           <Image src={USER1} alt="" className="w-[434px] h-[434px]" />
         </div>
-        <div className="w-[887px] left-1/2 transform -translate-x-1/2 top-[100px] absolute text-center text-white text-[35px] font-medium leading-[54px]">
-          <h1>What Our Users Are Saying!</h1>
-        </div>
+
         <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-110px] absolute">
           <Image src={USER2} alt="" className="w-[500px] h-[558px]" />
         </div>

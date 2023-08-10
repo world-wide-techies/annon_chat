@@ -32,7 +32,7 @@ const steps = [
   },
 ];
 
-function HowItWorks () {
+function HowItWorks() {
   return (
     <section className="w-full bg-[#f9f5ff] font-lexend">
       <div className="grid lg:grid-cols-7">
@@ -47,7 +47,7 @@ function HowItWorks () {
 
         <div className="col-span-3 shadow-2xl bg-white ">
           <div className=" px-12 py-6 ">
-            <p className="text-center text-29xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
+            <p className="text-center text-4xl font-medium heading-text-color">
               How It Works!
             </p>
             <div className="mt-4">
@@ -55,17 +55,17 @@ function HowItWorks () {
                 <div key={id} className="grid grid-cols-6 gap-4 mt-6">
                   <div className="col-span-1 flex items-center">
                     <div className="rounded-full border border-[#755BDF] w-20 h-[77px]">
-                      <p className="text-[54px] text-center text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
+                      <p className="text-[54px] text-center heading-text-color">
                         {id}
                       </p>
                     </div>
                   </div>
                   <div className="col-span-5">
                     <div className="flex items-center">
-                      <p className="text-5xl font-normal text-transparent bg-clip-text bg-gradient-to-b from-[#F24F9D] to-[#5F4AFF]">
+                      <p className="text-2xl font-normal heading-text-color">
                         {title}{" "}
                       </p>
-                       <span>{titleIcon}</span>
+                      <span>{titleIcon}</span>
                     </div>
                     <p className="text-sm text-neutral-600-light font-roboto ">
                       {description}
@@ -97,6 +97,6 @@ function HowItWorks () {
       </div>
     </section>
   );
-};
+}
 
 export default HowItWorks;
