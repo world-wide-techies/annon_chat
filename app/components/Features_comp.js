@@ -12,7 +12,7 @@ function Features() {
       <h2 className="text-center text-4xl font-medium heading-text-color">
         Why Choose AnnonChat!
       </h2>
-      <div className="flex flex-row justify-center gap-5 mt-2">
+      <div className="flex flex-row justify-center gap-5 mt-2 ">
         <div className="bg-custom-gradient text-center w-1/4  shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg1} alt="" />

@@ -9,7 +9,7 @@ function Testimonials() {
   return (
     <>
       <div className="w-full h-full relative bg-hero-bg bg-cover">
-        <div className="w-[887px] mx-auto  flex justify-center text-center text-white text-[35px] font-medium leading-[54px]">
+        <div className="w-[887px] mx-auto flex justify-center text-center text-white text-[35px] font-medium leading-[54px]">
           <h1 className="mt-7">What Our Users Are Saying!</h1>
         </div>
         <div className="w-[1029px] flex flex-col h-screen space-y-[50px] justify-center mx-auto">
@@ -108,7 +108,7 @@ function Testimonials() {
         </div>
 
         <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-110px] absolute">
-          <Image src={USER2} alt="" className="w-[500px] h-[558px]" />
+          <Image src={USER2} alt="" className="w-[500px] h-[558px]"/>
         </div>
       </div>
     </>
