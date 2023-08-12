@@ -8,7 +8,7 @@ function NavBar() {
           AnonChat!
         </div>
 
-        <div className="flex flex-row justify-center text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner">
+        <div className="sm:flex hidden flex-row justify-center text-indigo-500 text-xl font-normal leading-7 px-8 py-3 bg-white rounded-[109px] shadow-inner">
           <Image
             src="/assets/images/chat_icon.png"
             width={24}
