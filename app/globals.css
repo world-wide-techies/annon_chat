@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap"); */
 
 @tailwind base;
 @tailwind components;
@@ -39,9 +39,10 @@
       --gradients-solid-02,
       linear-gradient(180deg, #755bdf 0%, #2c1fa3 100%)
     );
-    background-clip: text;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .heading-text-color {
@@ -49,9 +50,10 @@
       --gradients-solid-03,
       linear-gradient(180deg, #f24f9d 0%, #5f4aff 100%)
     );
-    background-clip: text;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .chat-bg {

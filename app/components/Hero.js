@@ -9,7 +9,7 @@ export default function Hero() {
   const [joinCTA, setJoinCTA] = useState(false);
 
   return (
-    <div className="relative bg-center bg-cover w-full lg:h-[1331px] h-[1135px] bg-hero-bg mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
+    <div className="relative bg-center w-full lg:h-[1331px] h-[1135px] bg-hero-bg bg-cover mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
       <NavBar />
       <div className="max-w-[1440px] h-screen mx-auto">
         <div className="flex items-center justify-center gap-4 mx-auto">
