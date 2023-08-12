@@ -11,6 +11,7 @@ function Testimonials() {
       <div className="w-full h-full relative bg-testimonials-bg bg-cover">
         <div className="w-[887px] flex justify-center mx-auto text-center text-white text-[35px] font-medium leading-[54px]">
           <h1 className="mt-[70px]">What Our Users Are Saying!</h1>
+    
         </div>
         <div className="w-[1029px] h-screen flex flex-col space-y-7 justify-center mx-auto my-[50px]">
           <div className=" w-[673px] shadow relative px-3 py-4 self-end chat-bg rounded-[11px] ">
@@ -108,7 +109,7 @@ function Testimonials() {
         </div>
 
         <div className="w-[558px] h-[558px] right-[-62px]  bottom-[-110px] absolute">
-          <Image src={USER2} alt="" className="w-[500px] h-[558px]" />
+          <Image src={USER2} alt="" className="w-[500px] h-[558px]"/>
         </div>
       </div>
     </>
