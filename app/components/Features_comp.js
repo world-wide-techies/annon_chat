@@ -9,11 +9,11 @@ import featuresImg5 from "../../public/assets/images/features_img_5.png";
 function Features() {
   return (
     <div>
-      <h2 className="text-center text-4xl font-medium heading-text-color">
+      <h2 className="text-center text-3xl md:text-4xl font-medium heading-text-color">
         Why Choose AnnonChat!
       </h2>
-      <div className="flex flex-row justify-center gap-5 mt-2 ">
-        <div className="bg-custom-gradient text-center w-1/4  shadow-md rounded-md">
+      <div className="flex flex-col md:flex-row justify-center gap-5 mt-2 p-5 md:p-0">
+        <div className="bg-custom-gradient text-center md:w-1/4 shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg1} alt="" />
           </div>
@@ -25,7 +25,7 @@ function Features() {
             </p>
           </div>
         </div>
-        <div className="text-center w-1/4 bg-custom-gradient shadow-md rounded-md">
+        <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg2} alt="" />
           </div>
@@ -37,21 +37,21 @@ function Features() {
             </p>
           </div>
         </div>
-        <div className="text-center w-1/4 bg-custom-gradient shadow-md rounded-md">
+        <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg3} alt="" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">Cross-Platform Support</p>
             <p className="text-[18px]">
-              Seamless experience across all devices - desktop, tablet, and
+              Seamless experience across all devices-desktop, tablet, and
               mobile
             </p>
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-center my-5 gap-5">
-        <div className="text-center w-1/4 bg-custom-gradient shadow-md rounded-md">
+      <div className="flex flex-col md:flex-row justify-center md:my-5 gap-5 p-5">
+        <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg5} alt="" />
           </div>
@@ -63,7 +63,7 @@ function Features() {
             </p>
           </div>
         </div>
-        <div className="text-center w-1/4 bg-custom-gradient shadow-md rounded-md">
+        <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
           <div className="flex justify-center">
             <Image src={featuresImg4} alt="" />
           </div>
