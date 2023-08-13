@@ -7,21 +7,19 @@ import Footer from "./components/Footer_comp";
 
 export default function Home() {
   return (
-    <div>
-      <main>
-        <div className="min-h-screen overflow-x-hidden">
-          <Hero />
-          <Features />
-          <div className="mt-16">
-            <HowItWorks />
-          </div>
-          <Testimonials />
-          <div className="mt-16">
-            <FinalCTA />
-          </div>
-          <Footer />
+    <main className="min-h-screen flex justify-center overflow-x-hidden">
+      <div className="max-w-screen-2xl">
+        <Hero />
+        <Features />
+        <div className="mt-16">
+          <HowItWorks />
         </div>
-      </main>
-    </div>
+        <Testimonials />
+        <div className="mt-16">
+          <FinalCTA />
+        </div>
+        <Footer />
+      </div>
+    </main>
   );
 }
