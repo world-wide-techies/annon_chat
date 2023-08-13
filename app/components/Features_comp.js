@@ -9,7 +9,7 @@ import featuresImg5 from "../../public/assets/images/features_img_5.png";
 function Features() {
   return (
     <div>
-      <h2 className="text-center text-3xl md:text-4xl font-medium heading-text-color">
+      <h2 className="text-center text-3xl md:text-4xl font-medium heading-text-color mb-6">
         Why Choose AnnonChat!
       </h2>
       <div className="flex flex-col md:flex-row justify-center gap-5 mt-2 p-5 md:p-0">
