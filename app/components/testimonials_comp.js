@@ -8,7 +8,7 @@ import CONTAINER1 from "@/public/assets/images/container1.png";
 function Testimonials() {
   return (
     <>
-      <div lassName=" lg:h-[1078px] relative bg-testimonials-bg bg-cover">
+      <div className=" lg:h-[1078px] relative bg-testimonials-bg bg-cover">
         <div className="flex justify-center mx-auto text-center text-white text-[35px] font-medium leading-[54px]">
           <h1 className="mt-[70px]">What Our Users Are Saying!</h1>
         </div>
