@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Footer from "./Footer_comp";
-import OnboardingNav from "./OnboardingNav";
+import OnboardingNav from "./OnboardingNav_comp";
 
 export default function OnboardingComp() {
   return (
