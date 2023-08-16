@@ -3,8 +3,11 @@
 import Image from "next/image";
 import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
+import { useIdentityContext } from "../lib/identityContext";
 
 export default function OnboardingComp() {
+  const { gender, setGender } = useIdentityContext();
+
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
       <OnboardingNav />
@@ -109,6 +112,8 @@ export default function OnboardingComp() {
                       name="gender"
                       required="required."
                       placeholder="Type in your cool username e.g ChattyKatty"
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
                       className="w-[311px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                     >
                       <option value="" disabled selected>

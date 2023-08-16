@@ -21,6 +21,6 @@ export const IdentityContextProvider = ({ children }) => {
   );
 };
 
-export const usePersonalityContext = () => {
+export const useIdentityContext = () => {
   return useContext(IdentityContext);
 };
