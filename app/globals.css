@@ -1,6 +1,6 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -59,4 +59,8 @@
   .chat-bg {
     background: linear-gradient(47deg, #7f0b9e 2.23%, #fd429c 100%);
   }
+}
+
+.input-placeholder::placeholder {
+  @apply gap-[10px] lg:text-sm text-xs font-[400] leading-5 tracking-[-0.14px] w-[263px] h-[16px] lg:w-[303px] lg:h-[20px] self-stretch font-roboto;
 }
