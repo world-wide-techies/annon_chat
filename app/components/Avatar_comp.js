@@ -29,9 +29,9 @@ function AvatarComponent() {
   return (
     <div className="w-11/12 md:w-7/12 mx-auto mt-10">
       <div className="text-center lg:mt-8 mt-6">
-        <h1 className="text-base-white font-lexend leading-7 tracking-normal font-normal">
+        <p className="text-base-white font-lexend leading-7 tracking-normal font-normal text-xl">
           Pick Your Avatar
-        </h1>
+        </p>
         <p className="text-base-white font-roboto text-xs font-medium leading-4 tracking-[-0.12px]">
           Pick an avatar that matches your vibe
         </p>
