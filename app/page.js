@@ -9,9 +9,7 @@ import OnboardingComp from "./components/ChatOnboarding_comp";
 export default function Home() {
   return (
     <main className="min-h-screen flex justify-center overflow-x-hidden">
-
-    <OnboardingComp />
-     {/* <div className="max-w-screen-2xl">
+      <div className="max-w-screen-2xl">
         <Hero />
         <Features />
         <div className="mt-16">
@@ -22,7 +20,7 @@ export default function Home() {
           <FinalCTA />
         </div>
         <Footer />
-  </div>*/}
+  </div>
     </main>
   );
 }
