@@ -1,4 +1,7 @@
+"use client"
+
 import "./globals.css";
+import { PersonalityContextProvider } from "./lib/personalitiesContext";
 
 export const metadata = {
   title: "Anon Chat",
@@ -8,7 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PersonalityContextProvider>{children}</PersonalityContextProvider>
+      </body>
     </html>
   );
 }

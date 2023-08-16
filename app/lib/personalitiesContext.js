@@ -18,6 +18,6 @@ export const PersonalityContextProvider = ({ children }) => {
   );
 };
 
-export const personalityContext = () => {
-  return personalityContext(SessionContext);
+export const usePersonalityContext = () => {
+  return useContext(PersonalityContext);
 };
