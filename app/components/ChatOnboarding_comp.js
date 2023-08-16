@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
+import AvatarComponent from "./Avatar_comp";
 
 export default function OnboardingComp() {
   return (
