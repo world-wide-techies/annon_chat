@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { useContext, createContext } from "react";
 
-export const PersonalityContext = createContext();
+export const IdentityContext = createContext();
 
-export const PersonalityContextProvider = ({ children }) => {
+export const IdentityContextProvider = ({ children }) => {
   const [personality, setPersonality] = useState({});
 
   return (
-    <PersonalityContext.Provider
+    <IdentityContext.Provider
       value={{
         personality,
         setPersonality,
       }}
     >
       {children}
-    </PersonalityContext.Provider>
+    </IdentityContext.Provider>
   );
 };
 
 export const usePersonalityContext = () => {
-  return useContext(PersonalityContext);
+  return useContext(IdentityContext);
 };

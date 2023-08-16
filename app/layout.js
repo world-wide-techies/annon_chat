@@ -1,7 +1,7 @@
 "use client"
 
 import "./globals.css";
-import { PersonalityContextProvider } from "./lib/personalitiesContext";
+import { IdentityContextProvider } from "./lib/identityContext";
 
 export const metadata = {
   title: "Anon Chat",
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <PersonalityContextProvider>{children}</PersonalityContextProvider>
+        <IdentityContextProvider>{children}</IdentityContextProvider>
       </body>
     </html>
   );
