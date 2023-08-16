@@ -4,13 +4,16 @@ import { useContext, createContext } from "react";
 export const IdentityContext = createContext();
 
 export const IdentityContextProvider = ({ children }) => {
-  const [personality, setPersonality] = useState({});
+  const [personality, setPersonality] = useState([]);
+  const [gender, setGender] = useState([]);
 
   return (
     <IdentityContext.Provider
       value={{
         personality,
         setPersonality,
+        gender,
+        setGender,
       }}
     >
       {children}
