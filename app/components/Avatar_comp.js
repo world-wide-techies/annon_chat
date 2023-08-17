@@ -9,17 +9,17 @@ function AvatarComponent() {
   const { gender, setGender } = useIdentityContext();
   let { personality, setPersonality } = useIdentityContext();
 
-  useEffect(() => {
-    console.log(getRandomPNGUrl(personality[0]));
-    console.log(getRandomPNGUrl(personality[1]));
-    console.log(getRandomPNGUrl(personality[2]));
-    console.log(getRandomPNGUrl(personality[3]));
-  }, [personality]);
+  // useEffect(() => {
+  //   // console.log(getRandomPNGUrl(personality[0]));
+  //   // console.log(getRandomPNGUrl(personality[1]));
+  //   // console.log(getRandomPNGUrl(personality[2]));
+  //   // console.log(getRandomPNGUrl(personality[3]));
+  // }, [personality]);
 
-  console.log(getRandomPNGUrl(personality[0]));
-  console.log(getRandomPNGUrl(personality[1]));
-  console.log(getRandomPNGUrl(personality[2]));
-  console.log(getRandomPNGUrl(personality[3]));
+  // console.log(getRandomPNGUrl(personality[0]));
+  // console.log(getRandomPNGUrl(personality[1]));
+  // console.log(getRandomPNGUrl(personality[2]));
+  // console.log(getRandomPNGUrl(personality[3]));
 
   const Avatars = [
     {
