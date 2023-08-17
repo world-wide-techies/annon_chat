@@ -23,6 +23,9 @@ function Personaliies() {
     { personality: "Caring 🤗" },
     { personality: "Confident 💁‍♂️" },
   ];
+
+
+
   return (
     <div>
       <div className="md:mt-8 mt-5 text-white text-center">
@@ -33,7 +36,7 @@ function Personaliies() {
         </p>
         <div className="space-x-3 space-y-2 md:space-x-5 md:space-y-3 w-full">
           {buttonTexts.map((buttonText, index) => (
-            <Buttons btnText={buttonText.personality} key={index} />
+            <Buttons  btnText={buttonText.personality} key={index} />
           ))}
         </div>
       </div>
