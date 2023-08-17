@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import featuresImg1 from "../../public/assets/images/features_img_1.png";
-import featuresImg2 from "../../public/assets/images/features_img _2.png";
+import featuresImg2 from "../../public/assets/images/features_img_2.png";
 import featuresImg3 from "../../public/assets/images/features_img_3.png";
 import featuresImg4 from "../../public/assets/images/features_img_4.png";
 import featuresImg5 from "../../public/assets/images/features_img_5.png";
