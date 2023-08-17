@@ -12,12 +12,14 @@ function AvatarComponent() {
 
   const { gender, setGender } = useIdentityContext();
   const { personality, setPersonality } = useIdentityContext()
-const adven
+
+
+
 
   const Avatars = [
     {
       id: 1,
-      src: "/assets/avatar/Avatar4.png",
+      src:getRandomPNGUrl(personality, 4) ,
     },
     {
       id: 2,
