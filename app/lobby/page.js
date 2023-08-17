@@ -1,6 +1,9 @@
 import OnboardingComp from "../components/ChatOnboarding_comp";
 
-export default function Page() {
-    return <h1>Hello, Dashboard Page!</h1>
-  }
-  
+export default function Lobby() {
+  return (
+    <main className="min-h-screen flex  mx-auto max-w-screen-2xl overflow-x-hidden">
+      <OnboardingComp />
+    </main>
+  );
+}
