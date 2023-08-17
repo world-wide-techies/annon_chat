@@ -13,7 +13,7 @@ function getRandomPNGUrl(categoryName) {
   const randomIndex = Math.floor(Math.random() * numberOfPngs) + 1;
   const pngFileName = `${categoryName}${randomIndex}.png`;
 
-  const pngUrl = `/assets/${categoryName}/${pngFileName}`;
+  const pngUrl = `/assets/avatar/${categoryName}/${pngFileName}`;
   return pngUrl;
 }
 

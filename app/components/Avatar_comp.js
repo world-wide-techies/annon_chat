@@ -10,7 +10,6 @@ function AvatarComponent() {
   let { personality, setPersonality } = useIdentityContext();
 
   useEffect(() => {
-    personality = personality.toLowerCase();
     console.log(getRandomPNGUrl(personality[0]));
     console.log(getRandomPNGUrl(personality[1]));
     console.log(getRandomPNGUrl(personality[2]));

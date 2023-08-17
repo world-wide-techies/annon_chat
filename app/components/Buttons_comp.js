@@ -5,7 +5,7 @@ function Buttons({ btnText }) {
   const { personality, setPersonality } = useIdentityContext();
   const handleSelect = (e) => {
     e.preventDefault();
-    setPersonality([...personality, btnText.split(" ")[0]]);
+    setPersonality([...personality, btnText.split(" ")[0].toLowerCase()]);
     console.log(personality);
   };
   return (
