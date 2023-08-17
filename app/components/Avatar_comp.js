@@ -1,13 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
 import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
   const { gender, setGender } = useIdentityContext();
-  const { personality, setPersonality } = useIdentityContext();
+  let { personality, setPersonality } = useIdentityContext();
+
+  useEffect(() => {
+    personality = personality.toLowerCase();
+    console.log(getRandomPNGUrl(personality[0]));
+    console.log(getRandomPNGUrl(personality[1]));
+    console.log(getRandomPNGUrl(personality[2]));
+    console.log(getRandomPNGUrl(personality[3]));
+  }, [personality]);
 
   console.log(getRandomPNGUrl(personality[0]));
   console.log(getRandomPNGUrl(personality[1]));

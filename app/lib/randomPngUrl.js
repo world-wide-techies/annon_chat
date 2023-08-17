@@ -1,7 +1,7 @@
 function getRandomPNGUrl(categoryName) {
   const categoryToNumberOfPngs = {
     adventurous: 4,
-    curious: 3,
+    Curious: 3,
   };
 
   const numberOfPngs = categoryToNumberOfPngs[categoryName] || 0;
