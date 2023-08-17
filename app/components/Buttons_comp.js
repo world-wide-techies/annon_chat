@@ -4,7 +4,7 @@ import { useIdentityContext } from "../lib/identityContext";
 function Buttons({ btnText }) {
   const { personality, setPersonality } = useIdentityContext();
   const handleSelect = () => {
-    setPersonality(btnText.split(" ")[0]);
+    setPersonality([...personality, btnText.split(" ")[0]]   );
     console.log(personality);
   };
   return (
