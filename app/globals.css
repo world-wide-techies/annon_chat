@@ -59,6 +59,20 @@
   .chat-bg {
     background: linear-gradient(47deg, #7f0b9e 2.23%, #fd429c 100%);
   }
+
+  .start-chat-bg{
+    background: var(--modal-background, linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), linear-gradient(137deg, rgba(255, 255, 255, 0.51) 0%, rgba(255, 255, 255, 0.00) 100%));
+    box-shadow: 8px 10px 16px 0px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(6px);
+  }
+
+  .start-chat-border{
+    background: var(--alpha-white-20, rgba(255, 255, 255, 0.20));;
+  }
+
+  .input-bg{
+    background: var(--alpha-black-200, rgba(18, 18, 18, 0.20));
+  }
 }
 
 .input-placeholder::placeholder {
