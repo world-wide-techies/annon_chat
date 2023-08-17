@@ -1,25 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
-
-
-
-
-
-
+import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
-
   const { gender, setGender } = useIdentityContext();
-  const { personality, setPersonality } = useIdentityContext()
+  const { personality, setPersonality } = useIdentityContext();
 
-
-
+  console.log(getRandomPNGUrl(personality[0]));
+  console.log(getRandomPNGUrl(personality[1]));
+  console.log(getRandomPNGUrl(personality[2]));
+  console.log(getRandomPNGUrl(personality[3]));
 
   const Avatars = [
     {
       id: 1,
-      src:getRandomPNGUrl(personality, 4) ,
+      src: "/assets/avatar/Avatar4.png",
     },
     {
       id: 2,
@@ -35,9 +33,8 @@ function AvatarComponent() {
     },
   ];
 
-  
   const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
- 
+
   const handleClick = (src) => {
     setIsSelected(src);
   };
