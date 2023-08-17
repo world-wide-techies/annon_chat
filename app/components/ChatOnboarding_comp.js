@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
+import Personaliies from "./Personalities_comp";
 
 export default function OnboardingComp() {
   return (
@@ -67,7 +68,7 @@ export default function OnboardingComp() {
                       minLength={3}
                       maxLength={30}
                       placeholder="ChillZone 🌴"
-                      className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-[311px] h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2 mb-4"
+                      className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-full h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2 mb-4"
                     />
                   </div>
                   <div className="relative mx-auto">
@@ -88,7 +89,7 @@ export default function OnboardingComp() {
                       minLength={5}
                       maxLength={15}
                       placeholder="ChattyKatty"
-                      className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-[311px] h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2"
+                      className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-full h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2"
                     />
                   </div>
                 </div>
@@ -109,7 +110,7 @@ export default function OnboardingComp() {
                       name="gender"
                       required="required."
                       placeholder="Type in your cool username e.g ChattyKatty"
-                      className="w-[311px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
+                      className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                     >
                       <option value="" disabled selected>
                         Pick Your Gender
@@ -139,18 +140,10 @@ export default function OnboardingComp() {
                     </span>
                   </span>
                 </div>
-                <div className="text-center lg:mt-8 mt-6">
-                  <h1 className="text-base-white font-lexend leading-7 tracking-normal font-normal">
-                    Pick Your Avatar
-                  </h1>
-                  <p className="text-base-white font-roboto text-xs font-medium leading-4 tracking-[-0.12px]">
-                    Pick an avatar that matches your vibe
-                  </p>
-                </div>
-                {/**Display avatar based on gender match and mood */}
+                <Personaliies />
                 <div className="flex items-center justify-center mb-8">
                   <button
-                    className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-[295px] rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
+                    className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
                     type="submit"
                   >
                     Create New Chat
