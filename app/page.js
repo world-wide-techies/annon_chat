@@ -10,8 +10,6 @@ export default function Home() {
   return (
     <main className="min-h-screen flex justify-center overflow-x-hidden">
       <div className="max-w-screen-2xl">
-        <OnboardingComp/>
-        
         <Hero />
         <Features />
         <div className="mt-16">
