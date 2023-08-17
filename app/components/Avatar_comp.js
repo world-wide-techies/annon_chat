@@ -1,28 +1,41 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import { useIdentityContext } from "../lib/identityContext";
 
-const Avatars = [
-  {
-    id: 1,
-    src: "/assets/avatar/Avatar4.png",
-  },
-  {
-    id: 2,
-    src: "/assets/avatar/Avatar1.png",
-  },
-  {
-    id: 3,
-    src: "/assets/avatar/Avatar2.png",
-  },
-  {
-    id: 4,
-    src: "/assets/avatar/Avatar3.png",
-  },
-];
+
+
+
+
+
 
 function AvatarComponent() {
-  const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
 
+  const { gender, setGender } = useIdentityContext();
+  const { personality, setPersonality } = useIdentityContext()
+const 
+
+  const Avatars = [
+    {
+      id: 1,
+      src: "/assets/avatar/Avatar4.png",
+    },
+    {
+      id: 2,
+      src: "/assets/avatar/Avatar1.png",
+    },
+    {
+      id: 3,
+      src: "/assets/avatar/Avatar2.png",
+    },
+    {
+      id: 4,
+      src: "/assets/avatar/Avatar3.png",
+    },
+  ];
+
+  
+  const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
+ 
   const handleClick = (src) => {
     setIsSelected(src);
   };
