@@ -12,7 +12,7 @@ function AvatarComponent() {
 
   const { gender, setGender } = useIdentityContext();
   const { personality, setPersonality } = useIdentityContext()
-const 
+const adven
 
   const Avatars = [
     {
