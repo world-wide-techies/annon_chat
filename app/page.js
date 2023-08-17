@@ -19,7 +19,7 @@ export default function Home() {
           <FinalCTA />
         </div>
         <Footer />
-      </div>
+  </div>
     </main>
   );
 }
