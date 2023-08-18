@@ -16,11 +16,9 @@ function Personaliies() {
     { personality: "Loyal 🤝" },
     { personality: "Optimistic 🌞" },
     { personality: "Thoughtful 🤔" },
-    { personality: "Empathetic 🤗" },
     { personality: "Humble 🙏" },
     { personality: "Spontaneous 🎭" },
     { personality: "Tech-savvy 📱" },
-    { personality: "Caring 🤗" },
     { personality: "Confident 💁‍♂️" },
   ];
   return (
