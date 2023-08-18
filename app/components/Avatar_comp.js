@@ -24,19 +24,19 @@ function AvatarComponent() {
   const Avatars = [
     {
       id: 1,
-      src: "/assets/avatar/Avatar4.png",
+      src: getRandomPNGUrl(personality[1]),
     },
     {
       id: 2,
-      src: "/assets/avatar/Avatar1.png",
+      src: getRandomPNGUrl(personality[1]),
     },
     {
       id: 3,
-      src: "/assets/avatar/Avatar2.png",
+      src: getRandomPNGUrl(personality[2]),
     },
     {
       id: 4,
-      src: "/assets/avatar/Avatar3.png",
+      src: getRandomPNGUrl(personality[3]),
     },
   ];
 
