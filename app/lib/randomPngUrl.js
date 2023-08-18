@@ -1,4 +1,4 @@
-function getRandomPNGUrl(categoryName) {
+function getRandomPNGUrl(categoryName, gender) {
   const categoryToNumberOfPngs = {
     adventurous: 4,
     curious: 3,
@@ -11,7 +11,7 @@ function getRandomPNGUrl(categoryName) {
   }
 
   const randomIndex = Math.floor(Math.random() * numberOfPngs) + 1;
-  const pngFileName = `${categoryName}${randomIndex}.png`;
+  const pngFileName = `${categoryName}${gender}_${randomIndex}.png`;
 
   const pngUrl = `/assets/avatar/${categoryName}/${pngFileName}`;
   return pngUrl;

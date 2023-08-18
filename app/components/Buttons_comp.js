@@ -11,14 +11,14 @@ function Buttons({ btnText }) {
       setPersonality(personality.filter((char) => char !== character));
       setIsSelected(false);
     } else {
-      if (personality.length < 3) {
+      if (personality.length < 4) {
         setPersonality([...personality, character]);
         setIsSelected(true);
-      } els if (personality.length == 3) {
+      } else if (personality.length == 4) {
       }
     }
 
-    console.log(personality);p
+    console.log(personality);
   };
 
   return (
