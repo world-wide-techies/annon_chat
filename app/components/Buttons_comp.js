@@ -6,6 +6,8 @@ function Buttons({ btnText }) {
   const [isSelected, setIsSelected] = useState(false);
   const { personalitySelected, setPersonalitySelected } = useIdentityContext();
   const character = btnText.split(" ")[0].toLowerCase();
+ 
+ 
   const handleSelect = (e) => {
     e.preventDefault();
     if (personality.includes(character)) {
@@ -16,7 +18,9 @@ function Buttons({ btnText }) {
         setPersonality([...personality, character]);
         setIsSelected(true);
       } else if (personality.length === 3) {
+        console.log(personalitySelected);
         setPersonalitySelected(true);
+        console.log(personalitySelected);
       }
     }
 
