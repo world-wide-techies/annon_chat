@@ -1,7 +1,22 @@
 function getRandomPNGUrl(categoryName, gender) {
   const categoryToNumberOfPngs = {
-    adventurous: 4,
-    curious: 3,
+    adventurous: 5,
+    ambitious: 6,
+    chill: 3,
+    compassionate: 7,
+    confident: 5,
+    creative: 7,
+    curious: 2,
+    energetic: 4,
+    friendly: 4,
+    humble: 3,
+    loyal: 6,
+    optimistic: 4,
+    outgoing: 5,
+    quirkly: 7,
+    spontaneous: 5,
+    techsavvy: 6,
+    witty: 2,
   };
 
   const numberOfPngs = categoryToNumberOfPngs[categoryName] || 0;
@@ -13,7 +28,7 @@ function getRandomPNGUrl(categoryName, gender) {
   const randomIndex = Math.floor(Math.random() * numberOfPngs) + 1;
   const pngFileName = `${categoryName}${gender}_${randomIndex}.png`;
 
-  const pngUrl = `/assets/avatar/${categoryName}/${pngFileName}`;
+  const pngUrl = `/assets/avatars/${categoryName}/${pngFileName}`;
   return pngUrl;
 }
 

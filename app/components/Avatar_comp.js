@@ -7,39 +7,35 @@ import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
   const { gender, setGender } = useIdentityContext();
-  let { personality, setPersonality } = useIdentityContext();
+  const { personality, setPersonality } = useIdentityContext();
+  const { personalitySelected, setPersonalitySelected } = useIdentityContext();
+  let Avatars;
+  useEffect(() => {
+    console.log(personality);
+    console.log(getRandomPNGUrl(personality[0], gender));
+    console.log(getRandomPNGUrl(personality[1], gender));
+    console.log(getRandomPNGUrl(personality[2], gender));
+    console.log(getRandomPNGUrl(personality[3], gender));
 
-  // useEffect(() => {
-  //   // console.log(getRandomPNGUrl(personality[0]));
-  //   // console.log(getRandomPNGUrl(personality[1]));
-  //   // console.log(getRandomPNGUrl(personality[2]));
-  //   // console.log(getRandomPNGUrl(personality[3]));
-  // }, [personality]);
-
-  // console.log(getRandomPNGUrl(personality[0]));
-  // console.log(getRandomPNGUrl(personality[1]));
-  // console.log(getRandomPNGUrl(personality[2]));
-  // console.log(getRandomPNGUrl(personality[3]));
-
-  const Avatars = [
-    {
-      id: 1,
-      src: getRandomPNGUrl(personality[1]),
-    },
-    {
-      id: 2,
-      src: getRandomPNGUrl(personality[1]),
-    },
-    {
-      id: 3,
-      src: getRandomPNGUrl(personality[2]),
-    },
-    {
-      id: 4,
-      src: getRandomPNGUrl(personality[3]),
-    },
-  ];
-
+    Avatars = [
+      {
+        id: 1,
+        src: getRandomPNGUrl(personality[0], gender),
+      },
+      {
+        id: 2,
+        src: getRandomPNGUrl(personality[1], gender),
+      },
+      {
+        id: 3,
+        src: getRandomPNGUrl(personality[2], gender),
+      },
+      {
+        id: 4,
+        src: getRandomPNGUrl(personality[3], gender),
+      },
+    ];
+  }, [personality, gender]);
   const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
 
   const handleClick = (src) => {
@@ -68,30 +64,33 @@ function AvatarComponent() {
             />
           )}
         </div>
-        <div className="flex gap-2 mt-8">
-          {Avatars.map(({ id, src }) => (
-            <button
-              type="button"
-              onClick={() => handleClick(src)}
-              key={id}
-              className={
-                src === isSelected
-                  ? "border border-[#FD429C] mx-auto rounded-full p-1"
-                  : "mx-auto rounded-full p-1"
-              }
-            >
-              <div
+       
+        {personalitySelected && (
+          <div className="flex gap-2 mt-8">
+            {Avatars.map(({ id, src }) => (
+              <button
+                type="button"
+                onClick={() => handleClick(src)}
+                key={id}
                 className={
                   src === isSelected
-                    ? "border border-base-white mx-auto rounded-full p-2 bg-white/20"
-                    : "mx-auto rounded-full p-2 bg-white/20"
+                    ? "border border-[#FD429C] mx-auto rounded-full p-1"
+                    : "mx-auto rounded-full p-1"
                 }
               >
-                <Image src={src} alt="avatar" width={60} height={60} />
-              </div>
-            </button>
-          ))}
-        </div>
+                <div
+                  className={
+                    src === isSelected
+                      ? "border border-base-white mx-auto rounded-full p-2 bg-white/20"
+                      : "mx-auto rounded-full p-2 bg-white/20"
+                  }
+                >
+                  <Image src={src} alt="avatar" width={60} height={60} />
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

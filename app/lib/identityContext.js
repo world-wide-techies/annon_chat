@@ -6,6 +6,7 @@ export const IdentityContext = createContext();
 export const IdentityContextProvider = ({ children }) => {
   const [personality, setPersonality] = useState([]);
   const [gender, setGender] = useState([]);
+  const [personalitySelected, setPersonalitySelected] = useState(false)
 
   return (
     <IdentityContext.Provider
@@ -14,6 +15,8 @@ export const IdentityContextProvider = ({ children }) => {
         setPersonality,
         gender,
         setGender,
+        personalitySelected, 
+        setPersonalitySelected
       }}
     >
       {children}

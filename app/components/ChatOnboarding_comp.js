@@ -120,8 +120,8 @@ export default function OnboardingComp() {
                       <option value="" disabled selected>
                         Pick Your Gender
                       </option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                     </select>
                     <span className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                       <svg
