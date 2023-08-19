@@ -9,7 +9,7 @@ function AvatarComponent() {
   const { gender, setGender } = useIdentityContext();
   const { personality, setPersonality } = useIdentityContext();
   const { personalitySelected, setPersonalitySelected } = useIdentityContext();
-  let Avatars;
+  const [avatars, setAvatars] = useState([]);
   useEffect(() => {
     console.log(personality);
     console.log(getRandomPNGUrl(personality[0], gender));
@@ -17,7 +17,7 @@ function AvatarComponent() {
     console.log(getRandomPNGUrl(personality[2], gender));
     console.log(getRandomPNGUrl(personality[3], gender));
 
-    Avatars = [
+    const Avatars = [
       {
         id: 1,
         src: getRandomPNGUrl(personality[0], gender),
@@ -35,9 +35,10 @@ function AvatarComponent() {
         src: getRandomPNGUrl(personality[3], gender),
       },
     ];
-  }, [personality, gender]);
+    setAvatars(Avatars);
+  }, [personality, gender, personalitySelected]);
   const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
-
+  console.log(avatars);
   const handleClick = (src) => {
     setIsSelected(src);
   };
@@ -64,10 +65,10 @@ function AvatarComponent() {
             />
           )}
         </div>
-       
+        {console.log(personalitySelected)}
         {personalitySelected && (
           <div className="flex gap-2 mt-8">
-            {Avatars.map(({ id, src }) => (
+            {avatars.map(({ id, src }) => (
               <button
                 type="button"
                 onClick={() => handleClick(src)}
