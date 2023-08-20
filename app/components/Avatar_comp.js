@@ -7,8 +7,13 @@ import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
   const { gender, setGender } = useIdentityContext();
-  const { personality, setPersonality } = useIdentityContext();
-  const { personalitySelected, setPersonalitySelected } = useIdentityContext();
+  const {
+    personality,
+    setPersonality,
+    personalitySelected,
+    setPersonalitySelected,
+  } = useIdentityContext();
+
   const [avatars, setAvatars] = useState([]);
   useEffect(() => {
     console.log(personalitySelected);

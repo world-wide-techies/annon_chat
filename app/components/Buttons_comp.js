@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
 function Buttons({ btnText }) {
-  const { personality, setPersonality } = useIdentityContext();
+  const { personality, setPersonality, personalitySelected, setPersonalitySelected } = useIdentityContext();
   const [isSelected, setIsSelected] = useState(false);
-  const { personalitySelected, setPersonalitySelected } = useIdentityContext();
   const character = btnText.split(" ")[0].toLowerCase();
 
   useEffect(() => {
