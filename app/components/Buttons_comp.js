@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
 function Buttons({ btnText }) {
@@ -6,8 +6,11 @@ function Buttons({ btnText }) {
   const [isSelected, setIsSelected] = useState(false);
   const { personalitySelected, setPersonalitySelected } = useIdentityContext();
   const character = btnText.split(" ")[0].toLowerCase();
- 
- 
+
+  useEffect(() => {
+    console.log(personalitySelected);
+  }, [personalitySelected]);
+
   const handleSelect = (e) => {
     e.preventDefault();
     if (personality.includes(character)) {

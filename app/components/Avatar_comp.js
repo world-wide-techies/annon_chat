@@ -11,7 +11,7 @@ function AvatarComponent() {
   const { personalitySelected, setPersonalitySelected } = useIdentityContext();
   const [avatars, setAvatars] = useState([]);
   useEffect(() => {
-    console.log(personality);
+    console.log(personalitySelected);
 
     const Avatars = [
       {
@@ -32,7 +32,7 @@ function AvatarComponent() {
       },
     ];
     setAvatars(Avatars);
-  }, [personality, gender]);
+  }, [personality, personalitySelected, gender]);
   const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
   console.log(avatars);
   const handleClick = (src) => {
