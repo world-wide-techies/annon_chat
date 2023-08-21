@@ -25,7 +25,7 @@ function Buttons({ btnText, chatroomName, username }) {
         setIsSelected(true);
       }
 
-      if (personality.length >= 3) setPersonalitySelected(true);
+      if (personality.length == 4) setPersonalitySelected(true);
     }
 
     console.log(personality);
