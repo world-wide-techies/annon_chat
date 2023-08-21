@@ -16,6 +16,7 @@ function AvatarComponent() {
   } = useIdentityContext();
 
   const [avatars, setAvatars] = useState([]);
+ 
   useEffect(() => {
     console.log(personalitySelected);
 
@@ -39,6 +40,7 @@ function AvatarComponent() {
     ];
     setAvatars(Avatars);
   }, [personality, personalitySelected, gender]);
+  
   const [isSelected, setIsSelected] = useState(
     avatars.find((avatar) => avatar.id === 1)?.src
   );

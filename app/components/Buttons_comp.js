@@ -13,9 +13,16 @@ function Buttons({ btnText, chatroomName, username }) {
   const character = btnText.split(" ")[0].toLowerCase();
   const disableBtn = !(chatroomName && username && gender);
 
+  const [personalities, setPersonalities] = useState(personality);
+
+  useEffect(() => {
+    console.log(personalities);
+    setPersonalities(personality);
+  }, [personality, personalities]);
+
   const handleSelect = (e) => {
     e.preventDefault();
-
+    if (personalities.length === 4) setPersonalitySelected(true);
     if (personality.includes(character)) {
       setPersonality(personality.filter((char) => char !== character));
       setIsSelected(false);
@@ -24,11 +31,9 @@ function Buttons({ btnText, chatroomName, username }) {
         setPersonality([...personality, character]);
         setIsSelected(true);
       }
-
-      if (personality.length == 4) setPersonalitySelected(true);
     }
 
-    console.log(personality);
+    console.log(personalities);
   };
 
   return (
