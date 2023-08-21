@@ -1,4 +1,7 @@
 function getRandomPNGUrl(categoryName, gender) {
+  console.log(categoryName);
+  console.log(gender);
+
   const categoryToNumberOfPngs = {
     adventurousFemale: 2,
     adventurousMale: 2,
@@ -35,10 +38,10 @@ function getRandomPNGUrl(categoryName, gender) {
     wittyMale: 1,
   };
 
-  const numberOfPngs = categoryToNumberOfPngs[(categoryName + gender)] || 0;
+  const numberOfPngs = categoryToNumberOfPngs[categoryName + gender] || 0;
   if (numberOfPngs === 0) {
     console.error(`No category found for: ${categoryName}`);
-    return null;
+    return null ;
   }
 
   const randomIndex = Math.floor(Math.random() * numberOfPngs) + 1;
