@@ -5,6 +5,7 @@ import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
 import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
+import AvatarComponent from "./Avatar_comp";
 
 export default function OnboardingComp() {
   const { gender, setGender } = useIdentityContext();
@@ -146,6 +147,7 @@ export default function OnboardingComp() {
                   </span>
                 </div>
                 <Personaliies />
+                <AvatarComponent />
                 <div className="flex items-center justify-center mb-8">
                   <button
                     className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"

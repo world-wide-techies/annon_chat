@@ -39,7 +39,9 @@ function AvatarComponent() {
     ];
     setAvatars(Avatars);
   }, [personality, personalitySelected, gender]);
-  const [isSelected, setIsSelected] = useState("/assets/avatar/Avatar4.png");
+  const [isSelected, setIsSelected] = useState(
+    avatars.find((avatar) => avatar.id === 1)?.src
+  );
   console.log(avatars);
   const handleClick = (src) => {
     setIsSelected(src);
@@ -57,28 +59,26 @@ function AvatarComponent() {
             </p>
           </div>
 
-          {avatars.map(({ id, src }) => (
-            <div className="mt-5">
-              <div
-                className="w-28 mx-auto border border-base-white rounded-full p-3 text-center bg-white/20"
-                key={id}
-              >
-                {isSelected ? (
-                  <Image src={isSelected} alt="avatar" width={90} height={90} />
-                ) : (
-                  <Image
-                    src="/assets/avatar/Avatar4.png"
-                    alt="avatar"
-                    width={90}
-                    height={90}
-                  />
-                )}
-              </div>
+          <div className="mt-5">
+            <div className="w-28 mx-auto border border-base-white rounded-full p-3 text-center bg-white/20">
+              {isSelected ? (
+                <Image src={isSelected} alt="avatar" width={90} height={90} />
+              ) : (
+                <Image
+                  src={avatars.find((avatar) => avatar.id === 1)?.src}
+                  alt="avatar"
+                  width={90}
+                  height={90}
+                />
+              )}
+            </div>
 
-              <div className="flex gap-2 mt-8">
+            <div className="flex gap-2 mt-8">
+              {avatars.map(({ id, src }) => (
                 <button
                   type="button"
                   onClick={() => handleClick(src)}
+                  key={id}
                   className={
                     src === isSelected
                       ? "border border-[#FD429C] mx-auto rounded-full p-1"
@@ -95,9 +95,9 @@ function AvatarComponent() {
                     <Image src={src} alt="avatar" width={60} height={60} />
                   </div>
                 </button>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       )}
     </>
