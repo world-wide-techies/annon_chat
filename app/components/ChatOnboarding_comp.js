@@ -167,7 +167,7 @@ export default function OnboardingComp() {
                 <div className="flex items-center justify-center mb-8">
                   <button
                     className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
-                    type="submit" disabled
+                    type="submit"
                   >
                     Create New Chat
                   </button>
