@@ -1,7 +1,7 @@
 import React from "react";
 import { Buttons } from "./Buttons_comp";
 
-function Personaliies() {
+function Personaliies({ chatroomName, username, gender }) {
   const buttonTexts = [
     { personality: "Adventurous 🌍" },
     { personality: "Creative 🎨" },
@@ -15,11 +15,11 @@ function Personaliies() {
     { personality: "Quirky 🎉" },
     { personality: "Loyal 🤝" },
     { personality: "Optimistic 🌞" },
-    { personality: "Thoughtful 🤔" },
     { personality: "Humble 🙏" },
     { personality: "Spontaneous 🎭" },
     { personality: "Tech-savvy 📱" },
     { personality: "Confident 💁‍♂️" },
+    { personality: "Outgoing 🎉" },
   ];
   return (
     <div>
@@ -31,7 +31,7 @@ function Personaliies() {
         </p>
         <div className="space-x-3 space-y-2 md:space-x-5 md:space-y-3 w-full">
           {buttonTexts.map((buttonText, index) => (
-            <Buttons btnText={buttonText.personality} key={index} />
+            <Buttons btnText={buttonText.personality} key={index} chatroomName={chatroomName} gender={gender} username = {username} />
           ))}
         </div>
       </div>
