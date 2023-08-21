@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
-function Buttons({ btnText, chatroomName, username, gender }) {
-  const disableBtn = !(chatroomName, username, gender);
+function Buttons({ btnText, chatroomName, username, }) {
+ 
   const {
     personality,
     setPersonality,
     personalitySelected,
     setPersonalitySelected,
+    gender
   } = useIdentityContext();
   const [isSelected, setIsSelected] = useState(false);
   const character = btnText.split(" ")[0].toLowerCase();
-
+  const disableBtn = !(chatroomName, username, gender);
+ 
   const handleSelect = (e) => {
     e.preventDefault();
     if (personality.includes(character)) {

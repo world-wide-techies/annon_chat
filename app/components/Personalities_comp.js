@@ -2,13 +2,9 @@ import React from "react";
 import { Buttons } from "./Buttons_comp";
 import { useIdentityContext } from "../lib/identityContext";
 
-<<<<<<< HEAD
-function Personaliies() {
+function Personaliies({ chatroomName, username }) {
   const { personalitySelected, setPersonalitySelected } = useIdentityContext();
 
-=======
-function Personaliies({ chatroomName, username, gender }) {
->>>>>>> 6f763d137fe7f212b01703d0a9a67c1316b06889
   const buttonTexts = [
     { personality: "Adventurous 🌍" },
     { personality: "Creative 🎨" },
@@ -39,9 +35,14 @@ function Personaliies({ chatroomName, username, gender }) {
             words that <br /> best describe you
           </p>
           <div className="space-x-3 space-y-2 md:space-x-5 md:space-y-3 w-full">
-          {buttonTexts.map((buttonText, index) => (
-            <Buttons btnText={buttonText.personality} key={index} chatroomName={chatroomName} gender={gender} username = {username} />
-          ))}
+            {buttonTexts.map((buttonText, index) => (
+              <Buttons
+                btnText={buttonText.personality}
+                key={index}
+                chatroomName={chatroomName}
+                username={username}
+              />
+            ))}
           </div>
         </div>
       )}
