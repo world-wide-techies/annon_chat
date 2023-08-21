@@ -12,7 +12,7 @@ function Buttons({ btnText, chatroomName, username, }) {
   } = useIdentityContext();
   const [isSelected, setIsSelected] = useState(false);
   const character = btnText.split(" ")[0].toLowerCase();
-  const disableBtn = !(chatroomName, username, gender);
+  const disableBtn = !(chatroomName && username && gender);
  
   const handleSelect = (e) => {
     e.preventDefault();

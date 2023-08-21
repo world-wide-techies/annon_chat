@@ -129,7 +129,7 @@ export default function OnboardingComp() {
                       id="gender"
                       name="gender"
                       required="required."
-                      placeholder="Type in your cool username e.g ChattyKatty"
+                      placeholder="Pick your gender"
                       value={gender}
                       className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                       onChange={handleGender}

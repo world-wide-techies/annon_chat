@@ -5,7 +5,7 @@ export const IdentityContext = createContext();
 
 export const IdentityContextProvider = ({ children }) => {
   const [personality, setPersonality] = useState([]);
-  const [gender, setGender] = useState([]);
+  const [gender, setGender] = useState(false);
   const [personalitySelected, setPersonalitySelected] = useState(false)
 
   return (
