@@ -10,11 +10,9 @@ function Buttons({ btnText }) {
   } = useIdentityContext();
   const [isSelected, setIsSelected] = useState(false);
   const character = btnText.split(" ")[0].toLowerCase();
-  const [personalityS, setPersonalityS] = useState(false);
+  
 
-  useEffect(() => {
-    console.log(personalityS);
-  }, [personalityS]);
+ 
 
   const handleSelect = (e) => {
     e.preventDefault();
