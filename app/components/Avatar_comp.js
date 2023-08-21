@@ -6,12 +6,13 @@ import { useIdentityContext } from "../lib/identityContext";
 import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
-  const { gender, setGender } = useIdentityContext();
   const {
     personality,
     setPersonality,
     personalitySelected,
     setPersonalitySelected,
+    gender,
+    setGender,
   } = useIdentityContext();
 
   const [avatars, setAvatars] = useState([]);
