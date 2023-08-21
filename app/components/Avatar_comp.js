@@ -57,26 +57,28 @@ function AvatarComponent() {
             </p>
           </div>
 
-          <div className="mt-5">
-            <div className="w-28 mx-auto border border-base-white rounded-full p-3 text-center bg-white/20">
-              {isSelected ? (
-                <Image src={isSelected} alt="avatar" width={90} height={90} />
-              ) : (
-                <Image
-                  src="/assets/avatar/Avatar4.png"
-                  alt="avatar"
-                  width={90}
-                  height={90}
-                />
-              )}
-            </div>
+          {avatars.map(({ id, src }) => (
+            <div className="mt-5">
+              <div
+                className="w-28 mx-auto border border-base-white rounded-full p-3 text-center bg-white/20"
+                key={id}
+              >
+                {isSelected ? (
+                  <Image src={isSelected} alt="avatar" width={90} height={90} />
+                ) : (
+                  <Image
+                    src="/assets/avatar/Avatar4.png"
+                    alt="avatar"
+                    width={90}
+                    height={90}
+                  />
+                )}
+              </div>
 
-            <div className="flex gap-2 mt-8">
-              {avatars.map(({ id, src }) => (
+              <div className="flex gap-2 mt-8">
                 <button
                   type="button"
                   onClick={() => handleClick(src)}
-                  key={id}
                   className={
                     src === isSelected
                       ? "border border-[#FD429C] mx-auto rounded-full p-1"
@@ -93,9 +95,9 @@ function AvatarComponent() {
                     <Image src={src} alt="avatar" width={60} height={60} />
                   </div>
                 </button>
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       )}
     </>
