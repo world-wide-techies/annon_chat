@@ -13,7 +13,7 @@ function Buttons({ btnText }) {
   const [personalityS, setPersonalityS] = useState(false);
 
   useEffect(() => {
-    console.log(personalitySelected);
+    console.log(personalityS);
   }, [personalityS]);
 
   const handleSelect = (e) => {
@@ -25,10 +25,8 @@ function Buttons({ btnText }) {
       if (personality.length < 4) {
         setPersonality([...personality, character]);
         setIsSelected(true);
-      } else if (personality.length === 3) {
-        console.log(personalitySelected);
+      } else if (personality.length === 4) {
         setPersonalitySelected(true);
-        console.log(personalitySelected);
       }
     }
 

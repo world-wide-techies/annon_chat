@@ -5,7 +5,7 @@ export default function Lobby() {
   return (
     <main className="min-h-screen flex  mx-auto max-w-screen-2xl overflow-x-hidden">
       <OnboardingComp />
-      {/* <AvatarComponent/> */}
+      <AvatarComponent />
     </main>
   );
 }
