@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
-function Buttons({ btnText }) {
+function Buttons({ btnText, chatroomName, username, gender }) {
+  const disableBtn = !(chatroomName, username, gender);
   const {
     personality,
     setPersonality,
@@ -10,9 +11,6 @@ function Buttons({ btnText }) {
   } = useIdentityContext();
   const [isSelected, setIsSelected] = useState(false);
   const character = btnText.split(" ")[0].toLowerCase();
-  
-
- 
 
   const handleSelect = (e) => {
     e.preventDefault();
@@ -34,9 +32,10 @@ function Buttons({ btnText }) {
   return (
     <button
       onClick={handleSelect}
-      className={`relative border-2 border-[#DCDCE5] rounded-full px-2 py-1 md:px-4 md:py-2 hover:bg-[#ffffff4d] ${
-        isSelected && `bg-[#ffffff4d]`
-      } md:text-[17px] text-sm  `}
+      className={`relative bg-transparent border-2 border-[#DCDCE5] rounded-full px-2 py-1 md:px-4 md:py-2 md:text-[17px] text-sm ${
+        disableBtn ? "opacity-30 cursor-not-allowed" : "hover:bg-[#ffffff4d]"
+      }  ${isSelected && `bg-[#ffffff4d]`}`}
+      disabled={disableBtn}
     >
       {btnText}
     </button>

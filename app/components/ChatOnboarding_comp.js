@@ -5,10 +5,30 @@ import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
 import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
+<<<<<<< HEAD
 import AvatarComponent from "./Avatar_comp";
 
 export default function OnboardingComp() {
   const { gender, setGender } = useIdentityContext();
+=======
+import { useState } from "react";
+
+export default function OnboardingComp() {
+  
+  const[chatroomName, setChatroomName] = useState('')
+  const[username, setUsername] = useState('')
+  const[gender, setGender] = useState('')
+
+  const handleChatRoom = (e)=>{
+    setChatroomName(e.target.value)
+  }
+  const handleUsername = (e)=>{
+    setUsername(e.target.value)
+  }
+  const handleGender = (e)=>{
+    setGender(e.target.value)
+  }
+>>>>>>> 6f763d137fe7f212b01703d0a9a67c1316b06889
 
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
@@ -73,6 +93,7 @@ export default function OnboardingComp() {
                       maxLength={30}
                       placeholder="ChillZone 🌴"
                       className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-full h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2 mb-4"
+                      onChange={handleChatRoom}
                     />
                   </div>
                   <div className="relative mx-auto">
@@ -93,6 +114,7 @@ export default function OnboardingComp() {
                       minLength={5}
                       maxLength={15}
                       placeholder="ChattyKatty"
+                      onChange={handleUsername}
                       className="flex items-center justify-center px-4 lg:w-[374px] lg:h-[44px] w-full h-[40px] py-3 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 input-placeholder self-stretch text-base-white font-roboto border-2"
                     />
                   </div>
@@ -117,6 +139,7 @@ export default function OnboardingComp() {
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
                       className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
+                      onChange={handleGender}
                     >
                       <option value="" disabled selected>
                         Pick Your Gender
@@ -146,8 +169,16 @@ export default function OnboardingComp() {
                     </span>
                   </span>
                 </div>
+<<<<<<< HEAD
                 <Personaliies />
                 <AvatarComponent />
+=======
+                <Personaliies
+                  chatroomName={chatroomName}
+                  username={username}
+                  gender={gender}
+                />
+>>>>>>> 6f763d137fe7f212b01703d0a9a67c1316b06889
                 <div className="flex items-center justify-center mb-8">
                   <button
                     className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
