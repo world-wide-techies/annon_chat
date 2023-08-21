@@ -25,7 +25,7 @@ function getRandomPNGUrl(categoryName, gender) {
     "humbleFemale": 1,
     "loyalMale": 2,
     "loyalFemale": 1,
-    "optimisticMale": 3,
+    "optimisticMale": 1,
     "optimisticFemale": 3,
     "outgoingMale": 2,
     "outgoingFemale": 3,
