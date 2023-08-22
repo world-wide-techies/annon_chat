@@ -3,24 +3,26 @@
 import Image from "next/image";
 import Footer from "./Footer_comp";
 import OnboardingNav from "./OnboardingNav_comp";
+import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
+import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
 
 export default function OnboardingComp() {
-  
-  const[chatroomName, setChatroomName] = useState('')
-  const[username, setUsername] = useState('')
-  const[gender, setGender] = useState('')
+  const { gender, setGender } = useIdentityContext();
 
-  const handleChatRoom = (e)=>{
-    setChatroomName(e.target.value)
-  }
-  const handleUsername = (e)=>{
-    setUsername(e.target.value)
-  }
-  const handleGender = (e)=>{
-    setGender(e.target.value)
-  }
+  const [chatroomName, setChatroomName] = useState("");
+  const [username, setUsername] = useState("");
+
+  const handleChatRoom = (e) => {
+    setChatroomName(e.target.value);
+  };
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handleGender = (e) => {
+    setGender(e.target.value);
+  };
 
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
@@ -127,15 +129,16 @@ export default function OnboardingComp() {
                       id="gender"
                       name="gender"
                       required="required."
-                      placeholder="Type in your cool username e.g ChattyKatty"
+                      placeholder="Pick your gender"
+                      value={gender}
                       className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                       onChange={handleGender}
                     >
                       <option value="" disabled selected>
                         Pick Your Gender
                       </option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                     </select>
                     <span className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                       <svg
@@ -159,11 +162,8 @@ export default function OnboardingComp() {
                     </span>
                   </span>
                 </div>
-                <Personaliies
-                  chatroomName={chatroomName}
-                  username={username}
-                  gender={gender}
-                />
+                <Personaliies chatroomName={chatroomName} username={username} />
+                <AvatarComponent />
                 <div className="flex items-center justify-center mb-8">
                   <button
                     className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
