@@ -5,6 +5,7 @@ import Testimonials from "./components/testimonials_comp";
 import FinalCTA from "./components/FinalCTA_comp";
 import Footer from "./components/Footer_comp";
 import OnboardingComp from "./components/ChatOnboarding_comp";
+import ChatRoom from "./components/ChatRoom_comp";
 
 export default function Home() {
   return (
