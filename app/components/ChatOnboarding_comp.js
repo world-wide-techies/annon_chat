@@ -11,8 +11,8 @@ import { useState } from "react";
 export default function OnboardingComp() {
   const { gender, setGender } = useIdentityContext();
 
-  const [chatroomName, setChatroomName] = useState("");
-  const [username, setUsername] = useState("");
+  const [chatroomName, setChatroomName] = useIdentityContext();
+  const [username, setUsername] = useIdentityContext();
 
   const handleChatRoom = (e) => {
     setChatroomName(e.target.value);
