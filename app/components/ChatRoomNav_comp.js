@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useIdentityContext } from "../lib/identityContext";
 
 function ChatRoomNav() {
+  const { chatroomName, setChatroomName } = useIdentityContext();
+
   return (
     <header className="px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">
@@ -24,7 +27,9 @@ function ChatRoomNav() {
           </svg>
           <p className="text-sm">Return to Home</p>
         </Link>
-        <div className="text-white text-2xl">ChillZone🎄🎗</div>
+        <div className="text-white text-2xl">
+          {chatroomName ? chatroomName : "Your Chat Room"}
+        </div>
         <div className="flex items-center space-x-4">
           <div className=" p-2 rounded-full border-2 border-white text-white">
             <svg

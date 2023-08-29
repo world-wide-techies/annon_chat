@@ -7,12 +7,16 @@ import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
 import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import ChatRoomNav from "./ChatRoomNav_comp";
 
 export default function OnboardingComp() {
+  
+  const router = useRouter()
   const { gender, setGender } = useIdentityContext();
 
-  const [chatroomName, setChatroomName] = useIdentityContext();
-  const [username, setUsername] = useIdentityContext();
+  const {chatroomName, setChatroomName} = useIdentityContext();
+  const {username, setUsername} = useIdentityContext();
 
   const handleChatRoom = (e) => {
     setChatroomName(e.target.value);
@@ -23,6 +27,15 @@ export default function OnboardingComp() {
   const handleGender = (e) => {
     setGender(e.target.value);
   };
+
+  const  handleSubmit = () => {
+    if (username !== "" &&chatroomName !== "") {
+      // socket.emit("join_room", room);
+      router.push("/hey")
+      console.log(chatroomName)
+    }
+    
+   }
 
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
@@ -65,7 +78,7 @@ export default function OnboardingComp() {
               </div>
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                onSubmit={() => {}}
+                onSubmit={handleSubmit}
               >
                 <div className="relative lg:flex lg:justify-between lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                   <div className="relative mx-auto">
@@ -168,6 +181,7 @@ export default function OnboardingComp() {
                   <button
                     className="w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)]"
                     type="submit"
+                    
                   >
                     Create New Chat
                   </button>
