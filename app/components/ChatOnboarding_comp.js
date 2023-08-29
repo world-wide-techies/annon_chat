@@ -29,8 +29,9 @@ export default function OnboardingComp() {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (username !== "" && chatroomName !== "") {
-      e.preventDefault();
+     
       console.log(chatroomName);
       console.log(socket);
       socket.emit("join_room", chatroomName);

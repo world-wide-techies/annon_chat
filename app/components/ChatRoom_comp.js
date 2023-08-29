@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
+import { useIdentityContext } from "../lib/identityContext";
+import { useSocketContext } from "../lib/socketContext";
 
 const chats = [
   {
@@ -10,12 +12,41 @@ const chats = [
     timeSent: "2mins ago",
     isOwnerChatting: false,
   },
-
- 
-  
 ];
 
 function ChatRoom() {
+  const { gender, setGender } = useIdentityContext();
+  const { socket } = useSocketContext();
+  const { chatroomName, setChatroomName } = useIdentityContext();
+  const { username, setUsername } = useIdentityContext();
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    if (currentMessage !== "") {
+      const messageData = {
+        room: chatroomName,
+        author: username,
+        message: currentMessage,
+        time:
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes(),
+      };
+
+      await socket.emit("send_message", messageData);
+      setMessageList((list) => [...list, messageData]);
+      setCurrentMessage("");
+    }
+  };
+
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessageList((list) => [...list, data]);
+    });
+  }, [socket]);
+
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav />
@@ -76,7 +107,7 @@ function ChatRoom() {
                   <p className="text-xs text-gray-300">2mins ago</p>
                 </div>
               </div>
-              
+
               <div className="flex space-x-4 items-start self-end my-2">
                 <div className="text-white font-roboto">
                   <p className="text-sm text-right">Didi</p>
@@ -96,47 +127,49 @@ function ChatRoom() {
                 </div>
               </div>
               <div className="flex space-x-4 items-start self-end my-2">
-              <div className="text-white font-roboto">
-                <p className="text-sm text-right">Didi</p>
-                <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
-                  Hey hey 
+                <div className="text-white font-roboto">
+                  <p className="text-sm text-right">Didi</p>
+                  <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
+                    Hey hey
+                  </div>
+                  <p className="text-xs text-gray-300 text-right">2mins ago</p>
                 </div>
-                <p className="text-xs text-gray-300 text-right">2mins ago</p>
+                <div className=" rounded-full">
+                  <Image
+                    src="/assets/avatars/friendly/friendlyFemale_1.png"
+                    alt="profile img"
+                    width={30}
+                    height={30}
+                    className="rounded-full"
+                  />
+                </div>
               </div>
-              <div className=" rounded-full">
-                <Image
-                  src="/assets/avatars/friendly/friendlyFemale_1.png"
-                  alt="profile img"
-                  width={30}
-                  height={30}
-                  className="rounded-full"
-                />
+              <div className="flex space-x-4 items-start self-end my-2">
+                <div className="text-white font-roboto">
+                  <p className="text-sm text-right">Didi</p>
+                  <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
+                    You there?
+                  </div>
+                  <p className="text-xs text-gray-300 text-right">2mins ago</p>
+                </div>
+                <div className=" rounded-full">
+                  <Image
+                    src="/assets/avatars/friendly/friendlyFemale_1.png"
+                    alt="profile img"
+                    width={30}
+                    height={30}
+                    className="rounded-full"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex space-x-4 items-start self-end my-2">
-            <div className="text-white font-roboto">
-              <p className="text-sm text-right">Didi</p>
-              <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
-                You there?
-              </div>
-              <p className="text-xs text-gray-300 text-right">2mins ago</p>
-            </div>
-            <div className=" rounded-full">
-              <Image
-                src="/assets/avatars/friendly/friendlyFemale_1.png"
-                alt="profile img"
-                width={30}
-                height={30}
-                className="rounded-full"
-              />
-            </div>
-          </div>
             </div>
           )}
         </div>
         <div className="flex items-end space-x-6">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
+              onChange={(e) => setCurrentMessage(e.target.value)}
+              type="text"
               placeholder="Send a message"
               className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
             />
@@ -163,6 +196,7 @@ function ChatRoom() {
             </div>
           </div>
           <button
+            onClick={sendMessage}
             className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
             type="submit"
           >
