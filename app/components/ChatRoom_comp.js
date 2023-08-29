@@ -53,7 +53,7 @@ function ChatRoom() {
       <ChatRoomNav />
       <div className="flex flex-col items-stretch mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
         <div className="h-[90%]">
-          {chats.length === 0 ? (
+          {messageList.length === 0 ? (
             <div>
               <div className="w-full flex space-x-2 items-center text-gray-300">
                 <div className="w-5/12 border-t border-gray-300"></div>
@@ -72,44 +72,51 @@ function ChatRoom() {
             <div>
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
-                  <div className="flex space-x-4 items-start my-4">
-                    <div className="rounded-full">
-                      <Image
-                        src="/assets/avatars/spontaneous/spontaneousFemale_3.png"
-                        alt="profile img"
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      />
-                    </div>
-                    <div className="text-white font-roboto">
-                      <p className="text-sm">{messageContent.author}</p>
-                      <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
-                        {messageContent.message}
+                  {messageContent.author !== username ? (
+                    <div className="flex space-x-4 items-start my-4">
+                      <div className="rounded-full">
+                        <Image
+                          src="/assets/avatars/spontaneous/spontaneousFemale_3.png"
+                          alt="profile img"
+                          width={30}
+                          height={30}
+                          className="rounded-full"
+                        />
                       </div>
-                      <p className="text-xs text-gray-300">{messageContent.time}</p>
-                    </div>
-                  </div>
-                  <div className="flex space-x-4 items-start self-end my-2">
-                    <div className="text-white font-roboto">
-                      <p className="text-sm text-right">Didi</p>
-                      <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
-                        Hey hey
+                      <div className="text-white font-roboto">
+                        <p className="text-sm">{messageContent.author}</p>
+                        <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
+                          {messageContent.message}
+                        </div>
+                        <p className="text-xs text-gray-300">
+                          {messageContent.time}
+                        </p>
                       </div>
-                      <p className="text-xs text-gray-300 text-right">
-                        2 mins ago
-                      </p>
                     </div>
-                    <div className="rounded-full">
-                      <Image
-                        src="/assets/avatars/friendly/friendlyFemale_1.png"
-                        alt="profile img"
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      />
+                  ) : (
+                    <div className="flex space-x-4 items-start self-end my-2">
+                      <div className="text-white font-roboto">
+                        <p className="text-sm text-right">
+                          {messageContent.author}
+                        </p>
+                        <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
+                          {messageContent.message}
+                        </div>
+                        <p className="text-xs text-gray-300 text-right">
+                          {messageContent.time}
+                        </p>
+                      </div>
+                      <div className="rounded-full">
+                        <Image
+                          src="/assets/avatars/friendly/friendlyFemale_1.png"
+                          alt="profile img"
+                          width={30}
+                          height={30}
+                          className="rounded-full"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
