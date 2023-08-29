@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useContext, createContext } from "react";
+import { useContext, useEffect, createContext } from "react";
 import { io } from "socket.io-client";
 
 export const SocketContext = createContext();
@@ -11,6 +11,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (connectSocket) {
+      setSocket(connectSocket);
       window.localStorage.setItem("socket", JSON.stringify(connectSocket));
     }
   }, [connectSocket]);
@@ -24,7 +25,7 @@ export const SocketContextProvider = ({ children }) => {
 
   return (
     <SocketContext.Provider
-      value={{ 
+      value={{
         socket,
       }}
     >
