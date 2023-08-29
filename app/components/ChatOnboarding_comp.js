@@ -28,13 +28,14 @@ export default function OnboardingComp() {
     setGender(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     if (username !== "" && chatroomName !== "") {
-    
+      e.preventDefault();
       console.log(chatroomName);
+      console.log(socket);
       socket.emit("join_room", chatroomName);
-      router.push(`/chatroomName${chatroomName}`);
-      console.log(chatroomName);
+
+      router.push(`/${chatroomName}`);
     }
   };
 
