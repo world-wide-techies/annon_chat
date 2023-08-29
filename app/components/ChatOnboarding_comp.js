@@ -9,11 +9,12 @@ import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ChatRoomNav from "./ChatRoomNav_comp";
+import { useSocketContext } from "../lib/socketContext";
 
 export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
-
+  const { socket } = useSocketContext();
   const { chatroomName, setChatroomName } = useIdentityContext();
   const { username, setUsername } = useIdentityContext();
 
@@ -29,7 +30,7 @@ export default function OnboardingComp() {
 
   const handleSubmit = () => {
     if (username !== "" && chatroomName !== "") {
-      // socket.emit("join_room", room);
+      socket.emit("join_room", room);
       router.push(`/chatroomName${chatroomName}`);
       console.log(chatroomName);
     }
