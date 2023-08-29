@@ -5,9 +5,18 @@ import { io } from "socket.io-client";
 export const SocketContext = createContext();
 
 export const SocketContextProvider = ({ children }) => {
-  const socket  = io("http://localhost:3001");
+  const connectSocket = io("http://localhost:3001");
+  const [socket, setSocket] = useState();
 
-  
+  useEffect(() => {
+    if (connectSocket) {
+      setSocket(connectSocket);
+    }
+
+    return () => {
+      connectSocket.off;
+    };
+  }, []);
 
   return (
     <SocketContext.Provider
