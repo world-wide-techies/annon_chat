@@ -22,7 +22,7 @@ function ChatRoom() {
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const messageContainerRef = useRef(null);
+  const selectedAvatar2 = window.localStorage.getItem("selectedAvatar");
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -45,7 +45,8 @@ function ChatRoom() {
   };
 
   useEffect(() => {
-    console.log(socket);
+    console.log(selectedAvatar2);
+    console.log(selectedAvatar);
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });

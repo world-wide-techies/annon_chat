@@ -52,6 +52,7 @@ function AvatarComponent() {
   const handleClick = (src) => {
     setIsSelected(src);
     setSelectedAvatar(src);
+    window.localStorage.setItem("selectedAvatar", src);
   };
   return (
     <>
