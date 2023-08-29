@@ -4,7 +4,8 @@ import React from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
 function ChatRoomNav() {
-  const { chatroomName, setChatroomName } = useIdentityContext();
+  const { chatroomName, setChatroomName, selectedAvatar } =
+    useIdentityContext();
 
   return (
     <header className="px-24 py-4 border-b bg-white/25">
@@ -51,7 +52,7 @@ function ChatRoomNav() {
 
           <div className=" p-2 rounded-full border-2 border-white">
             <Image
-              src="/assets/avatars/friendly/friendlyFemale_1.png"
+              src={selectedAvatar}
               alt="profile img"
               width={25}
               height={25}

@@ -17,8 +17,9 @@ const chats = [
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket } = useSocketContext();
-  const { chatroomName, setChatroomName } = useIdentityContext();
-  const { username, setUsername } = useIdentityContext();
+  const { chatroomName, setChatroomName, selectedAvatar, username } =
+    useIdentityContext();
+
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const messageContainerRef = useRef(null);
@@ -30,6 +31,7 @@ function ChatRoom() {
         room: chatroomName,
         author: username,
         message: currentMessage,
+        avatar: selectedAvatar,
         time:
           new Date(Date.now()).getHours() +
           ":" +
@@ -77,7 +79,7 @@ function ChatRoom() {
                     <div className="flex space-x-4 items-start my-4">
                       <div className="rounded-full">
                         <Image
-                          src="/assets/avatars/spontaneous/spontaneousFemale_3.png"
+                          src={messageContent.avatar}
                           alt="profile img"
                           width={30}
                           height={30}
@@ -109,7 +111,7 @@ function ChatRoom() {
                       </div>
                       <div className="rounded-full">
                         <Image
-                          src="/assets/avatars/friendly/friendlyFemale_1.png"
+                          src={selectedAvatar}
                           alt="profile img"
                           width={30}
                           height={30}

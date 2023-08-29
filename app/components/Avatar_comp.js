@@ -8,11 +8,12 @@ import { getRandomPNGUrl } from "../lib/randomPngUrl";
 function AvatarComponent() {
   const {
     personality,
-    setPersonality,
+
     personalitySelected,
-    setPersonalitySelected,
+
     gender,
-    setGender,
+
+    setSelectedAvatar,
   } = useIdentityContext();
 
   const [avatars, setAvatars] = useState([]);
@@ -50,6 +51,7 @@ function AvatarComponent() {
   console.log(avatars);
   const handleClick = (src) => {
     setIsSelected(src);
+    setSelectedAvatar(src);
   };
   return (
     <>

@@ -9,6 +9,7 @@ export const IdentityContextProvider = ({ children }) => {
   const [personalitySelected, setPersonalitySelected] = useState(false);
   const [avatarSelected, setAvatarSelected] = useState(false);
   const [chatroomName, setChatroomName] = useState("");
+  const [selectedAvatar, setSelectedAvatar] = useState("");
   const [username, setUsername] = useState("");
 
   return (
@@ -26,6 +27,8 @@ export const IdentityContextProvider = ({ children }) => {
         setChatroomName,
         username,
         setUsername,
+        selectedAvatar,
+        setSelectedAvatar,
       }}
     >
       {children}
