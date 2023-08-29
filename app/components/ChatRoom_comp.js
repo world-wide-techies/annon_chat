@@ -70,25 +70,6 @@ function ChatRoom() {
             </div>
           ) : (
             <div className="w-full flex flex-col">
-              <div className="flex space-x-4 items-start">
-                <div className=" rounded-full">
-                  <Image
-                    src="/assets/avatars/spontaneous/spontaneousFemale_3.png"
-                    alt="profile img"
-                    width={30}
-                    height={30}
-                    className="rounded-full"
-                  />
-                </div>
-                <div className="text-white font-roboto">
-                  <p className="text-sm">SpicyTee</p>
-                  <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
-                    Hey Olivia, can you please review the latest design when you
-                    can?
-                  </div>
-                  <p className="text-xs text-gray-300">2mins ago</p>
-                </div>
-              </div>
               <div className="flex space-x-4 items-start my-4">
                 <div className=" rounded-full">
                   <Image
@@ -113,43 +94,7 @@ function ChatRoom() {
                 <div className="text-white font-roboto">
                   <p className="text-sm text-right">Didi</p>
                   <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
-                    Hey hey can?
-                  </div>
-                  <p className="text-xs text-gray-300 text-right">2mins ago</p>
-                </div>
-                <div className=" rounded-full">
-                  <Image
-                    src="/assets/avatars/friendly/friendlyFemale_1.png"
-                    alt="profile img"
-                    width={30}
-                    height={30}
-                    className="rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="flex space-x-4 items-start self-end my-2">
-                <div className="text-white font-roboto">
-                  <p className="text-sm text-right">Didi</p>
-                  <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
                     Hey hey
-                  </div>
-                  <p className="text-xs text-gray-300 text-right">2mins ago</p>
-                </div>
-                <div className=" rounded-full">
-                  <Image
-                    src="/assets/avatars/friendly/friendlyFemale_1.png"
-                    alt="profile img"
-                    width={30}
-                    height={30}
-                    className="rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="flex space-x-4 items-start self-end my-2">
-                <div className="text-white font-roboto">
-                  <p className="text-sm text-right">Didi</p>
-                  <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
-                    You there?
                   </div>
                   <p className="text-xs text-gray-300 text-right">2mins ago</p>
                 </div>
@@ -170,7 +115,7 @@ function ChatRoom() {
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
               onChange={(e) => setCurrentMessage(e.target.value)}
-             value={currentMessage}
+              value={currentMessage}
               type="text"
               placeholder="Send a message"
               className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
