@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
@@ -21,6 +21,7 @@ function ChatRoom() {
   const { username, setUsername } = useIdentityContext();
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const messageContainerRef = useRef(null);
 
   const sendMessage = async (e) => {
     e.preventDefault();
