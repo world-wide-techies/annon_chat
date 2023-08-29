@@ -42,10 +42,11 @@ function ChatRoom() {
   };
 
   useEffect(() => {
+    console.log(socket);
     socket.on("receive_message", (data) => {
       console.log(data);
     });
-  },);
+  }, [socket]);
 
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
