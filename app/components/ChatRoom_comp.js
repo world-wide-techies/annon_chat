@@ -43,8 +43,8 @@ function ChatRoom() {
 
   useEffect(() => {
     console.log(socket);
-    socket?.on("receive_message", (data) => {
-      console.log(data);
+    socket.on("receive_message", (data) => {
+      setMessageList((list) => [...list, data]);
     });
   }, [socket]);
 
@@ -170,6 +170,7 @@ function ChatRoom() {
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
               onChange={(e) => setCurrentMessage(e.target.value)}
+             value={currentMessage}
               type="text"
               placeholder="Send a message"
               className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
