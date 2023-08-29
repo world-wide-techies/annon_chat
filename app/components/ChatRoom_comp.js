@@ -43,6 +43,7 @@ function ChatRoom() {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+     console.log(data)
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
