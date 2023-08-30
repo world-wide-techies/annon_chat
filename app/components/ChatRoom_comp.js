@@ -17,12 +17,11 @@ const chats = [
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket } = useSocketContext();
-  const { chatroomName, setChatroomName, selectedAvatar, username } =
-    useIdentityContext();
+  const { chatroomName, setChatroomName, username } = useIdentityContext();
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const selectedAvatar2 = window.localStorage.getItem("selectedAvatar");
+  const selectedAvatar = window.localStorage.getItem("selectedAvatar");
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -45,8 +44,6 @@ function ChatRoom() {
   };
 
   useEffect(() => {
-    console.log(selectedAvatar2);
-    console.log(selectedAvatar);
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
@@ -54,7 +51,7 @@ function ChatRoom() {
 
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
-      <ChatRoomNav />
+      <ChatRoomNav selectedAvatar = {selectedAvatar}/>
       <div className="flex flex-col items-stretch mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
         <div className="h-[90%]">
           {messageList.length === 0 ? (

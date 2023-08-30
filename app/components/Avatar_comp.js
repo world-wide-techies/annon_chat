@@ -41,7 +41,7 @@ function AvatarComponent() {
   const initialAvatar = avatars.find((avatar) => avatar.id === 1)?.src;
   useEffect(() => {
     localStorage.setItem("selectedAvatar", initialAvatar);
-  });
+  }, [initialAvatar]);
 
   const [isSelected, setIsSelected] = useState(initialAvatar);
   console.log(avatars);

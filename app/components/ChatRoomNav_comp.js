@@ -3,9 +3,8 @@ import Link from "next/link";
 import React from "react";
 import { useIdentityContext } from "../lib/identityContext";
 
-function ChatRoomNav() {
-  const { chatroomName, setChatroomName, selectedAvatar } =
-    useIdentityContext();
+function ChatRoomNav({ selectedAvatar }) {
+  const { chatroomName, setChatroomName } = useIdentityContext();
 
   return (
     <header className="px-24 py-4 border-b bg-white/25">
