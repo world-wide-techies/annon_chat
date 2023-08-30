@@ -8,10 +8,11 @@ app.use(cors());
 
 dotenv.config();
 const server = http.createServer(app);
-
+console.log(process.env.NEXT_PUBLIC_CLIENT_URL)
 const io = new Server(server, {
+
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
