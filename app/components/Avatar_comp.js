@@ -6,15 +6,8 @@ import { useIdentityContext } from "../lib/identityContext";
 import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
-  const {
-    personality,
-
-    personalitySelected,
-
-    gender,
-
-    setSelectedAvatar,
-  } = useIdentityContext();
+  const { personality, personalitySelected, gender, setSelectedAvatar } =
+    useIdentityContext();
 
   const [avatars, setAvatars] = useState([]);
   const [selectedPersonality, setSelectedPersonality] = useState(false);
@@ -45,14 +38,18 @@ function AvatarComponent() {
     setAvatars(Avatars);
   }, [personality, gender, personalitySelected]);
 
-  const [isSelected, setIsSelected] = useState(
-    avatars.find((avatar) => avatar.id === 1)?.src
-  );
+  const initialAvatar = avatars.find((avatar) => avatar.id === 1)?.src;
+  useEffect(() => {
+    localStorage.setItem("selectedAvatar", initialAvatar);
+  });
+
+  const [isSelected, setIsSelected] = useState(initialAvatar);
   console.log(avatars);
   const handleClick = (src) => {
+    console.log(src);
     setIsSelected(src);
     setSelectedAvatar(src);
-    window.localStorage.setItem("selectedAvatar", src);
+    localStorage.setItem("selectedAvatar", src);
   };
   return (
     <>
