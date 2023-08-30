@@ -32,8 +32,7 @@ export default function OnboardingComp() {
     e.preventDefault();
     if (username !== "" && chatroomName !== "") {
      
-      console.log(chatroomName);
-      console.log(socket);
+     
       socket.emit("join_room", chatroomName);
 
       router.push(`/${chatroomName}`);
