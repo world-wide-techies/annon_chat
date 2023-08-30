@@ -1,15 +1,17 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
 
+dotenv.config();
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env_CLIENT_URL,
     methods: ["GET", "POST"],
   },
 });
@@ -23,7 +25,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_message", (data) => {
-    console.log(data)
+    console.log(data);
     socket.to(data.room).emit("receive_message", data);
   });
 

@@ -44,9 +44,8 @@ function AvatarComponent() {
   }, [initialAvatar]);
 
   const [isSelected, setIsSelected] = useState(initialAvatar);
-  console.log(avatars);
+
   const handleClick = (src) => {
-    console.log(src);
     setIsSelected(src);
     setSelectedAvatar(src);
     localStorage.setItem("selectedAvatar", src);
