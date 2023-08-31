@@ -14,7 +14,7 @@ export default function JoinChatComp() {
 
   const [username, setUsername] = useState("");
 
-  const btnDisabled = !(username && gender && avatarSelected && avatarSelected);
+  const btnDisabled = !(username && gender && avatarSelected);
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -38,6 +38,7 @@ export default function JoinChatComp() {
                 objectFit="contain"
                 quality={100}
                 draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </figure>
           </aside>
@@ -51,6 +52,7 @@ export default function JoinChatComp() {
                 alt="vector image"
                 objectFit="contain"
                 draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </figure>
           </aside>
