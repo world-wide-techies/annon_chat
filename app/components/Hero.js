@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { useState } from "react";
 import NavBar from "./navBar_comp";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const [showCTA, setShowCTA] = useState(true);
   const [joinCTA, setJoinCTA] = useState(false);
-
+  const router = useRouter();
   return (
     <div className="relative bg-center w-full lg:h-[1331px] h-[1135px] bg-hero-bg bg-cover mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
       <NavBar />
@@ -22,7 +23,13 @@ export default function Hero() {
             </p>
             {showCTA && (
               <div className="mt-[31px] lg:flex gap-[15px] grid grid-rows-2 items-center justify-center">
-                <button className="rounded-full bg-base-white flex lg:py-3 lg:px-8 py-2 px-4  items-center justify-center gap-[10px] font-lexend text-sm leading-[28px] tracking-[-0.01em] text-[#755BDF]">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/lobby");
+                  }}
+                  className="rounded-full bg-base-white flex lg:py-3 lg:px-8 py-2 px-4  items-center justify-center gap-[10px] font-lexend text-sm leading-[28px] tracking-[-0.01em] text-[#755BDF]"
+                >
                   <span>
                     <Image
                       src="/assets/images/chat_icon.png"

@@ -7,12 +7,16 @@ import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
 import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import ChatRoomNav from "./ChatRoomNav_comp";
+import { useSocketContext } from "../lib/socketContext";
 
 export default function OnboardingComp() {
+  const router = useRouter();
   const { gender, setGender } = useIdentityContext();
-
-  const [chatroomName, setChatroomName] = useState("");
-  const [username, setUsername] = useState("");
+  const { socket } = useSocketContext();
+  const { chatroomName, setChatroomName } = useIdentityContext();
+  const { username, setUsername } = useIdentityContext();
 
   const handleChatRoom = (e) => {
     setChatroomName(e.target.value);
@@ -22,6 +26,17 @@ export default function OnboardingComp() {
   };
   const handleGender = (e) => {
     setGender(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username !== "" && chatroomName !== "") {
+     
+     
+      socket.emit("join_room", chatroomName);
+
+      router.push(`/${chatroomName}`);
+    }
   };
 
   return (
@@ -65,7 +80,7 @@ export default function OnboardingComp() {
               </div>
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                onSubmit={() => {}}
+                onSubmit={handleSubmit}
               >
                 <div className="relative lg:flex lg:justify-between lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                   <div className="relative mx-auto">

@@ -6,21 +6,16 @@ import { useIdentityContext } from "../lib/identityContext";
 import { getRandomPNGUrl } from "../lib/randomPngUrl";
 
 function AvatarComponent() {
-  const {
-    personality,
-    setPersonality,
-    personalitySelected,
-    setPersonalitySelected,
-    gender,
-    setGender,
-    avatarSelected,
-    setAvatarSelected,
-  } = useIdentityContext();
+  const { personality, personalitySelected, gender, setSelectedAvatar } =
+    useIdentityContext();
 
   const [avatars, setAvatars] = useState([]);
+  const [selectedPersonality, setSelectedPersonality] = useState(false);
 
   useEffect(() => {
-    console.log(personalitySelected);
+    personalitySelected
+      ? setSelectedPersonality(true)
+      : setSelectedPersonality(false);
 
     const Avatars = [
       {
@@ -41,19 +36,23 @@ function AvatarComponent() {
       },
     ];
     setAvatars(Avatars);
-  }, [personality, personalitySelected, gender]);
+  }, [personality, gender, personalitySelected]);
 
-  const [isSelected, setIsSelected] = useState(
-    avatars.find((avatar) => avatar.id === 1)?.src
-  );
-  console.log(avatars);
+  const initialAvatar = avatars.find((avatar) => avatar.id === 1)?.src;
+  useEffect(() => {
+    localStorage.setItem("selectedAvatar", initialAvatar);
+  }, [initialAvatar]);
+
+  const [isSelected, setIsSelected] = useState(initialAvatar);
+
   const handleClick = (src) => {
     setIsSelected(src);
-    setAvatarSelected(true);
+    setSelectedAvatar(src);
+    localStorage.setItem("selectedAvatar", src);
   };
   return (
     <>
-      {personalitySelected && (
+      {selectedPersonality && (
         <div className="w-11/12 md:w-7/12 mx-auto mt-10">
           <div className="text-center lg:mt-8 mt-6">
             <p className="text-base-white font-lexend leading-7 tracking-normal font-normal text-xl">
