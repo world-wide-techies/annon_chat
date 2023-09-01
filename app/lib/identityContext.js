@@ -21,8 +21,6 @@ export const IdentityContextProvider = ({ children }) => {
         setGender,
         personalitySelected,
         setPersonalitySelected,
-        avatarSelected,
-        setAvatarSelected,
         chatroomName,
         setChatroomName,
         username,

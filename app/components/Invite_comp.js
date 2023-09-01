@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function InviteView({ chatroomName }) {
   const [copy, setCopy] = useState(false);
-  const chatLink = `annonchat.com/${chatroomName}`;
+  const chatLink = process.env.NEXT_PUBLIC_DEVELOPMENT_URL + chatroomName;
 
   const handleCopy = () => {
     navigator.clipboard

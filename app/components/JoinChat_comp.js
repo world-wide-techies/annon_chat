@@ -10,17 +10,23 @@ import { useState } from "react";
 
 export default function JoinChatComp() {
   const { gender, setGender } = useIdentityContext();
-  const { avatarSelected, setAvaterSelected } = useIdentityContext();
+  const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
 
   const [username, setUsername] = useState("");
-
-  const btnDisabled = !(username && gender && avatarSelected);
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
+
   const handleGender = (e) => {
     setGender(e.target.value);
+  };
+
+  const validation = () => {
+    const isAvatarSelected = username && gender && selectedAvatar;
+
+    setSelectedAvatar(isAvatarSelected);
+    return !isAvatarSelected;
   };
 
   return (
@@ -43,7 +49,7 @@ export default function JoinChatComp() {
             </figure>
           </aside>
           <aside className="absolute right-[calc(25%_-_720px)] top-[320px] flex items-center justify-center gap-4">
-            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44 -mt-7">
+            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44 -mt-8">
               <Image
                 src="/assets/images/onboarding_img_2.png"
                 width={443}
@@ -144,12 +150,12 @@ export default function JoinChatComp() {
                 <div className="flex items-center justify-center mb-8 ">
                   <button
                     className={`w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)] ${
-                      btnDisabled
+                      validation()
                         ? "opacity-30 cursor-not-allowed"
                         : "hover:bg-opacity-[0.8]"
                     }`}
                     type="submit"
-                    disabled={btnDisabled}
+                    disabled={validation()}
                   >
                     Join Chat
                   </button>

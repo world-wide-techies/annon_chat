@@ -6,7 +6,7 @@ import { SocketContextProvider } from "./lib/socketContext";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full w-full antialiased scroll-smooth">
       <head>
         <title>Anon Chat</title>
         <meta

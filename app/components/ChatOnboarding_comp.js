@@ -15,7 +15,7 @@ import { useSocketContext } from "../lib/socketContext";
 export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
-  const { avatarSelected, setAvatarSelected } = useIdentityContext();
+  const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
   const { socket } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
   const { chatroomName, setChatroomName } = useIdentityContext();
@@ -43,17 +43,15 @@ export default function OnboardingComp() {
   };
 
   const validation = () => {
-    const isAvatarSelected = username && gender && avatarSelected;
+    const isAvatarSelected = username && gender && selectedAvatar;
 
-    setAvatarSelected(isAvatarSelected);
+    setSelectedAvatar(isAvatarSelected);
     return !isAvatarSelected;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== "" && chatroomName !== "") {
-     
-     
       socket.emit("join_room", chatroomName);
 
       router.push(`/${chatroomName}`);
