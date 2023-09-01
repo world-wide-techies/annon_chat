@@ -131,7 +131,7 @@ function ChatRoom() {
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
               onChange={(e) => setCurrentMessage(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter'? (sendMessage()) : (null)}
+              // onKeyDown={(e) => e.key === 'Enter'? (sendMessage) : (null)}
               value={currentMessage}
               type="text"
               placeholder="Send a message"
