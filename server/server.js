@@ -20,7 +20,7 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
-    const room = io.socket.adapter.rooms[data];
+    const room = io.in(data).allSockets();
     console.log("This room has 2 users connected already" + room);
     if (room && room.length >= 2) {
       console.log("This room has 2 users connected already" + room.length);
