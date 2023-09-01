@@ -9,7 +9,7 @@ import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
 
 export default function JoinChatComp() {
-  const { gender, setGender, avatar } = useIdentityContext();
+  const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
 
   const [username, setUsername] = useState("");
