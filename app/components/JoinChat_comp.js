@@ -9,7 +9,7 @@ import AvatarComponent from "./Avatar_comp";
 import { useState } from "react";
 
 export default function JoinChatComp() {
-  const { gender, setGender } = useIdentityContext();
+  const { gender, setGender, avatar } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
 
   const [username, setUsername] = useState("");
@@ -32,7 +32,7 @@ export default function JoinChatComp() {
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
       <OnboardingNav />
-      <div className="relative max-h-[1024px] mx-auto flex-shrink-0 ">
+      <div className="relative max-h-[1024px] mx-auto flex-shrink-0">
         <div className="relative mx-auto flex items-center justify-center gap-4">
           <aside className="absolute top-[400px] left-[calc(50%_-_720px)] flex items-center justify-center">
             <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 left-10 flex-shrink-0 -mt-7">
@@ -70,6 +70,25 @@ export default function JoinChatComp() {
               <div className="relative flex items-center justify-center lg:mt-[13px] mt-[17px]">
                 <span className="h-px lg:w-[772px] w-[311px] bg-white bg-opacity-20 self-stretch" />
               </div>
+
+              <div className="flex items-center justify-center gap-1">
+                <Image
+                  className="object-contain rounded-full mt-5"
+                  src="/assets/avatars/energetic/energeticFemale_1.png"
+                  width={32}
+                  height={32}
+                  alt="avatar"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                />{" "}
+                <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
+                  <span className="font-semibold lg:text-lg text-xs capitalize">
+                    Deeproduza
+                  </span>{" "}
+                  just invited you to chat
+                </p>
+              </div>
+
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
                 onSubmit={() => {}}

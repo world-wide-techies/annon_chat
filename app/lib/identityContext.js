@@ -7,7 +7,6 @@ export const IdentityContextProvider = ({ children }) => {
   const [personality, setPersonality] = useState([]);
   const [gender, setGender] = useState(false);
   const [personalitySelected, setPersonalitySelected] = useState(false);
-  const [avatarSelected, setAvatarSelected] = useState(false);
   const [chatroomName, setChatroomName] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState("");
   const [username, setUsername] = useState("");

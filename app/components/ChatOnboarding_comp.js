@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Footer from "./Footer_comp";
-import OnboardingNav from "./OnboardingNav_comp";
-import { useIdentityContext } from "../lib/identityContext";
-import Personaliies from "./Personalities_comp";
-import AvatarComponent from "./Avatar_comp";
-import { useState } from "react";
-import InviteView from "./Invite_comp";
 import { useRouter } from "next/navigation";
-import ChatRoomNav from "./ChatRoomNav_comp";
+import { useState } from "react";
+import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
+import AvatarComponent from "./Avatar_comp";
+import Footer from "./Footer_comp";
+import InviteView from "./Invite_comp";
+import OnboardingNav from "./OnboardingNav_comp";
+import Personaliies from "./Personalities_comp";
 
 export default function OnboardingComp() {
   const router = useRouter();
