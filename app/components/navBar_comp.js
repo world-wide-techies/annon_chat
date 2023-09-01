@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function NavBar() {
+  const router = useRouter();
   return (
     <div>
       <div className="w-full h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center inline-flex">
@@ -15,7 +17,14 @@ function NavBar() {
             height={24}
             alt="chat icon"
           />
-          <p className="mx-2 text-[20px]">Start a Chat</p>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/lobby");
+            }}
+          >
+            <p className="mx-2 text-[20px]">Start a Chat</p>
+          </button>
         </div>
       </div>
     </div>
