@@ -23,9 +23,8 @@ export default function JoinChatComp() {
 
   useEffect(() => {
     const urlPath = window.location.pathname;
-    const joinroomName = urlPath.match(/[^/]+$/)[0];
-    if (!chatroomName) {
-      setRoom(joinroomName);
+    if (!(chatroomName && room)) {
+      setRoom(urlPath.match(/[^/]+$/)[0]);
     }
   }, []);
 
@@ -44,7 +43,6 @@ export default function JoinChatComp() {
       socket.emit("join_room", room);
       setChatroomName(room);
       router.push(`/${room}`);
-      console.log("this is the 2" + chatroomName);
     }
   };
 
