@@ -21,14 +21,13 @@ export default function JoinChatComp() {
 
   const btnDisabled = !(username && gender && avatarSelected);
 
-  // useEffect(() => {
-  //   const urlPath = "window.location.pathname;"
-  //   const joinroomName = urlPath.match(/[^/]+$/)[0];
-
-  //   if (!chatroomName) {
-  //     setChatroomName(joinroomName);
-  //   }
-  // }, [ ]);
+  useEffect(() => {
+    const urlPath = window.location.pathname;
+    const joinroomName = urlPath.match(/[^/]+$/)[0];
+    if (!chatroomName) {
+      setRoom(joinroomName);
+    }
+  }, []);
 
   console.log("this is the" + room);
   const handleUsername = (e) => {
@@ -40,10 +39,12 @@ export default function JoinChatComp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
-
+      setChatroomName(room);
       router.push(`/${room}`);
+      console.log("this is the 2" + chatroomName);
     }
   };
 
