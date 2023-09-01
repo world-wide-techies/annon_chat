@@ -3,7 +3,7 @@ import { Buttons } from "./Buttons_comp";
 import { useIdentityContext } from "../lib/identityContext";
 
 function Personaliies({ chatroomName, username }) {
-  const { personalitySelected, setPersonalitySelected } = useIdentityContext();
+  const { personalitySelected } = useIdentityContext();
 
   const buttonTexts = [
     { personality: "Adventurous 🌍" },

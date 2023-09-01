@@ -6,21 +6,45 @@ import OnboardingNav from "./OnboardingNav_comp";
 import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
 import AvatarComponent from "./Avatar_comp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSocketContext } from "../lib/socketContext";
+import { useRouter } from "next/navigation";
 
 export default function JoinChatComp() {
-  const { gender, setGender } = useIdentityContext();
+  const router = useRouter();
+  const { gender, setGender, chatroomName, setChatroomName } =
+    useIdentityContext();
   const { avatarSelected, setAvaterSelected } = useIdentityContext();
-
+  const { socket } = useSocketContext();
   const [username, setUsername] = useState("");
+  const [room, setRoom] = useState("");
 
-  const btnDisabled = !(username && gender && avatarSelected && avatarSelected);
+  const btnDisabled = !(username && gender && avatarSelected);
 
+  // useEffect(() => {
+  //   const urlPath = "window.location.pathname;"
+  //   const joinroomName = urlPath.match(/[^/]+$/)[0];
+
+  //   if (!chatroomName) {
+  //     setChatroomName(joinroomName);
+  //   }
+  // }, [ ]);
+
+  console.log("this is the" + room);
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
   const handleGender = (e) => {
     setGender(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username !== "" && room !== "") {
+      socket.emit("join_room", room);
+
+      router.push(`/${room}`);
+    }
   };
 
   return (
@@ -64,7 +88,7 @@ export default function JoinChatComp() {
               </div>
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                onSubmit={() => {}}
+                onSubmit={handleSubmit}
               >
                 <div className="relative lg:flex lg:justify-between lg:text-center lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                   <div className="relative mx-auto">
@@ -149,7 +173,6 @@ export default function JoinChatComp() {
                         : "hover:bg-opacity-[0.8]"
                     }`}
                     type="submit"
-                    disabled={btnDisabled}
                   >
                     Join Chat
                   </button>

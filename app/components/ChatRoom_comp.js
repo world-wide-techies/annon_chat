@@ -3,16 +3,7 @@ import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
-
-const chats = [
-  {
-    name: "Sweettee",
-    avatar: "/assets/avatars/chill/chillFemale_1.png",
-    message: "Hi there",
-    timeSent: "2mins ago",
-    isOwnerChatting: false,
-  },
-];
+import JoinChatComp from "./JoinChat_comp";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
@@ -21,6 +12,7 @@ function ChatRoom() {
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [room, setRoom] = useState("");
   const selectedAvatar = window.localStorage.getItem("selectedAvatar");
 
   const sendMessage = async (e) => {
@@ -43,15 +35,20 @@ function ChatRoom() {
     }
   };
 
+  
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
 
+  if (!chatroomName) {
+    return <JoinChatComp />;
+  }
+
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
-      <ChatRoomNav selectedAvatar = {selectedAvatar}/>
+      <ChatRoomNav selectedAvatar={selectedAvatar} />
       <div className="flex flex-col items-stretch mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
