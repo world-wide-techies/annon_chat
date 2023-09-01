@@ -5,9 +5,7 @@ import { io } from "socket.io-client";
 export const SocketContext = createContext();
 
 export const SocketContextProvider = ({ children }) => {
-  const socket = io(
-    "https://sockect-server.onrender.com"
-  );
+  const socket = io("http://localhost:3001");
 
   return (
     <SocketContext.Provider

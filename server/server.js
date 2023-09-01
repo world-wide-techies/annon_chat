@@ -10,7 +10,6 @@ dotenv.config();
 const server = http.createServer(app);
 
 const io = new Server(server, {
-
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -21,8 +20,15 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
-    socket.join(data);
-    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+    const room = io.socket.adapter.rooms[data];
+    console.log("This room has 2 users connected already" + room);
+    if (room && room.length >= 2) {
+      console.log("This room has 2 users connected already" + room.length);
+      socket.emit("room_full");
+    } else {
+      socket.join(data);
+      console.log(`User with ID: ${socket.id} joined room: ${data}`);
+    }
   });
 
   socket.on("send_message", (data) => {
