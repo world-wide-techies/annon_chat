@@ -29,7 +29,7 @@ export default function JoinChatComp() {
       <div className="relative max-h-[1024px] mx-auto flex-shrink-0 ">
         <div className="relative mx-auto flex items-center justify-center gap-4">
           <aside className="absolute top-[400px] left-[calc(50%_-_720px)] flex items-center justify-center">
-            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 left-10 flex-shrink-0">
+            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 left-10 flex-shrink-0 -mt-7">
               <Image
                 src="/assets/images/onboarding_img_1.png"
                 alt="vector image"
@@ -43,7 +43,7 @@ export default function JoinChatComp() {
             </figure>
           </aside>
           <aside className="absolute right-[calc(25%_-_720px)] top-[320px] flex items-center justify-center gap-4">
-            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44">
+            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44 -mt-7">
               <Image
                 src="/assets/images/onboarding_img_2.png"
                 width={443}
@@ -113,9 +113,7 @@ export default function JoinChatComp() {
                       className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                       onChange={handleGender}
                     >
-                      <option value="" disabled selected>
-                        Pick Your Gender
-                      </option>
+                      <option value="placeholder">Pick Your Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
