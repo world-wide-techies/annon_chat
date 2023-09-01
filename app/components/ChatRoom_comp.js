@@ -4,16 +4,6 @@ import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 
-const chats = [
-  {
-    name: "Sweettee",
-    avatar: "/assets/avatars/chill/chillFemale_1.png",
-    message: "Hi there",
-    timeSent: "2mins ago",
-    isOwnerChatting: false,
-  },
-];
-
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket } = useSocketContext();
@@ -22,9 +12,15 @@ function ChatRoom() {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const selectedAvatar = window.localStorage.getItem("selectedAvatar");
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
+
     if (currentMessage !== "") {
       const messageData = {
         room: chatroomName,
@@ -49,9 +45,13 @@ function ChatRoom() {
     });
   }, [socket]);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messageList]);
+
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
-      <ChatRoomNav selectedAvatar = {selectedAvatar}/>
+      <ChatRoomNav selectedAvatar={selectedAvatar} />
       <div className="flex flex-col items-stretch mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
@@ -70,11 +70,14 @@ function ChatRoom() {
               </div>
             </div>
           ) : (
-            <div>
+            <div
+              className="overflow-y-auto custom-scroll"
+              style={{ height: "calc(100vh - 230px)" }}
+            >
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
-                    <div className="flex space-x-4 items-start my-4">
+                    <div className="flex space-x-4 items-start my-4 w-7/12">
                       <div className="rounded-full">
                         <Image
                           src={messageContent.avatar}
@@ -95,7 +98,7 @@ function ChatRoom() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex space-x-4 items-start self-end my-2">
+                    <div className="flex space-x-4 items-start self-end justify-end my-2 mr-4 w-7/12">
                       <div className="text-white font-roboto">
                         <p className="text-sm text-right">
                           {messageContent.author}
@@ -120,49 +123,50 @@ function ChatRoom() {
                   )}
                 </div>
               ))}
+              <div ref={messagesEndRef}></div>
             </div>
           )}
         </div>
-      </div>
-
-      <div className="flex items-end space-x-6">
-        <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
-          <input
-            onChange={(e) => setCurrentMessage(e.target.value)}
-            value={currentMessage}
-            type="text"
-            placeholder="Send a message"
-            className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
-          />
-          <div>
-            <button className="text-[#755BDF]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="#ffff"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-smile"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                <line x1="15" y1="9" x2="15.01" y2="9"></line>
-              </svg>
-            </button>
+        <div className="flex items-end space-x-6 ">
+          <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
+            <input
+              onChange={(e) => setCurrentMessage(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter'? (sendMessage()) : (null)}
+              value={currentMessage}
+              type="text"
+              placeholder="Send a message"
+              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
+            />
+            <div>
+              <button className="text-[#755BDF]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#ffff"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-smile"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </button>
+            </div>
           </div>
+          <button
+            onClick={sendMessage}
+            className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
+            type="submit"
+          >
+            Send
+          </button>
         </div>
-        <button
-          onClick={sendMessage}
-          className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
-          type="submit"
-        >
-          Send
-        </button>
       </div>
     </section>
   );

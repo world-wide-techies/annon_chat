@@ -66,13 +66,14 @@ function AvatarComponent() {
           <div className="mt-5">
             <div className="w-28 mx-auto border border-base-white rounded-full p-3 text-center bg-white/20">
               {isSelected ? (
-                <Image src={isSelected} alt="avatar" width={90} height={90} />
+                <Image src={isSelected} alt="avatar" width={90} height={90} className="rounded-full" />
               ) : (
                 <Image
                   src={avatars.find((avatar) => avatar.id === 1)?.src}
                   alt="avatar"
                   width={90}
                   height={90}
+                  className="rounded-full"
                 />
               )}
             </div>
@@ -96,7 +97,7 @@ function AvatarComponent() {
                         : "mx-auto rounded-full p-2 bg-white/20"
                     }
                   >
-                    <Image src={src} alt="avatar" width={60} height={60} />
+                    <Image src={src} alt="avatar" width={60} height={60} className="rounded-full" />
                   </div>
                 </button>
               ))}
