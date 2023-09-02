@@ -11,12 +11,8 @@ function ChatRoom() {
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const selectedAvatar = window.localStorage.getItem("selectedAvatar");
+  const selectedAvatar = window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -39,6 +35,7 @@ function ChatRoom() {
     }
   };
 
+
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
@@ -46,7 +43,8 @@ function ChatRoom() {
   }, [socket]);
 
   useEffect(() => {
-    scrollToBottom();
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+
   }, [messageList]);
 
   return (
@@ -127,11 +125,10 @@ function ChatRoom() {
             </div>
           )}
         </div>
-        <div className="flex items-end space-x-6 ">
+        <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
               onChange={(e) => setCurrentMessage(e.target.value)}
-              // onKeyDown={(e) => e.key === 'Enter'? (sendMessage) : (null)}
               value={currentMessage}
               type="text"
               placeholder="Send a message"
@@ -160,13 +157,12 @@ function ChatRoom() {
             </div>
           </div>
           <button
-            onClick={sendMessage}
             className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
             type="submit"
           >
             Send
           </button>
-        </div>
+        </form>
       </div>
     </section>
   );
