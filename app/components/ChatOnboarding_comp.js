@@ -24,25 +24,26 @@ export default function OnboardingComp() {
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
-    setChatroomName(value);
 
-    if (/\s/.test(value) || /[^a-z0-9]/.test(value)) {
-      setIsValid(false);
-    } else {
-      setIsValid(true);
-    }
+    // Validate if name contains only lowercase letters, numbers, and emojis
+    const isValidName = /^[a-z0-9\p{Emoji}\p{Extended_Pictographic}]*$/u.test(
+      value
+    );
 
     setChatroomName(value);
+    setIsValid(isValidName);
   };
+
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
+
   const handleGender = (e) => {
     setGender(e.target.value);
   };
 
   const validation = () => {
-    const isAvatarSelected = username && gender && selectedAvatar;
+    const isAvatarSelected = isValid && username && gender && selectedAvatar;
 
     setSelectedAvatar(isAvatarSelected);
     return !isAvatarSelected;
@@ -143,7 +144,7 @@ export default function OnboardingComp() {
                         />
                         {!isValid && (
                           <div className="text-red-500 font-lexend normal-case text-sm text-center -mt-3">
-                            Use lowercase letters and numbers only, no spaces.
+                            Use only lowercase letters, numbers, and emojis.
                           </div>
                         )}
                       </div>
