@@ -18,18 +18,18 @@ export default function OnboardingComp() {
   const { socket } = useSocketContext();
   const { chatroomName, setChatroomName } = useIdentityContext();
   const { username, setUsername } = useIdentityContext();
-  const [roomId, setRoomId] = useState();
- 
+  const [roomId, setRoomId] = useState("");
+
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      setMessageList((list) => [...list, data]);
+    socket.on("connect", () => {
+      const id = socket.id;
+      if (roomId === "") setRoomId(id);
     });
-  }, [socket]);
- 
- 
-  // useEffect(() => {
-  //   setRoomId(generateRoomId());
-  // }, []);
+
+    return () => {
+      socket.off("connect");
+    };
+  }, [socket, roomId]);
 
   const handleChatRoom = (e) => {
     setChatroomName(e.target.value);
@@ -44,10 +44,10 @@ export default function OnboardingComp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== "" && chatroomName !== "") {
-      const room = chatroomName + "/" + roomId;
+      const room = chatroomName + roomId;
       socket.emit("join_room", room);
-
-      router.push(`/${chatroomName}`);
+      console.log(room);
+      router.push(`/${room}`);
     }
   };
 
