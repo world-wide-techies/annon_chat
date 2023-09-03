@@ -9,6 +9,9 @@ app.use(cors());
 dotenv.config();
 const server = http.createServer(app);
 
+
+const roomUserCounts = {};
+
 const io = new Server(server, {
   cors: {
     origin: "*",
