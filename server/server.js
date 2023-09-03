@@ -9,7 +9,6 @@ app.use(cors());
 dotenv.config();
 const server = http.createServer(app);
 
-
 const roomUserCounts = {};
 
 const io = new Server(server, {
@@ -23,6 +22,20 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
+    const room = data;
+
+    if (!roomUserCounts[room]) {
+      roomUserCounts[room] = 0;
+    }
+
+    if (roomUserCounts[room] >= 2) {
+      socket.emit("room_full", { room });
+      console.log(`Room Full: ${socket.id} joined room: ${data}`)
+      return;
+    }
+
+    roomUserCounts[room]++;
+
     socket.join(data);
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
