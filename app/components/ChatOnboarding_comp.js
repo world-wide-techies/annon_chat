@@ -6,10 +6,11 @@ import OnboardingNav from "./OnboardingNav_comp";
 import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
 import AvatarComponent from "./Avatar_comp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ChatRoomNav from "./ChatRoomNav_comp";
 import { useSocketContext } from "../lib/socketContext";
+import { generateRoomId } from "../lib/roomIdGenerator";
 
 export default function OnboardingComp() {
   const router = useRouter();
@@ -17,6 +18,18 @@ export default function OnboardingComp() {
   const { socket } = useSocketContext();
   const { chatroomName, setChatroomName } = useIdentityContext();
   const { username, setUsername } = useIdentityContext();
+  const [roomId, setRoomId] = useState();
+ 
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessageList((list) => [...list, data]);
+    });
+  }, [socket]);
+ 
+ 
+  // useEffect(() => {
+  //   setRoomId(generateRoomId());
+  // }, []);
 
   const handleChatRoom = (e) => {
     setChatroomName(e.target.value);
@@ -31,9 +44,8 @@ export default function OnboardingComp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== "" && chatroomName !== "") {
-     
-     
-      socket.emit("join_room", chatroomName);
+      const room = chatroomName + "/" + roomId;
+      socket.emit("join_room", room);
 
       router.push(`/${chatroomName}`);
     }
