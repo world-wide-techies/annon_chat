@@ -16,13 +16,27 @@ export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
-
+  const { socket } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
-  const { chatroomName, setChatroomName } = useIdentityContext();
-  const { username, setUsername } = useIdentityContext();
+  const { chatroomName, setChatroomName,username, setUsername } = useIdentityContext();
   const [roomId, setRoomId] = useState("");
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
+
+  useEffect(() => {
+    socket.on("connect", () => {
+      const id = socket.id;
+
+      if (roomId === "") setRoomId(id);
+
+      console.log("thid fff" + id);
+      console.log(roomId);
+    });
+
+    return () => {
+      socket.off("connect");
+    };
+  }, [socket, roomId]);
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
@@ -49,6 +63,16 @@ export default function OnboardingComp() {
 
     setSelectedAvatar(isAvatarSelected);
     return !isAvatarSelected;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username !== "" && chatroomName !== "") {
+      const room = `/${chatroomName}-${roomId}`;
+      socket.emit("join_room", room);
+      console.log(room);
+      router.push(`/${roomId}`);
+    }
   };
 
   return (
@@ -236,7 +260,7 @@ export default function OnboardingComp() {
                 </div>
               </div>
             )}
-            {showInvite && <InviteView chatroomName={chatroomName} />}
+            {showInvite && <InviteView onClick={handleSubmit} />}
           </div>
         </div>
       </div>
