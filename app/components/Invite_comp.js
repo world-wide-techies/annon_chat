@@ -8,8 +8,8 @@ import { useSocketContext } from "../lib/socketContext";
 
 export default function InviteView({ handleClick }) {
   const [copy, setCopy] = useState(false);
-  const { chatroomName, setChatroomName } = useIdentityContext();
-  const { room } = useSocketContext();
+  const { chatroomName, setChatroomName, username, room, roomId,  setRoom, setUsername } =
+    useIdentityContext();
 
   const router = useRouter();
   const chatLink = homeUrl + room;
@@ -23,6 +23,15 @@ export default function InviteView({ handleClick }) {
         setTimeout(() => setCopy(false), 2000);
       })
       .catch((error) => console.error("Failed to copy link:", error));
+  };
+
+  const handleSubmit = () => {
+    if (username !== "" && chatroomName !== "" && roomId !== "") {
+      setRoom(`${chatroomName}-${roomId}`);
+      socket.emit("join_room", room);
+      console.log(room);
+      router.push(`/${room}`);
+    }
   };
 
   return (
@@ -86,7 +95,7 @@ export default function InviteView({ handleClick }) {
             className="capitalize font-lexend lg:text-xl text-base leading-7 text-[rgb(92,70,202)] lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white hover:bg-opacity-[0.7] rounded-full"
             onClick={(e) => {
               e.preventDefault();
-              handleClick();
+              handleSubmit();
             }}
           >
             start chat

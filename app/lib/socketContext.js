@@ -15,10 +15,6 @@ export const SocketContextProvider = ({ children }) => {
       setRoomId(newSocket.id);
     });
     setSocket(newSocket);
-
-    return () => {
-      newSocket.disconnect();
-    };
   }, []);
 
   return (
@@ -27,7 +23,7 @@ export const SocketContextProvider = ({ children }) => {
         socket,
         roomId,
         room,
-        setRoom
+        setRoom,
       }}
     >
       {children}
