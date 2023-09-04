@@ -41,7 +41,8 @@ export default function JoinChatComp() {
 
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
-      setChatroomName(room);
+      console.log(room)
+      setChatroomName(room.split("/")[0]);
       router.push(`/${room}`);
     }
   };

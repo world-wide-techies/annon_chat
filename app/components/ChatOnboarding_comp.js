@@ -47,7 +47,7 @@ export default function OnboardingComp() {
       const room = chatroomName + roomId;
       socket.emit("join_room", room);
       console.log(room);
-      router.push(`/${room}`);
+      router.push(`/${chatroomName}/${roomId}`);
     }
   };
 
