@@ -18,7 +18,8 @@ export default function OnboardingComp() {
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
   const { socket } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
-  const { chatroomName, setChatroomName,username, setUsername } = useIdentityContext();
+  const { chatroomName, setChatroomName, username, setUsername } =
+    useIdentityContext();
   const [roomId, setRoomId] = useState("");
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
@@ -27,16 +28,15 @@ export default function OnboardingComp() {
     socket.on("connect", () => {
       const id = socket.id;
 
-      if (roomId === "") setRoomId(id);
-
-      console.log("thid fff" + id);
-      console.log(roomId);
+      setRoomId(id);
     });
 
     return () => {
       socket.off("connect");
     };
-  }, [socket, roomId]);
+  }, [socket]);
+  console.log("thid fff" + roomId);
+  console.log(roomId);
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
@@ -65,13 +65,12 @@ export default function OnboardingComp() {
     return !isAvatarSelected;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username !== "" && chatroomName !== "") {
-      const room = `/${chatroomName}-${roomId}`;
+  const handleSubmit = () => {
+    if (username !== "" && chatroomName !== "" && roomId !== "") {
+      const room = `${chatroomName}-${roomId}`;
       socket.emit("join_room", room);
       console.log(room);
-      router.push(`/${roomId}`);
+      router.push(`/${room}`);
     }
   };
 
@@ -133,7 +132,8 @@ export default function OnboardingComp() {
                   </div>
                   <form
                     className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                    onSubmit={() => {
+                    onSubmit={(e) => {
+                      e.preventDefault();
                       setOnboarding(false);
                       setShowInvite(true);
                     }}
@@ -260,7 +260,7 @@ export default function OnboardingComp() {
                 </div>
               </div>
             )}
-            {showInvite && <InviteView onClick={handleSubmit} />}
+            {showInvite && <InviteView handleClick={handleSubmit} />}
           </div>
         </div>
       </div>

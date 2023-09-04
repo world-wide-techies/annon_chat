@@ -15,21 +15,6 @@ export default function InviteView({ handleClick }) {
   const router = useRouter();
   const chatLink = homeUrl + chatroomName;
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      const id = socket.id;
-
-      if (roomId === "") setRoomId(id);
-
-      console.log("thid fff" + id);
-      console.log(roomId);
-    });
-
-    return () => {
-      socket.off("connect");
-    };
-  }, []);
-
   const handleCopy = () => {
     navigator.clipboard
       .writeText(chatLink)
@@ -39,16 +24,6 @@ export default function InviteView({ handleClick }) {
         setTimeout(() => setCopy(false), 2000);
       })
       .catch((error) => console.error("Failed to copy link:", error));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username !== "" && chatroomName !== "") {
-      const room = `/${chatroomName}-${roomId}`;
-      socket.emit("join_room", room);
-      console.log(room);
-      router.push(`/${roomId}`);
-    }
   };
 
   return (
@@ -110,7 +85,10 @@ export default function InviteView({ handleClick }) {
         <div className="flex items-center justify-center lg:mt-12 mt-[116px] lg:mb-12 mb-8">
           <button
             className="capitalize font-lexend lg:text-xl text-base leading-7 text-[rgb(92,70,202)] lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white hover:bg-opacity-[0.7] rounded-full"
-            onClick={() => handleClick()}
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick();
+            }}
           >
             start chat
           </button>
