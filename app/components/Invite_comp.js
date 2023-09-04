@@ -8,8 +8,15 @@ import { useSocketContext } from "../lib/socketContext";
 
 export default function InviteView({ handleClick }) {
   const [copy, setCopy] = useState(false);
-  const { chatroomName, setChatroomName, username, room, roomId,  setRoom, setUsername } =
-    useIdentityContext();
+  const {
+    chatroomName,
+    setChatroomName,
+    username,
+    room,
+    roomId,
+    setRoom,
+    setUsername,
+  } = useIdentityContext();
 
   const router = useRouter();
   const chatLink = homeUrl + room;
