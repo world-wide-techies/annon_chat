@@ -17,9 +17,15 @@ export default function InviteView({ handleClick }) {
     setRoom,
     setUsername,
   } = useIdentityContext();
+  const [currentRoomId, setCurrentRoomId] = useState(false)
 
   const router = useRouter();
   const chatLink = homeUrl + room;
+
+
+  useEffect(() => {
+    room? setCurrentRoomId(room) : setCurrentRoomId("")
+  }, [room]);
 
   const handleCopy = () => {
     navigator.clipboard
