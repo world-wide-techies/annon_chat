@@ -12,8 +12,14 @@ import { useRouter } from "next/navigation";
 
 export default function JoinChatComp() {
   const router = useRouter();
-  const { gender, setGender, chatroomName, setChatroomName } =
-    useIdentityContext();
+  const {
+    gender,
+    setGender,
+    chatroomName,
+    setChatroomName,
+    selectedAvatar,
+    setSelectedAvatar,
+  } = useIdentityContext();
   const { avatarSelected, setAvaterSelected } = useIdentityContext();
   const { socket } = useSocketContext();
   const [username, setUsername] = useState("");
@@ -32,6 +38,7 @@ export default function JoinChatComp() {
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
+
   const handleGender = (e) => {
     setGender(e.target.value);
   };
@@ -41,19 +48,25 @@ export default function JoinChatComp() {
 
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
-      console.log(room)
+      console.log(room);
       setChatroomName(room.split("/")[0]);
       router.push(`/${room}`);
     }
+  };
+  const validation = () => {
+    const isAvatarSelected = username && gender && selectedAvatar;
+
+    setSelectedAvatar(isAvatarSelected);
+    return !isAvatarSelected;
   };
 
   return (
     <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
       <OnboardingNav />
-      <div className="relative max-h-[1024px] mx-auto flex-shrink-0 ">
+      <div className="relative max-h-[1024px] mx-auto flex-shrink-0">
         <div className="relative mx-auto flex items-center justify-center gap-4">
           <aside className="absolute top-[400px] left-[calc(50%_-_720px)] flex items-center justify-center">
-            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 left-10 flex-shrink-0">
+            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 left-10 flex-shrink-0 -mt-7">
               <Image
                 src="/assets/images/onboarding_img_1.png"
                 alt="vector image"
@@ -62,11 +75,12 @@ export default function JoinChatComp() {
                 objectFit="contain"
                 quality={100}
                 draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </figure>
           </aside>
           <aside className="absolute right-[calc(25%_-_720px)] top-[320px] flex items-center justify-center gap-4">
-            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44">
+            <figure className="absolute hidden lg:block w-[679px] h-[679px] top-0 right-44 -mt-8">
               <Image
                 src="/assets/images/onboarding_img_2.png"
                 width={443}
@@ -75,6 +89,7 @@ export default function JoinChatComp() {
                 alt="vector image"
                 objectFit="contain"
                 draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </figure>
           </aside>
@@ -86,6 +101,25 @@ export default function JoinChatComp() {
               <div className="relative flex items-center justify-center lg:mt-[13px] mt-[17px]">
                 <span className="h-px lg:w-[772px] w-[311px] bg-white bg-opacity-20 self-stretch" />
               </div>
+
+              <div className="flex items-center justify-center gap-1">
+                <Image
+                  className="object-contain rounded-full mt-5"
+                  src="/assets/avatars/energetic/energeticFemale_1.png"
+                  width={32}
+                  height={32}
+                  alt="avatar"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                />{" "}
+                <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
+                  <span className="font-semibold lg:text-lg text-xs capitalize">
+                    Deeproduza
+                  </span>{" "}
+                  just invited you to chat
+                </p>
+              </div>
+
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
                 onSubmit={handleSubmit}
@@ -135,9 +169,7 @@ export default function JoinChatComp() {
                       className="w-full lg:w-[374px] h-[40px] px-4 rounded-[109px] leading-3 bg-gray-800 bg-opacity-20 text-base-white font-roboto border-2 lg:text-sm text-xs font-[400] tracking-[-0.14px] appearance-none"
                       onChange={handleGender}
                     >
-                      <option value="" disabled selected>
-                        Pick Your Gender
-                      </option>
+                      <option value="placeholder">Pick Your Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
@@ -168,11 +200,12 @@ export default function JoinChatComp() {
                 <div className="flex items-center justify-center mb-8 ">
                   <button
                     className={`w-auto h-auto lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white mt-8 rounded-[109px] font-lexend lg:text-xl text-base leading-7 font-normal text-[rgb(92,70,202)] ${
-                      btnDisabled
+                      validation()
                         ? "opacity-30 cursor-not-allowed"
                         : "hover:bg-opacity-[0.8]"
                     }`}
                     type="submit"
+                    disabled={validation()}
                   >
                     Join Chat
                   </button>
