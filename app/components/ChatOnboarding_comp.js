@@ -16,27 +16,12 @@ export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
-  const { socket } = useSocketContext();
+  const { socket, roomId, room, setRoom } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
-  const { chatroomName, setChatroomName, username, setUsername } =
-    useIdentityContext();
-  const [roomId, setRoomId] = useState("");
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
-
-  useEffect(() => {
-    socket.on("connect", () => {
-      const id = socket.id;
-
-      setRoomId(id);
-    });
-
-    return () => {
-      socket.off("connect");
-    };
-  }, [socket]);
-  console.log("thid fff" + roomId);
-  console.log(roomId);
+  const { chatroomName, setChatroomName, username, setUsername } =
+    useIdentityContext();
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
@@ -67,7 +52,7 @@ export default function OnboardingComp() {
 
   const handleSubmit = () => {
     if (username !== "" && chatroomName !== "" && roomId !== "") {
-      const room = `${chatroomName}-${roomId}`;
+      setRoom(`${chatroomName}-${roomId}`);
       socket.emit("join_room", room);
       console.log(room);
       router.push(`/${room}`);
