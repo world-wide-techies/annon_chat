@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useIdentityContext } from "../lib/identityContext";
-import { getRandomPNGUrl } from "../lib/randomPngUrl";
+import { getRandomPNGUrl } from "../lib/url";
 
 function AvatarComponent() {
   const { personality, personalitySelected, gender, setSelectedAvatar } =

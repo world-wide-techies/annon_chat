@@ -16,24 +16,13 @@ export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
-  const { socket } = useSocketContext();
+
   const [onboarding, setOnboarding] = useState(true);
   const { chatroomName, setChatroomName } = useIdentityContext();
   const { username, setUsername } = useIdentityContext();
   const [roomId, setRoomId] = useState("");
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
-
-  useEffect(() => {
-    socket.on("connect", () => {
-      const id = socket.id;
-      if (roomId === "") setRoomId(id);
-    });
-
-    return () => {
-      socket.off("connect");
-    };
-  }, [socket, roomId]);
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
@@ -60,16 +49,6 @@ export default function OnboardingComp() {
 
     setSelectedAvatar(isAvatarSelected);
     return !isAvatarSelected;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username !== "" && chatroomName !== "") {
-      const room = chatroomName + roomId;
-      socket.emit("join_room", room);
-      console.log(room);
-      router.push(`/${chatroomName}/${roomId}`);
-    }
   };
 
   return (
@@ -130,7 +109,10 @@ export default function OnboardingComp() {
                   </div>
                   <form
                     className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={() => {
+                      setOnboarding(false);
+                      setShowInvite(true);
+                    }}
                   >
                     <div className="relative lg:flex lg:justify-between lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                       <div className="relative mx-auto">
@@ -246,10 +228,6 @@ export default function OnboardingComp() {
                         }`}
                         type="submit"
                         disabled={validation()}
-                        onClick={() => {
-                          setOnboarding(false);
-                          setShowInvite(true);
-                        }}
                       >
                         Create New Chat
                       </button>
