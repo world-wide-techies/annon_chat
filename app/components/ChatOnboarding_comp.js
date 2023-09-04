@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import InviteView from "./Invite_comp";
+import { useSocketContext } from "../lib/socketContext";
 
 export default function OnboardingComp() {
   const router = useRouter();
