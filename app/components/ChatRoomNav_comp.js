@@ -49,12 +49,13 @@ function ChatRoomNav({ selectedAvatar }) {
             </svg>
           </div>
 
-          <div className=" p-2 rounded-full border-2 border-white">
+          <div className="p-1.5 rounded-full border-2 border-white">
             <Image
               src={selectedAvatar}
               alt="profile img"
               width={25}
               height={25}
+              className="rounded-full"
             />
           </div>
           <div className="">

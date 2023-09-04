@@ -78,3 +78,11 @@
 .input-placeholder::placeholder {
   @apply gap-[10px] lg:text-sm text-xs font-[400] leading-5 tracking-[-0.14px] w-[263px] h-[16px] lg:w-[303px] lg:h-[20px] self-stretch font-roboto;
 }
+
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  @apply bg-gray-200;
+}
