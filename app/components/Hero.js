@@ -82,6 +82,7 @@ export default function Hero() {
                   <button
                     className="rounded-full flex lg:py-3 lg:px-8 py-2 px-4 items-center justify-center gap-[10px] border-[2px] border-base-white tracking-[-0.01em] font-lexend text-sm font-normal leading[28px] text-[#755BDF] bg-base-white bg-opacity-50 border-none  hover:bg-base-white"
                     type="submit"
+                    onClick={() => {}}
                   >
                     Join Chat
                   </button>
