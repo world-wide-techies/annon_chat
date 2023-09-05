@@ -29,8 +29,8 @@ io.on("connection", (socket) => {
     }
 
     if (roomUserCounts[room] >= 2) {
-      socket.emit("room_full", { room });
-      console.log(`Room Full: ${socket.id} joined room: ${data}`);
+      socket.emit("room_full",  roomUserCounts[room] );
+      console.log(`Room Full: ${socket.id} joined room: ${data} ${roomUserCounts[room]} `);
       return;
     }
 

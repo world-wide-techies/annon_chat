@@ -24,6 +24,8 @@ export default function JoinChatComp() {
   const { socket } = useSocketContext();
   const [username, setUsername] = useState("");
   const { room, setRoom } = useSocketContext();
+  const [roomInfo, setRoomInfo] = useState("");
+  const [roomSize, setRoomSize] = useState(0);
 
   const btnDisabled = !(username && gender && avatarSelected);
 
@@ -33,6 +35,20 @@ export default function JoinChatComp() {
       setRoom(urlPath.match(/[^/]+$/)[0]);
     }
   }, []);
+
+  useEffect(() => {
+    socket?.on("receive_message", (data) => {
+      setRoomInfo((list) => [...list, data]);
+    });
+
+    socket?.on("room-full", (data) => {
+      setRoomSize(data);
+    });
+
+    socket?.emit("join_room", (data) => {
+      setRoomInfo((list) => [...list, data]);
+    });
+  }, [socket]);
 
   console.log("this is the" + room);
   const handleUsername = (e) => {
@@ -47,10 +63,9 @@ export default function JoinChatComp() {
     e.preventDefault();
 
     if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
       console.log(room);
       setChatroomName(room.split("-")[0]);
-      router.push(`/${room}`);
+      if (roomSize < 2) router.push(`/${room}`);
     }
   };
   const validation = () => {
