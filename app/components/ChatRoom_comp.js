@@ -49,10 +49,6 @@ function ChatRoom() {
     }
   };
 
-  if (!chatroomName && roomSize ) {
-    return <JoinChatComp />;
-  }
-
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />

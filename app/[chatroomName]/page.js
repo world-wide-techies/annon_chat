@@ -6,5 +6,11 @@ import JoinChatComp from "../components/JoinChat_comp";
 
 export default function Chatroom() {
   const { showChatRoom, setShowChatRoom } = useSocketContext();
+  const { chatroomName, setChatroomName } = useidentityContext();
+
+  useEffect(() => {
+    if (chatroomName) setShowChatRoom(true);
+  }, [chatroomName]);
+
   return <div>{showChatRoom ? <ChatRoom /> : <JoinChatComp />}</div>;
 }
