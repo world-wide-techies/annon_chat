@@ -13,7 +13,6 @@ function ChatRoom() {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [room, setRoom] = useState("");
-  const [chatRoomSize, setChatRoomSize] = useState(1);
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
