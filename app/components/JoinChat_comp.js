@@ -45,10 +45,8 @@ export default function JoinChatComp() {
       setRoomSize(data);
     });
 
-    socket?.emit("join_room", (data) => {
-      setRoomInfo((list) => [...list, data]);
-    });
-  }, [socket]);
+    socket.emit("join_room", room)
+  }, [socket, room]);
 
   console.log("this is the" + room);
   const handleUsername = (e) => {
