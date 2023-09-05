@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
 
     if (roomUserCounts[room] >= 2) {
       socket.emit("room_full", { room });
-      console.log(`Room Full: ${socket.id} joined room: ${data}`)
+      console.log(`Room Full: ${socket.id} joined room: ${data}`);
       return;
     }
 
@@ -43,6 +43,10 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     console.log(data);
     socket.to(data.room).emit("receive_message", data);
+    io.emit("show_users", {
+      author: data.author,
+      avatar: data.avatar,
+    });
   });
 
   socket.on("disconnect", () => {

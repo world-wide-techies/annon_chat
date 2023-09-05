@@ -12,7 +12,8 @@ export const SocketContextProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
     newSocket.on("connect", () => {
-      setRoomId(newSocket.id);
+      if (!roomId) setRoomId(newSocket.id.substring(0, 10));
+      console.log(roomId);
     });
     setSocket(newSocket);
   }, []);

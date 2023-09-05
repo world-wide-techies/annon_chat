@@ -11,22 +11,30 @@ import { useRouter } from "next/navigation";
 
 import InviteView from "./Invite_comp";
 import { useSocketContext } from "../lib/socketContext";
+import { homeUrl } from "../lib/url";
 
 export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
-  const { socket, roomId, room, setRoom } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
+
+  const [inviteLink, setInviteLink] = useState("");
   const { chatroomName, setChatroomName, username, setUsername } =
     useIdentityContext();
+  const { socket, roomId, room, setRoom } = useSocketContext();
+
+  useEffect(() => {
+    setRoom(`${chatroomName}-${roomId}`);
+    const chatLink = homeUrl + room;
+    setInviteLink(chatLink);
+  }, [roomId, chatroomName, room, setRoom]);
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
 
-    // Validate if name contains only lowercase letters, numbers, and emojis
     const isValidName = /^[a-z0-9\p{Emoji}\p{Extended_Pictographic}]*$/u.test(
       value
     );
@@ -50,9 +58,9 @@ export default function OnboardingComp() {
     return !isAvatarSelected;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (username !== "" && chatroomName !== "" && roomId !== "") {
-      setRoom(`${chatroomName}-${roomId}`);
       socket.emit("join_room", room);
       console.log(room);
       router.push(`/${room}`);
@@ -245,7 +253,9 @@ export default function OnboardingComp() {
                 </div>
               </div>
             )}
-            {showInvite && <InviteView handleClick={handleSubmit} />}
+            {showInvite && (
+              <InviteView chatLink={inviteLink} handleClick={handleSubmit} />
+            )}
           </div>
         </div>
       </div>

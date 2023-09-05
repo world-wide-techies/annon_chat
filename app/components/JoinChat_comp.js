@@ -23,7 +23,7 @@ export default function JoinChatComp() {
   const { avatarSelected, setAvaterSelected } = useIdentityContext();
   const { socket } = useSocketContext();
   const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
+  const { room, setRoom } = useSocketContext();
 
   const btnDisabled = !(username && gender && avatarSelected);
 
@@ -49,7 +49,7 @@ export default function JoinChatComp() {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
       console.log(room);
-      setChatroomName(room.split("/")[0]);
+      setChatroomName(room.split("-")[0]);
       router.push(`/${room}`);
     }
   };

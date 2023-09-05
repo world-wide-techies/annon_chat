@@ -6,26 +6,8 @@ import { useRouter } from "next/navigation";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 
-export default function InviteView({ handleClick }) {
+export default function InviteView({ handleClick, chatLink }) {
   const [copy, setCopy] = useState(false);
-  const {
-    chatroomName,
-    setChatroomName,
-    username,
-    room,
-    roomId,
-    setRoom,
-    setUsername,
-  } = useIdentityContext();
-  const [currentRoomId, setCurrentRoomId] = useState(false)
-
-  const router = useRouter();
-  const chatLink = homeUrl + room;
-
-
-  useEffect(() => {
-    room? setCurrentRoomId(room) : setCurrentRoomId("")
-  }, [room]);
 
   const handleCopy = () => {
     navigator.clipboard
@@ -36,15 +18,6 @@ export default function InviteView({ handleClick }) {
         setTimeout(() => setCopy(false), 2000);
       })
       .catch((error) => console.error("Failed to copy link:", error));
-  };
-
-  const handleSubmit = () => {
-    if (username !== "" && chatroomName !== "" && roomId !== "") {
-      setRoom(`${chatroomName}-${roomId}`);
-      socket.emit("join_room", room);
-      console.log(room);
-      router.push(`/${room}`);
-    }
   };
 
   return (
@@ -107,8 +80,7 @@ export default function InviteView({ handleClick }) {
           <button
             className="capitalize font-lexend lg:text-xl text-base leading-7 text-[rgb(92,70,202)] lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white hover:bg-opacity-[0.7] rounded-full"
             onClick={(e) => {
-              e.preventDefault();
-              handleSubmit();
+              handleClick(e);
             }}
           >
             start chat
