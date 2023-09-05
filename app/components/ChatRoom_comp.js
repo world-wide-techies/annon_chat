@@ -7,7 +7,7 @@ import JoinChatComp from "./JoinChat_comp";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
-  const { socket } = useSocketContext();
+  const { socket, roomSize } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
 
   const [currentMessage, setCurrentMessage] = useState("");
@@ -48,7 +48,7 @@ function ChatRoom() {
     }
   };
 
-  if (!chatroomName) {
+  if (!chatroomName && roomSize ) {
     return <JoinChatComp />;
   }
 

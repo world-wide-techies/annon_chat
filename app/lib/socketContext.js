@@ -8,6 +8,7 @@ export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [room, setRoom] = useState("");
   const [roomId, setRoomId] = useState("");
+  const [roomSize, setRoomSize] = useState(0);
 
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
@@ -25,6 +26,8 @@ export const SocketContextProvider = ({ children }) => {
         roomId,
         room,
         setRoom,
+        roomSize, 
+        setRoomSize,
       }}
     >
       {children}
