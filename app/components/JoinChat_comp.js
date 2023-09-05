@@ -24,8 +24,6 @@ export default function JoinChatComp() {
   const { socket, room, setRoom, roomSize, setRoomSize } = useSocketContext();
   const [username, setUsername] = useState("");
   const [roomInfo, setRoomInfo] = useState("");
-
-  const roomSize2 = 3;
   const maxRoomSize = 2;
   const btnDisabled = !(username && gender && avatarSelected);
 
