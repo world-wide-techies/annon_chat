@@ -12,12 +12,14 @@ export default function Chatroom() {
   const [joinChatRoom, setJoinChatRoom] = useState(false);
 
   useEffect(() => {
-    if (chatroomName && roomSize < 2) {
+    if (chatroomName) {
       setShowChatRoom(true);
+      setJoinChatRoom(false);
     } else {
       setJoinChatRoom(true);
+      setShowChatRoom(false);
     }
-  }, [chatroomName, setShowChatRoom, roomSize]);
+  }, [chatroomName, setShowChatRoom]);
 
   return (
     <div>
