@@ -18,7 +18,9 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    console.log("message list here" + messageList);
     socket?.on("receive_message", (data) => {
+      console.log(data);
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
