@@ -22,10 +22,9 @@ export default function JoinChatComp() {
     username,
     setUsername,
   } = useIdentityContext();
-  const { avatarSelected, setAvaterSelected } = useIdentityContext();
+  const { avatarSelected } = useIdentityContext();
   const { socket, room, setRoom, roomSize, setRoomSize } = useSocketContext();
 
-  const [roomInfo, setRoomInfo] = useState("");
   const maxRoomSize = 2;
   const btnDisabled = !(username && gender && avatarSelected);
 
@@ -113,7 +112,7 @@ export default function JoinChatComp() {
                 <span className="h-px lg:w-[772px] w-[311px] bg-white bg-opacity-20 self-stretch" />
               </div>
 
-              <div className="flex items-center justify-center gap-1">
+              {/*<div className="flex items-center justify-center gap-1">
                 <Image
                   className="object-contain rounded-full mt-5"
                   src="/assets/avatars/energetic/energeticFemale_1.png"
@@ -123,13 +122,14 @@ export default function JoinChatComp() {
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                 />{" "}
-                <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
+                
+                 <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
                   <span className="font-semibold lg:text-lg text-xs capitalize">
                     Deeproduza
                   </span>{" "}
                   just invited you to chat
-                </p>
-              </div>
+                </p> 
+              </div>*/}
 
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
