@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { homeUrl } from "../lib/url";
+import { useRouter } from "next/navigation";
+import { useIdentityContext } from "../lib/identityContext";
+import { useSocketContext } from "../lib/socketContext";
 
-export default function InviteView({ chatroomName }) {
+export default function InviteView({ handleClick, chatLink }) {
   const [copy, setCopy] = useState(false);
-  const chatLink = process.env.NEXT_PUBLIC_DEVELOPMENT_URL + chatroomName;
 
   const handleCopy = () => {
     navigator.clipboard
@@ -12,7 +15,6 @@ export default function InviteView({ chatroomName }) {
       .then(() => {
         setCopy(true);
 
-        // Hide feedback after 2 seconds
         setTimeout(() => setCopy(false), 2000);
       })
       .catch((error) => console.error("Failed to copy link:", error));
@@ -77,7 +79,9 @@ export default function InviteView({ chatroomName }) {
         <div className="flex items-center justify-center lg:mt-12 mt-[116px] lg:mb-12 mb-8">
           <button
             className="capitalize font-lexend lg:text-xl text-base leading-7 text-[rgb(92,70,202)] lg:px-8 lg:py-3 px-4 py-2 gap-[10px] bg-base-white hover:bg-opacity-[0.7] rounded-full"
-            onClick={() => {}}
+            onClick={(e) => {
+              handleClick(e);
+            }}
           >
             start chat
           </button>

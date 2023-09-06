@@ -1,31 +1,40 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { useIdentityContext } from "../lib/identityContext";
-import { useSocketContext } from "../lib/socketContext";
-import AvatarComponent from "./Avatar_comp";
 import Footer from "./Footer_comp";
-import InviteView from "./Invite_comp";
 import OnboardingNav from "./OnboardingNav_comp";
+import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
+import AvatarComponent from "./Avatar_comp";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
+import InviteView from "./Invite_comp";
+import { useSocketContext } from "../lib/socketContext";
+import { homeUrl } from "../lib/url";
 
 export default function OnboardingComp() {
   const router = useRouter();
   const { gender, setGender } = useIdentityContext();
   const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
-  const { socket } = useSocketContext();
   const [onboarding, setOnboarding] = useState(true);
-  const { chatroomName, setChatroomName } = useIdentityContext();
-  const { username, setUsername } = useIdentityContext();
   const [showInvite, setShowInvite] = useState(false);
   const [isValid, setIsValid] = useState(true);
+
+  const [inviteLink, setInviteLink] = useState("");
+  const { chatroomName, setChatroomName, username, setUsername } =
+    useIdentityContext();
+  const { socket, roomId, room, setRoom } = useSocketContext();
+
+  useEffect(() => {
+    setRoom(`${chatroomName}-${roomId}`);
+    const chatLink = homeUrl + room;
+    setInviteLink(chatLink);
+  }, [roomId, chatroomName, room, setRoom]);
 
   const handleChatRoom = (e) => {
     const value = e.target.value.toLowerCase();
 
-    // Validate if name contains only lowercase letters, numbers, and emojis
     const isValidName = /^[a-z0-9\p{Emoji}\p{Extended_Pictographic}]*$/u.test(
       value
     );
@@ -51,10 +60,9 @@ export default function OnboardingComp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username !== "" && chatroomName !== "") {
-      socket.emit("join_room", chatroomName);
-
-      router.push(`/${chatroomName}`);
+    if (username !== "" && chatroomName !== "" && roomId !== "") {
+      socket.emit("join_room", room);
+      router.push(`/${room}`);
     }
   };
 
@@ -116,7 +124,11 @@ export default function OnboardingComp() {
                   </div>
                   <form
                     className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setOnboarding(false);
+                      setShowInvite(true);
+                    }}
                   >
                     <div className="relative lg:flex lg:justify-between lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                       <div className="relative mx-auto">
@@ -232,10 +244,6 @@ export default function OnboardingComp() {
                         }`}
                         type="submit"
                         disabled={validation()}
-                        onClick={() => {
-                          setOnboarding(false);
-                          setShowInvite(true);
-                        }}
                       >
                         Create New Chat
                       </button>
@@ -244,7 +252,9 @@ export default function OnboardingComp() {
                 </div>
               </div>
             )}
-            {showInvite && <InviteView chatroomName={chatroomName} />}
+            {showInvite && (
+              <InviteView chatLink={inviteLink} handleClick={handleSubmit} />
+            )}
           </div>
         </div>
       </div>

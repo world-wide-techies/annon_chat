@@ -6,13 +6,40 @@ import OnboardingNav from "./OnboardingNav_comp";
 import { useIdentityContext } from "../lib/identityContext";
 import Personaliies from "./Personalities_comp";
 import AvatarComponent from "./Avatar_comp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSocketContext } from "../lib/socketContext";
+import { useRouter } from "next/navigation";
 
 export default function JoinChatComp() {
-  const { gender, setGender } = useIdentityContext();
-  const { selectedAvatar, setSelectedAvatar } = useIdentityContext();
+  const router = useRouter();
+  const {
+    gender,
+    setGender,
+    chatroomName,
+    setChatroomName,
+    selectedAvatar,
+    setSelectedAvatar,
+    username,
+    setUsername,
+  } = useIdentityContext();
+  const { avatarSelected } = useIdentityContext();
+  const { socket, room, setRoom, roomSize, setRoomSize } = useSocketContext();
 
-  const [username, setUsername] = useState("");
+  const maxRoomSize = 2;
+  const btnDisabled = !(username && gender && avatarSelected);
+
+  useEffect(() => {
+    const urlPath = window.location.pathname;
+    if (!(chatroomName && room)) {
+      setRoom(urlPath.match(/[^/]+$/)[0]);
+    }
+  }, []);
+
+  useEffect(() => {
+    socket?.on("room_size", (data) => {
+      setRoomSize(data);
+    });
+  }, [socket, roomSize, setRoomSize]);
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -22,6 +49,20 @@ export default function JoinChatComp() {
     setGender(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (username !== "" && room !== "") {
+      setChatroomName(room.split("-")[0]);
+      if (roomSize >= maxRoomSize) {
+        console.log("Room is full");
+      } else {
+        socket?.emit("join_room", room);
+
+        router.push(`/${room}`);
+      }
+    }
+  };
   const validation = () => {
     const isAvatarSelected = username && gender && selectedAvatar;
 
@@ -71,7 +112,7 @@ export default function JoinChatComp() {
                 <span className="h-px lg:w-[772px] w-[311px] bg-white bg-opacity-20 self-stretch" />
               </div>
 
-              <div className="flex items-center justify-center gap-1">
+              {/*<div className="flex items-center justify-center gap-1">
                 <Image
                   className="object-contain rounded-full mt-5"
                   src="/assets/avatars/energetic/energeticFemale_1.png"
@@ -81,17 +122,18 @@ export default function JoinChatComp() {
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                 />{" "}
-                <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
+                
+                 <p className="text-center lg:mt-5 mt-6 font-roboto text-base-white lg:text-base text-xs">
                   <span className="font-semibold lg:text-lg text-xs capitalize">
                     Deeproduza
                   </span>{" "}
                   just invited you to chat
-                </p>
-              </div>
+                </p> 
+              </div>*/}
 
               <form
                 className="relative lg:p-6 p-4 lg:gap-6 gap-4"
-                onSubmit={() => {}}
+                onSubmit={handleSubmit}
               >
                 <div className="relative lg:flex lg:justify-between lg:text-center lg:mt-[18px] mt-[6px] lg:gap-6 lg:mb-6">
                   <div className="relative mx-auto">

@@ -3,23 +3,36 @@ import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
+import JoinChatComp from "./JoinChat_comp";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
-  const { socket } = useSocketContext();
+  const { socket, roomSize, room } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const selectedAvatar = window && window.localStorage.getItem("selectedAvatar");
+
+  const selectedAvatar =
+    window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    socket?.on("receive_message", (data) => {
+      setMessageList((list) => [...list, data]);
+    });
+  }, [socket]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messageList]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
 
     if (currentMessage !== "") {
       const messageData = {
-        room: chatroomName,
+        room: room,
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
@@ -34,18 +47,6 @@ function ChatRoom() {
       setCurrentMessage("");
     }
   };
-
-
-  useEffect(() => {
-    socket.on("receive_message", (data) => {
-      setMessageList((list) => [...list, data]);
-    });
-  }, [socket]);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-
-  }, [messageList]);
 
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
@@ -98,9 +99,7 @@ function ChatRoom() {
                   ) : (
                     <div className="flex space-x-4 items-start self-end justify-end my-2 mr-4 w-7/12">
                       <div className="text-white font-roboto">
-                        <p className="text-sm text-right">
-                          {messageContent.author}
-                        </p>
+                        
                         <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
                           {messageContent.message}
                         </div>

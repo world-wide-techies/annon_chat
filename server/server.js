@@ -9,8 +9,9 @@ app.use(cors());
 dotenv.config();
 const server = http.createServer(app);
 
-const io = new Server(server, {
+const roomUserCounts = {};
 
+const io = new Server(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -21,12 +22,30 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
+    const room = data;
+
+    if (!roomUserCounts[room]) {
+      roomUserCounts[room] = 0;
+    }
+
+    if (roomUserCounts[room] >= 2) {
+      socket.emit("room_full", roomUserCounts[room]);
+      console.log(
+        `Room Full: ${socket.id} joined room: ${data} ${roomUserCounts[room]} `
+      );
+      return;
+    }
+
+    roomUserCounts[room]++;
+
+    io.emit("room_size", roomUserCounts[room]);
+
     socket.join(data);
+
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
 
   socket.on("send_message", (data) => {
-    console.log(data);
     socket.to(data.room).emit("receive_message", data);
   });
 
