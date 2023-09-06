@@ -29,14 +29,19 @@ io.on("connection", (socket) => {
     }
 
     if (roomUserCounts[room] >= 2) {
-      socket.emit("room_full",  roomUserCounts[room] );
-      console.log(`Room Full: ${socket.id} joined room: ${data} ${roomUserCounts[room]} `);
+      socket.emit("room_full", roomUserCounts[room]);
+      console.log(
+        `Room Full: ${socket.id} joined room: ${data} ${roomUserCounts[room]} `
+      );
       return;
     }
 
     roomUserCounts[room]++;
-
+    console.log(`About to emit room_size: ${roomUserCounts[room]}`);
+    io.emit("room_size", roomUserCounts[room]);
+    console.log(`After emitting room_size: ${roomUserCounts[room]}`);
     socket.join(data);
+
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
 

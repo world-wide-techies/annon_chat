@@ -35,21 +35,21 @@ export default function JoinChatComp() {
   }, []);
 
   useEffect(() => {
+    // console.log("room" + roomSize);
+    // console.log("user" + roomInfo);
+    // socket?.on("receive_message", (data) => {
+    //   setRoomInfo((list) => [...list, data]);
+    //   console.log("user" + data);
+    // });
     console.log("room" + roomSize);
-    console.log("user" + roomInfo);
-    socket?.on("receive_message", (data) => {
-      setRoomInfo((list) => [...list, data]);
-      console.log("user" + data);
-    });
-
-    socket?.on("room_full", (data) => {
+    socket?.on("room_size", (data) => {
       setRoomSize(data);
-      console.log("room" + roomSize);
     });
-
-    socket?.emit("join_room", room);
-  }, [socket, room, roomSize, roomInfo]);
-
+  }, [socket, room, roomSize, roomInfo, setRoomSize]);
+ 
+ 
+ 
+  console.log("room2" + roomSize);
   console.log("this is the" + room);
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -63,11 +63,12 @@ export default function JoinChatComp() {
     e.preventDefault();
 
     if (username !== "" && room !== "") {
-      console.log(room);
       setChatroomName(room.split("-")[0]);
       if (roomSize >= maxRoomSize) {
         console.log("Room is full");
       } else {
+        socket?.emit("join_room", room);
+
         router.push(`/${room}`);
       }
     }
