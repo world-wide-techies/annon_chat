@@ -37,9 +37,9 @@ io.on("connection", (socket) => {
     }
 
     roomUserCounts[room]++;
-    console.log(`About to emit room_size: ${roomUserCounts[room]}`);
+
     io.emit("room_size", roomUserCounts[room]);
-    console.log(`After emitting room_size: ${roomUserCounts[room]}`);
+
     socket.join(data);
 
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
@@ -48,10 +48,6 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     console.log(data);
     socket.to(data.room).emit("receive_message", data);
-    io.emit("show_users", {
-      author: data.author,
-      avatar: data.avatar,
-    });
   });
 
   socket.on("disconnect", () => {

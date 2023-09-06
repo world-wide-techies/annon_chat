@@ -9,10 +9,10 @@ export const SocketContextProvider = ({ children }) => {
   const [room, setRoom] = useState("");
   const [roomId, setRoomId] = useState("");
   const [roomSize, setRoomSize] = useState(1);
- const [showChatRoom, setShowChatRoom] = useState(false) 
+  const [showChatRoom, setShowChatRoom] = useState(false);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("https://sockect-server.onrender.com");
     newSocket.on("connect", () => {
       if (!roomId) setRoomId(newSocket.id.substring(0, 10));
       console.log(roomId);
@@ -27,10 +27,10 @@ export const SocketContextProvider = ({ children }) => {
         roomId,
         room,
         setRoom,
-        roomSize, 
+        roomSize,
         setRoomSize,
         showChatRoom,
-         setShowChatRoom
+        setShowChatRoom,
       }}
     >
       {children}

@@ -35,22 +35,11 @@ export default function JoinChatComp() {
   }, []);
 
   useEffect(() => {
-    // console.log("room" + roomSize);
-    // console.log("user" + roomInfo);
-    // socket?.on("receive_message", (data) => {
-    //   setRoomInfo((list) => [...list, data]);
-    //   console.log("user" + data);
-    // });
-    console.log("room" + roomSize);
     socket?.on("room_size", (data) => {
       setRoomSize(data);
     });
-  }, [socket, room, roomSize, roomInfo, setRoomSize]);
- 
- 
- 
-  console.log("room2" + roomSize);
-  console.log("this is the" + room);
+  }, [socket, roomSize, setRoomSize]);
+
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
