@@ -7,12 +7,12 @@ import JoinChatComp from "./JoinChat_comp";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
-  const { socket, roomSize } = useSocketContext();
+  const { socket, roomSize, room } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const [room, setRoom] = useState("");
+
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
@@ -34,7 +34,7 @@ function ChatRoom() {
 
     if (currentMessage !== "") {
       const messageData = {
-        room: chatroomName,
+        room: room,
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
