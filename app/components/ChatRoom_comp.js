@@ -18,9 +18,7 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    console.log("message list here" + messageList);
     socket?.on("receive_message", (data) => {
-      console.log(data);
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
@@ -101,9 +99,7 @@ function ChatRoom() {
                   ) : (
                     <div className="flex space-x-4 items-start self-end justify-end my-2 mr-4 w-7/12">
                       <div className="text-white font-roboto">
-                        <p className="text-sm text-right">
-                          {messageContent.author}
-                        </p>
+                        
                         <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
                           {messageContent.message}
                         </div>
