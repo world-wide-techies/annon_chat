@@ -12,11 +12,11 @@ export const SocketContextProvider = ({ children }) => {
   const [showChatRoom, setShowChatRoom] = useState(false);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
-
-    if (!roomId) setRoomId(newSocket?.id.substring(0, 10));
-    console.log(roomId);
-
+    const newSocket = io("http://localhost:300");
+    newSocket.on("connect", () => {
+      if (!roomId) setRoomId(newSocket.id.substring(0, 10));
+      console.log(roomId);
+    });
     setSocket(newSocket);
   }, []);
 
