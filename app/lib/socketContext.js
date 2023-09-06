@@ -12,7 +12,7 @@ export const SocketContextProvider = ({ children }) => {
   const [showChatRoom, setShowChatRoom] = useState(false);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("sockect-server.onrender.com");
     newSocket.on("connect", () => {
       if (!roomId) setRoomId(newSocket.id.substring(0, 10));
       console.log(roomId);
