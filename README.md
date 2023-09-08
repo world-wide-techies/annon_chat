@@ -55,4 +55,5 @@ A PR should request a reviewer once ready for review
 - [Remi](https://github.com/Remi-dee) - Maintainer
 - [Oyinbrakemi](https://github.com/Oyinbrakemigrace) - Developer Lead
 - [Chidera](https://github.com/spadechaser) - web developer
+- [Edidiong](https://github.com/edidee) - Frontend Developer
 - [Ibukunolu](https://github.com/Dev-IbukunBee) - Frontend Developer

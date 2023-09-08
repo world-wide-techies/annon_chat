@@ -12,6 +12,7 @@ function ChatRoom() {
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  // const [isTyping, setIsTyping] = useState(false)
 
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
@@ -51,18 +52,18 @@ function ChatRoom() {
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
-      <div className="flex flex-col items-stretch mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
+      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
             <div>
-              <div className="w-full flex space-x-2 items-center text-gray-300">
-                <div className="w-5/12 border-t border-gray-300"></div>
-                <p className="text-xs">
+              <div className="w-full flex space-x-2 items-center justify-center text-gray-300">
+                <div className="w-3/12 md:w-4/12 lg:w-5/12 border-t border-gray-300"></div>
+                <p className="text-[9px] lg:text-xs">
                   This is the start of your conversation
                 </p>
-                <div className="w-5/12 border-t border-gray-300"></div>
+                <div className="w-3/12 md:w-4/12 lg:w-5/12 border-t border-gray-300"></div>
               </div>
-              <div className="my-6 rounded-3xl border border-gray-300 max-w-lg text-white mx-auto py-2 text-xs text-center">
+              <div className="px-3 my-6 rounded-3xl border border-gray-300 max-w-lg text-white mx-auto py-2 text-xs text-center">
                 Chats are end-to-end encrypted. No one outside of this chat, not
                 even AnonChat, can read them. Your username and avatar are
                 shared with each other though.
@@ -76,7 +77,7 @@ function ChatRoom() {
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
-                    <div className="flex space-x-4 items-start my-4 w-7/12">
+                    <div className="w-6/12 flex space-x-4 items-start my-4">
                       <div className="rounded-full">
                         <Image
                           src={messageContent.avatar}
@@ -88,7 +89,7 @@ function ChatRoom() {
                       </div>
                       <div className="text-white font-roboto">
                         <p className="text-sm">{messageContent.author}</p>
-                        <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
+                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300">
@@ -97,17 +98,16 @@ function ChatRoom() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex space-x-4 items-start self-end justify-end my-2 mr-4 w-7/12">
-                      <div className="text-white font-roboto">
-                        
-                        <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
+                    <div className="w-8/12 flex space-x-4 items-start self-end justify-end my-2 mr-4">
+                      <div className="w-auto text-white font-roboto">
+                        <div className="w-full h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
                           {messageContent.time}
                         </p>
                       </div>
-                      <div className="rounded-full">
+                      <div className="w-[5%] rounded-full">
                         <Image
                           src={selectedAvatar}
                           alt="profile img"
@@ -127,6 +127,14 @@ function ChatRoom() {
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
+              onChange={(e) => setCurrentMessage(e.target.value)}
+              value={currentMessage}
+              type="text"
+              placeholder="Send a message"
+              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300 max-w-[2000px]"
+            />
+            {/* 
+          <input
               onChange={(e) => setCurrentMessage(e.target.value)}
               value={currentMessage}
               type="text"
@@ -153,7 +161,7 @@ function ChatRoom() {
                   <line x1="15" y1="9" x2="15.01" y2="9"></line>
                 </svg>
               </button>
-            </div>
+                  </div> */}
           </div>
           <button
             className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
