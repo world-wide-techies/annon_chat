@@ -94,7 +94,7 @@ export default function Hero() {
               </form>
             )}
 
-            <figure className="flex items-center justify-center lg:mt-[120px] mt-[96px]">
+            <figure className="flex items-center justify-center lg:mt-[120px] mt-[96px] pointer-events-none">
               <Image
                 src="/assets/images/hero_chat_convo.png"
                 alt="chat"
@@ -103,14 +103,13 @@ export default function Hero() {
                 objectFit="contain"
                 quality={100}
                 className="opacity-75"
-                draggable="false"
               />
             </figure>
             <div
               className="absolute flex items-center justify-center
             top-[200px] left-[calc(50%_-_720px)]"
             >
-              <figure className="w-[473px] h-[742px] top-0 left-[130px] transform rotate-[-11.70] flex-shrink-0 hidden lg:block">
+              <figure className="w-[473px] h-[742px] top-0 left-[130px] transform rotate-[-11.70] flex-shrink-0 hidden lg:block pointer-events-none">
                 <Image
                   src="/assets/images/hero_image_1.png"
                   alt="vector image"
@@ -118,10 +117,9 @@ export default function Hero() {
                   height={500}
                   objectFit="contain"
                   quality={100}
-                  draggable="false"
                 />
               </figure>
-              <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block">
+              <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block pointer-events-none">
                 <Image
                   src="/assets/images/hero_img_2.png"
                   width={500}
@@ -129,7 +127,6 @@ export default function Hero() {
                   quality={100}
                   alt="vector image"
                   objectFit="contain"
-                  draggable="false"
                 />
               </figure>
             </div>

@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div>
       <div className="w-full h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center inline-flex">
-        <div className="text-center text-white text-[40px] font-medium leading-[54px]">
+        <div className="text-center text-white text-[40px] font-medium leading-[54px] font-lexend">
           AnonChat!
         </div>
 
@@ -16,6 +16,7 @@ function NavBar() {
             width={24}
             height={24}
             alt="chat icon"
+            className="pointer-events-none object-contain"
           />
           <button
             onClick={(e) => {
@@ -23,7 +24,7 @@ function NavBar() {
               router.push("/lobby");
             }}
           >
-            <p className="mx-2 text-[20px]">Start a Chat</p>
+            <p className="mx-2 text-[20px] font-lexend">Start a Chat</p>
           </button>
         </div>
       </div>

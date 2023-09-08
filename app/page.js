@@ -8,7 +8,7 @@ import Footer from "./components/Footer_comp";
 export default function Home() {
   return (
     <main className="min-h-screen flex justify-center overflow-x-hidden">
-      <div className="max-w-screen-2xl">
+      <div className="w-full">
         <Hero />
         <Features />
         <div className="mt-16">

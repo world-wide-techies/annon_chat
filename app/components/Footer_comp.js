@@ -21,6 +21,7 @@ function Footer() {
               alt="hand img"
               width={100}
               height={100}
+              className="object-contain pointer-events-none"
             />
           </div>
         </div>
