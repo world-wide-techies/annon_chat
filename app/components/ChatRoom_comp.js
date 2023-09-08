@@ -131,7 +131,7 @@ function ChatRoom() {
               value={currentMessage}
               type="text"
               placeholder="Send a message"
-              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300 max-w-[2000px]"
+              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300 "
             />
             {/* 
           <input
