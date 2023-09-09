@@ -45,6 +45,11 @@ io.on("connection", (socket) => {
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
 
+  socket.on("type_message", (data) => {
+    socket.to(data.room).emit("recieve_type", data);
+    console.log("User is typing", data);
+  });
+
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data);
   });

@@ -18,14 +18,25 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    if (currentMessage) console.log("user is typing", currentMessage);
+
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket]);
+
+    socket.on("recieve_type", (data) => {
+      setCurrentMessage(data);
+    });
+  }, [socket, currentMessage]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messageList]);
+
+  const handleChange = (e) => {
+    setCurrentMessage(e.target.value);
+    socket?.emit("type_message", e.target.value);
+  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -99,7 +110,6 @@ function ChatRoom() {
                   ) : (
                     <div className="flex space-x-4 items-start self-end justify-end my-2 mr-4 w-7/12">
                       <div className="text-white font-roboto">
-                        
                         <div className="w-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white">
                           {messageContent.message}
                         </div>
@@ -127,7 +137,7 @@ function ChatRoom() {
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
-              onChange={(e) => setCurrentMessage(e.target.value)}
+              onChange={handleChange}
               value={currentMessage}
               type="text"
               placeholder="Send a message"
