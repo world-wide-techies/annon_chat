@@ -5,6 +5,7 @@ import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
 
+
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
@@ -68,6 +69,7 @@ function ChatRoom() {
                 even AnonChat, can read them. Your username and avatar are
                 shared with each other though.
               </div>
+              
             </div>
           ) : (
             <div
