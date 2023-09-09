@@ -18,16 +18,14 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    if (currentMessage) console.log("user is typing", currentMessage);
+   
 
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
 
-    socket.on("recieve_type", (data) => {
-      setCurrentMessage(data);
-    });
-  }, [socket, currentMessage]);
+    
+  }, [socket,]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
