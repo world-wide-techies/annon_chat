@@ -9,7 +9,7 @@ function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
-
+  const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -18,14 +18,19 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-   
+    socket?.on("user_typing", (data) => {
+      // Handle typing indicators for other users
+      if (data.isTyping && data.username !== username) {
+        setIsTyping(true);
+      } else if (!data.isTyping && data.username !== username) {
+        setIsTyping(false);
+      }
+    });
 
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-
-    
-  }, [socket,]);
+  }, [socket, username]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -33,7 +38,11 @@ function ChatRoom() {
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
-    socket?.emit("type_message", e.target.value);
+    socket?.emit("typing", { room, username, isTyping: true });
+  };
+
+  const handleBlur = () => {
+    socket?.emit("typing", { room, username, isTyping: false });
   };
 
   const sendMessage = async (e) => {
@@ -136,6 +145,7 @@ function ChatRoom() {
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
               onChange={handleChange}
+              onBlur={handleBlur}
               value={currentMessage}
               type="text"
               placeholder="Send a message"
