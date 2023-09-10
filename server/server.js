@@ -47,6 +47,7 @@ io.on("connection", (socket) => {
 
   socket.on("typing", (data) => {
     socket.to(data.room).emit("user_typing", data);
+    console.log("user is typing", data)
   });
 
   socket.on("send_message", (data) => {

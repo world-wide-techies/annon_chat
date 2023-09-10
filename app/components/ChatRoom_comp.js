@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
-
+import IsTyping from "./IsTyping_comp";
+import { formattedTime } from "./formattedTime";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
@@ -13,7 +14,6 @@ function ChatRoom() {
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  // const [isTyping, setIsTyping] = useState(false)
 
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
@@ -32,7 +32,7 @@ function ChatRoom() {
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket, username]);
+  }, [socket, username, currentMessage]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -56,10 +56,7 @@ function ChatRoom() {
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: formattedTime(),
       };
 
       await socket.emit("send_message", messageData);
@@ -87,7 +84,6 @@ function ChatRoom() {
                 even AnonChat, can read them. Your username and avatar are
                 shared with each other though.
               </div>
-              
             </div>
           ) : (
             <div
@@ -137,6 +133,12 @@ function ChatRoom() {
                         />
                       </div>
                     </div>
+                  )}
+                  {isTyping && (
+                    <IsTyping
+                      avatar={messageContent.avatar}
+                      userName={username}
+                    />
                   )}
                 </div>
               ))}
