@@ -7,7 +7,6 @@ import JoinChatComp from "./JoinChat_comp";
 import IsTyping from "./IsTyping_comp";
 import { formattedTime } from "../lib/formattedTime";
 
-
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
@@ -22,7 +21,6 @@ function ChatRoom() {
 
   useEffect(() => {
     socket?.on("user_typing", (data) => {
-      // Handle typing indicators for other users
       if (data.isTyping && data.username !== username) {
         setIsTyping(true);
       } else if (!data.isTyping && data.username !== username) {
