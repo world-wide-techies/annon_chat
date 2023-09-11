@@ -115,7 +115,7 @@ function ChatRoom() {
                   ) : (
                     <div className="w-8/12 flex space-x-4 items-start self-end justify-end my-2 mr-4">
                       <div className="w-auto text-white font-roboto">
-                        <div className="w-full h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
+                        <div className="w-full h-auto  text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
@@ -147,7 +147,7 @@ function ChatRoom() {
         </div>
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
-            <textarea
+            <input
               onChange={handleChange}
               onBlur={handleBlur}
               value={currentMessage}
