@@ -147,7 +147,7 @@ function ChatRoom() {
         </div>
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
-            <input
+            <textarea
               onChange={handleChange}
               onBlur={handleBlur}
               value={currentMessage}
