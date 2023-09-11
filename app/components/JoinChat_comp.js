@@ -33,7 +33,7 @@ export default function JoinChatComp() {
     if (!(chatroomName && room)) {
       setRoom(urlPath.match(/[^/]+$/)[0]);
     }
-  }, []);
+  }, [chatroomName, room, setRoom]);
 
   useEffect(() => {
     socket?.on("room_size", (data) => {

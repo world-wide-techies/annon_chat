@@ -5,7 +5,8 @@ import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
 import IsTyping from "./IsTyping_comp";
-import { formattedTime } from "./formattedTime";
+import { formattedTime } from "../lib/formattedTime";
+
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
