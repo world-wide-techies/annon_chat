@@ -136,7 +136,7 @@ function ChatRoom() {
                   {isTyping && (
                     <IsTyping
                       avatar={messageContent.avatar}
-                      userName={username}
+                      userName={messageContent.author}
                     />
                   )}
                 </div>
