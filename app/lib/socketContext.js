@@ -16,9 +16,11 @@ export const SocketContextProvider = ({ children }) => {
     newSocket.on("connect", () => {
       if (!roomId) setRoomId(newSocket.id.substring(0, 5));
     });
-    setSocket(newSocket);
-  }, []);
 
+    setSocket(newSocket);
+  }, [roomId]);
+
+  console.log("this is" + roomId);
   return (
     <SocketContext.Provider
       value={{

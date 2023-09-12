@@ -4,30 +4,47 @@ import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
-
+import IsTyping from "./IsTyping_comp";
+import { formattedTime } from "../lib/formattedTime";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
-
+  const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  // const [isTyping, setIsTyping] = useState(false)
 
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    socket?.on("user_typing", (data) => {
+      if (data.isTyping && data.username !== username) {
+        setIsTyping(true);
+      } else if (!data.isTyping && data.username !== username) {
+        setIsTyping(false);
+      }
+    });
+
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket]);
+  }, [socket, username, currentMessage]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messageList]);
+
+  const handleChange = (e) => {
+    setCurrentMessage(e.target.value);
+    socket?.emit("typing", { room, username, isTyping: true });
+  };
+
+  const handleBlur = () => {
+    socket?.emit("typing", { room, username, isTyping: false });
+  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -38,10 +55,7 @@ function ChatRoom() {
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: formattedTime(),
       };
 
       await socket.emit("send_message", messageData);
@@ -69,7 +83,6 @@ function ChatRoom() {
                 even AnonChat, can read them. Your username and avatar are
                 shared with each other though.
               </div>
-              
             </div>
           ) : (
             <div
@@ -102,7 +115,7 @@ function ChatRoom() {
                   ) : (
                     <div className="w-8/12 flex space-x-4 items-start self-end justify-end my-2 mr-4">
                       <div className="w-auto text-white font-roboto">
-                        <div className="w-full h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
+                        <div className="w-full h-auto  text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
@@ -120,6 +133,12 @@ function ChatRoom() {
                       </div>
                     </div>
                   )}
+                  {isTyping && (
+                    <IsTyping
+                      avatar={messageContent.avatar}
+                      userName={username}
+                    />
+                  )}
                 </div>
               ))}
               <div ref={messagesEndRef}></div>
@@ -129,7 +148,8 @@ function ChatRoom() {
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <input
-              onChange={(e) => setCurrentMessage(e.target.value)}
+              onChange={handleChange}
+              onBlur={handleBlur}
               value={currentMessage}
               type="text"
               placeholder="Send a message"
