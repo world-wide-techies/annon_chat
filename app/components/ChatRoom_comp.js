@@ -5,7 +5,6 @@ import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
 
-
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
@@ -69,7 +68,6 @@ function ChatRoom() {
                 even AnonChat, can read them. Your username and avatar are
                 shared with each other though.
               </div>
-              
             </div>
           ) : (
             <div
@@ -79,8 +77,8 @@ function ChatRoom() {
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
-                    <div className="w-6/12 flex space-x-4 items-start my-4">
-                      <div className="rounded-full">
+                    <div className="w-7/12 grid grid-cols-12 items-start my-4">
+                      <div className="col-span-1 rounded-full">
                         <Image
                           src={messageContent.avatar}
                           alt="profile img"
@@ -89,9 +87,9 @@ function ChatRoom() {
                           className="rounded-full"
                         />
                       </div>
-                      <div className="text-white font-roboto">
+                      <div className="col-span-11 text-white font-roboto">
                         <p className="text-sm">{messageContent.author}</p>
-                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF]">
+                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF] break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300">
@@ -100,16 +98,16 @@ function ChatRoom() {
                       </div>
                     </div>
                   ) : (
-                    <div className="w-8/12 flex space-x-4 items-start self-end justify-end my-2 mr-4">
-                      <div className="w-auto text-white font-roboto">
-                        <div className="w-full h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
+                    <div className="w-7/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
+                      <div className="col-span-11 text-white font-roboto">
+                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
                           {messageContent.time}
                         </p>
                       </div>
-                      <div className="w-[5%] rounded-full">
+                      <div className="col-span-1 rounded-full">
                         <Image
                           src={selectedAvatar}
                           alt="profile img"
