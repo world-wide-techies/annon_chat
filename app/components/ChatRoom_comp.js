@@ -12,7 +12,12 @@ function ChatRoom() {
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  // const [isTyping, setIsTyping] = useState(false)
+  const textAreaRef = useRef(null);
+
+  const resizeTextArea = () => {
+    textAreaRef.current.style.height = "auto";
+    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+  };
 
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
@@ -25,8 +30,9 @@ function ChatRoom() {
   }, [socket]);
 
   useEffect(() => {
+    resizeTextArea;
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messageList]);
+  }, [currentMessage, messageList]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -52,7 +58,7 @@ function ChatRoom() {
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
-      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
+      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl md:h-5/6">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
             <div>
@@ -77,7 +83,7 @@ function ChatRoom() {
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
-                    <div className="w-7/12 grid grid-cols-12 items-start my-4">
+                    <div className="w-6/12 grid grid-cols-12 items-start my-4">
                       <div className="col-span-1 rounded-full">
                         <Image
                           src={messageContent.avatar}
@@ -98,9 +104,9 @@ function ChatRoom() {
                       </div>
                     </div>
                   ) : (
-                    <div className="w-7/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
+                    <div className="w-6/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
                       <div className="col-span-11 text-white font-roboto">
-                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
+                        <div className="min-w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
@@ -126,21 +132,22 @@ function ChatRoom() {
         </div>
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
-            <input
+            <textarea
+              ref={textAreaRef}
+              rows={1}
+              placeholder="Send a message"
+              className=" w-full text-white bg-transparent placeholder:text-gray-300 resize-none custom-scroll outline-none"
               onChange={(e) => setCurrentMessage(e.target.value)}
               value={currentMessage}
-              type="text"
-              placeholder="Send a message"
-              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300 "
-            />
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  sendMessage(e);
+                }
+              }}
+            ></textarea>
             {/* 
-          <input
-              onChange={(e) => setCurrentMessage(e.target.value)}
-              value={currentMessage}
-              type="text"
-              placeholder="Send a message"
-              className="w-full focus:outline-none text-white bg-transparent placeholder:text-gray-300"
-            />
+      
             <div>
               <button className="text-[#755BDF]">
                 <svg
