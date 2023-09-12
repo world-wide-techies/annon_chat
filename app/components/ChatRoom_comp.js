@@ -4,12 +4,14 @@ import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "./JoinChat_comp";
+import IsTyping from "./IsTyping_comp";
+import { formattedTime } from "../lib/formattedTime";
 
 function ChatRoom() {
   const { gender, setGender } = useIdentityContext();
   const { socket, roomSize, room } = useSocketContext();
   const { chatroomName, setChatroomName, username } = useIdentityContext();
-
+  const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const textAreaRef = useRef(null);
@@ -24,15 +26,32 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    socket?.on("user_typing", (data) => {
+      if (data.isTyping && data.username !== username) {
+        setIsTyping(true);
+      } else if (!data.isTyping && data.username !== username) {
+        setIsTyping(false);
+      }
+    });
+
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket]);
+  }, [socket, username, currentMessage]);
 
   useEffect(() => {
     resizeTextArea;
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentMessage, messageList]);
+
+  const handleChange = (e) => {
+    setCurrentMessage(e.target.value);
+    socket?.emit("typing", { room, username, isTyping: true });
+  };
+
+  const handleBlur = () => {
+    socket?.emit("typing", { room, username, isTyping: false });
+  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -43,10 +62,7 @@ function ChatRoom() {
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: formattedTime(),
       };
 
       await socket.emit("send_message", messageData);
@@ -123,6 +139,12 @@ function ChatRoom() {
                         />
                       </div>
                     </div>
+                  )}
+                  {isTyping && (
+                    <IsTyping
+                      avatar={messageContent.avatar}
+                      userName={username}
+                    />
                   )}
                 </div>
               ))}

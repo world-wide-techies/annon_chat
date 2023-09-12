@@ -1,15 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavBar from "./navBar_comp";
 import { useRouter } from "next/navigation";
+import JoinCTA from "./JoinCTA_comp";
 
 export default function Hero() {
   const [showCTA, setShowCTA] = useState(true);
   const [joinCTA, setJoinCTA] = useState(false);
-  const [inviteLink, setInviteLink] = useState("");
+
   const router = useRouter();
+
   return (
     <div className="relative bg-center w-full lg:h-[1331px] h-[1135px] bg-hero-bg bg-cover mx-auto lg:hero-bottom hero-bottom_md overflow-hidden">
       <NavBar />
@@ -45,7 +47,8 @@ export default function Hero() {
 
                 <span>
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       setShowCTA(false);
                       setJoinCTA(true);
                     }}
@@ -66,35 +69,9 @@ export default function Hero() {
               </div>
             )}
 
-            {joinCTA && (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  router.push(`/${inviteLink.split("/")[1]}`);
-                }}
-                className="mt-[31px] lg:flex gap-[15px] grid items-center justify-center"
-              >
-                <input
-                  className="rounded-full text-base-white flex lg:py-2 lg:px-12 py-2 px-4  items-center justify-center gap-[10px] font-lexend text-sm leading-[28px] tracking-[-0.01em] bg-inherit border-2"
-                  type="text"
-                  placeholder="Enter Chat Link"
-                  id="chatLink"
-                  name="chatLink"
-                  onChange={(e) => setInviteLink(e.target.value)}
-                />
+            {joinCTA && <JoinCTA />}
 
-                <span className="items-center justify-center flex">
-                  <button
-                    className="rounded-full flex lg:py-3 lg:px-8 py-2 px-4 items-center justify-center gap-[10px] border-[2px] border-base-white tracking-[-0.01em] font-lexend text-sm font-normal leading[28px] text-[#755BDF] bg-base-white bg-opacity-50 border-none  hover:bg-base-white"
-                    type="submit"
-                  >
-                    Join Chat
-                  </button>
-                </span>
-              </form>
-            )}
-
-            <figure className="flex items-center justify-center lg:mt-[120px] mt-[96px]">
+            <figure className="flex items-center justify-center lg:mt-[120px] mt-[96px] pointer-events-none">
               <Image
                 src="/assets/images/hero_chat_convo.png"
                 alt="chat"
@@ -103,14 +80,13 @@ export default function Hero() {
                 objectFit="contain"
                 quality={100}
                 className="opacity-75"
-                draggable="false"
               />
             </figure>
             <div
               className="absolute flex items-center justify-center
             top-[200px] left-[calc(50%_-_720px)]"
             >
-              <figure className="w-[473px] h-[742px] top-0 left-[130px] transform rotate-[-11.70] flex-shrink-0 hidden lg:block">
+              <figure className="w-[473px] h-[742px] top-0 left-[130px] transform rotate-[-11.70] flex-shrink-0 hidden lg:block pointer-events-none">
                 <Image
                   src="/assets/images/hero_image_1.png"
                   alt="vector image"
@@ -118,10 +94,9 @@ export default function Hero() {
                   height={500}
                   objectFit="contain"
                   quality={100}
-                  draggable="false"
                 />
               </figure>
-              <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block">
+              <figure className="w-[473px] h-[759px] absolute top-0 left-[916px] transform rotate-[22.92] flex-shrink-0 hidden lg:block pointer-events-none">
                 <Image
                   src="/assets/images/hero_img_2.png"
                   width={500}
@@ -129,7 +104,6 @@ export default function Hero() {
                   quality={100}
                   alt="vector image"
                   objectFit="contain"
-                  draggable="false"
                 />
               </figure>
             </div>

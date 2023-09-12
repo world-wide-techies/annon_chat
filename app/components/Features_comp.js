@@ -14,8 +14,8 @@ function Features() {
       </h2>
       <div className="flex flex-col md:flex-row justify-center gap-5 mt-2 p-5 md:p-0">
         <div className="bg-custom-gradient text-center md:w-1/4 shadow-md rounded-md">
-          <div className="flex justify-center">
-            <Image src={featuresImg1} alt="" />
+          <div className="flex justify-center pointer-events-none">
+            <Image src={featuresImg1} alt="featured image" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">Anonymous Chat</p>
@@ -26,8 +26,8 @@ function Features() {
           </div>
         </div>
         <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
-          <div className="flex justify-center">
-            <Image src={featuresImg2} alt="" />
+          <div className="flex justify-center pointer-events-none">
+            <Image src={featuresImg2} alt="featured image" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">Instant Access</p>
@@ -38,22 +38,21 @@ function Features() {
           </div>
         </div>
         <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
-          <div className="flex justify-center">
-            <Image src={featuresImg3} alt="" />
+          <div className="flex justify-center pointer-events-none">
+            <Image src={featuresImg3} alt="featured image" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">Cross-Platform Support</p>
             <p className="text-[18px]">
-              Seamless experience across all devices-desktop, tablet, and
-              mobile
+              Seamless experience across all devices-desktop, tablet, and mobile
             </p>
           </div>
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-center md:my-5 gap-5 p-5">
         <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
-          <div className="flex justify-center">
-            <Image src={featuresImg5} alt="" />
+          <div className="flex justify-center pointer-events-none">
+            <Image src={featuresImg5} alt="featured image" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">End-to-End Encryption</p>
@@ -64,8 +63,8 @@ function Features() {
           </div>
         </div>
         <div className="text-center md:w-1/4 bg-custom-gradient shadow-md rounded-md">
-          <div className="flex justify-center">
-            <Image src={featuresImg4} alt="" />
+          <div className="flex justify-center pointer-events-none">
+            <Image src={featuresImg4} alt="featured image" />
           </div>
           <div className="features-text-color pb-3">
             <p className="text-3xl font-medium">Time-Limited Chats</p>
