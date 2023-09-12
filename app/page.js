@@ -8,7 +8,7 @@ import Testimonials from "./components/testimonials_comp";
 export default function Home() {
   return (
     <main className="min-h-screen flex justify-center overflow-x-hidden">
-      <div className="w-full">
+      <div className="max-w-screen-2xl">
         <Hero />
         <Features />
         <div className="mt-16">
