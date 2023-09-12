@@ -42,6 +42,7 @@ function HowItWorks() {
             alt="img"
             width={400}
             height={400}
+            className="pointer-events-none object-contain"
           />
         </div>
 
@@ -81,7 +82,7 @@ function HowItWorks() {
               alt="img"
               width={700}
               height={700}
-              className="object-cover"
+              className="object-cover pointer-events-none"
             />
           </div>
         </div>
@@ -92,6 +93,7 @@ function HowItWorks() {
             alt="img"
             width={400}
             height={400}
+            className="pointer-events-none object-contain"
           />
         </div>
       </div>
