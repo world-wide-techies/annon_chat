@@ -20,25 +20,28 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    console.log("This is current" + currentMessage);
     socket?.on("user_typing", (data) => {
-      if (data.isTyping && data.username !== username) {
+      if (data.isTyping && data.username !== username && data.message) {
         setUserTyping(data);
+        console.log(data.message);
         setIsTyping(true);
       } else if (!data.isTyping && data.username !== username) {
         setUserTyping(false);
       }
     });
-
+    console.log(userTyping);
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
+    userTyping.message ? setIsTyping(true) : setIsTyping(false);
 
     return () => {
       // Clean up the event listener when the component unmounts.
       socket?.off("user_typing");
       socket?.off("receive_message");
     };
-  }, [currentMessage]);
+  }, [socket, currentMessage, username, userTyping]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -48,6 +51,7 @@ function ChatRoom() {
     setCurrentMessage(e.target.value);
     socket?.emit("typing", {
       room,
+      message: e.target.value,
       author: username,
       avatar: selectedAvatar,
       isTyping: true,
