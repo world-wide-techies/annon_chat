@@ -23,8 +23,9 @@ function ChatRoom() {
     socket?.on("user_typing", (data) => {
       if (data.isTyping && data.username !== username) {
         setUserTyping(data);
+        setIsTyping(true);
       } else if (!data.isTyping && data.username !== username) {
-        setUserTyping("");
+        setUserTyping(false);
       }
     });
 
@@ -43,7 +44,7 @@ function ChatRoom() {
       room,
       author: username,
       avatar: selectedAvatar,
-      isTyping: false,
+      isTyping: true,
     });
   };
 
@@ -143,14 +144,15 @@ function ChatRoom() {
                       </div>
                     </div>
                   )}
-                  {isTyping && (
-                    <IsTyping
-                      avatar={messageContent.avatar}
-                      userName={messageContent.author}
-                    />
-                  )}
                 </div>
               ))}
+
+              {isTyping && userTyping.isTyping && (
+                <IsTyping
+                  avatar={userTyping.avatar}
+                  userName={userTyping.author}
+                />
+              )}
               <div ref={messagesEndRef}></div>
             </div>
           )}
