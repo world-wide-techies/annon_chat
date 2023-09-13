@@ -111,7 +111,7 @@ function ChatRoom() {
                       </div>
                       <div className="col-span-11 text-white font-roboto">
                         <p className="text-sm">{messageContent.author}</p>
-                        <div className="w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF] break-words">
+                        <div className="max-w-max mr-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF] break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300">
@@ -122,7 +122,7 @@ function ChatRoom() {
                   ) : (
                     <div className="w-6/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
                       <div className="col-span-11 text-white font-roboto">
-                        <div className="min-w-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
+                        <div className="max-w-max ml-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
                         <p className="text-xs text-gray-300 text-right">
