@@ -29,14 +29,16 @@ function ChatRoom() {
       }
     });
 
+   
+  }, [ currentMessage]);
+
+  useEffect(() => {
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket, username, currentMessage]);
-
-  useEffect(() => {
+    
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messageList]);
+  }, [messageList, socket]);
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
