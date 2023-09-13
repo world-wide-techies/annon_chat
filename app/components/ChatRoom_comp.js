@@ -3,14 +3,14 @@ import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
-import JoinChatComp from "./JoinChat_comp";
+
 import IsTyping from "./IsTyping_comp";
 import { formattedTime } from "../lib/formattedTime";
 
 function ChatRoom() {
-  const { gender, setGender } = useIdentityContext();
+ 
   const { socket, roomSize, room } = useSocketContext();
-  const { chatroomName, setChatroomName, username } = useIdentityContext();
+  const {username } = useIdentityContext();
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
