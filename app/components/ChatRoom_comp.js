@@ -20,24 +20,20 @@ function ChatRoom() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    console.log("This is current" + currentMessage);
     socket?.on("user_typing", (data) => {
-      if (data.isTyping && data.username !== username && data.message) {
+      if (data.isTyping && data.username !== username) {
         setUserTyping(data);
-        console.log(data.message);
         setIsTyping(true);
       } else if (!data.isTyping && data.username !== username) {
         setUserTyping(false);
       }
     });
-    console.log(userTyping);
+
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-    userTyping.message ? setIsTyping(true) : setIsTyping(false);
 
     return () => {
-      // Clean up the event listener when the component unmounts.
       socket?.off("user_typing");
       socket?.off("receive_message");
     };
@@ -49,6 +45,7 @@ function ChatRoom() {
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
+
     socket?.emit("typing", {
       room,
       message: e.target.value,
@@ -82,6 +79,13 @@ function ChatRoom() {
       await socket.emit("send_message", messageData);
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
+
+      socket.emit("typing", {
+        room,
+        author: username,
+        avatar: selectedAvatar,
+        isTyping: false, // User is not typing after sending the message
+      });
     }
   };
 
@@ -157,14 +161,12 @@ function ChatRoom() {
                 </div>
               ))}
 
-              {isTyping && userTyping.isTyping && (
-                <IsTyping
-                  avatar={userTyping.avatar}
-                  userName={userTyping.author}
-                />
-              )}
               <div ref={messagesEndRef}></div>
             </div>
+          )}
+
+          {isTyping && userTyping.isTyping && (
+            <IsTyping avatar={userTyping.avatar} userName={userTyping.author} />
           )}
         </div>
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
