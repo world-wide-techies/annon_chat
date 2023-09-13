@@ -29,14 +29,18 @@ function ChatRoom() {
       }
     });
 
-   
-  }, [ currentMessage]);
-
-  useEffect(() => {
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-    
+
+    return () => {
+      // Clean up the event listener when the component unmounts.
+      socket?.off("user_typing");
+      socket?.off("receive_message");
+    };
+  }, [currentMessage]);
+
+  useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messageList, socket]);
 
