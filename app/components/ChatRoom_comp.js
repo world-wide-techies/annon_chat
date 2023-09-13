@@ -14,7 +14,7 @@ function ChatRoom() {
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-
+  const [userTyping, setUserTyping] = useState({});
   const selectedAvatar =
     window && window.localStorage.getItem("selectedAvatar");
   const messagesEndRef = useRef(null);
@@ -22,9 +22,9 @@ function ChatRoom() {
   useEffect(() => {
     socket?.on("user_typing", (data) => {
       if (data.isTyping && data.username !== username) {
-        setIsTyping(true);
+        setUserTyping(data);
       } else if (!data.isTyping && data.username !== username) {
-        setIsTyping(false);
+        setUserTyping("");
       }
     });
 
@@ -39,11 +39,21 @@ function ChatRoom() {
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
-    socket?.emit("typing", { room, username, isTyping: true });
+    socket?.emit("typing", {
+      room,
+      author: username,
+      avatar: selectedAvatar,
+      isTyping: false,
+    });
   };
 
   const handleBlur = () => {
-    socket?.emit("typing", { room, username, isTyping: false });
+    socket?.emit("typing", {
+      room,
+      author: username,
+      avatar: selectedAvatar,
+      isTyping: false,
+    });
   };
 
   const sendMessage = async (e) => {
@@ -51,7 +61,7 @@ function ChatRoom() {
 
     if (currentMessage !== "") {
       const messageData = {
-        room: room,
+        room,
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
