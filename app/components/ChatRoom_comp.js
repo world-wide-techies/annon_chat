@@ -3,17 +3,18 @@ import ChatRoomNav from "./ChatRoomNav_comp";
 import Image from "next/image";
 import { useIdentityContext } from "../lib/identityContext";
 import { useSocketContext } from "../lib/socketContext";
-import JoinChatComp from "./JoinChat_comp";
+
 import IsTyping from "./IsTyping_comp";
 import { formattedTime } from "../lib/formattedTime";
 
 function ChatRoom() {
-  const { gender, setGender } = useIdentityContext();
+ 
   const { socket, roomSize, room } = useSocketContext();
-  const { chatroomName, setChatroomName, username } = useIdentityContext();
+  const {username } = useIdentityContext();
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [userTyping, setUserTyping] = useState({});
   const textAreaRef = useRef(null);
 
   const resizeTextArea = () => {
@@ -28,16 +29,22 @@ function ChatRoom() {
   useEffect(() => {
     socket?.on("user_typing", (data) => {
       if (data.isTyping && data.username !== username) {
+        setUserTyping(data);
         setIsTyping(true);
       } else if (!data.isTyping && data.username !== username) {
-        setIsTyping(false);
+        setUserTyping(false);
       }
     });
 
     socket?.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket, username, currentMessage]);
+
+    return () => {
+      socket?.off("user_typing");
+      socket?.off("receive_message");
+    };
+  }, [socket, currentMessage, username, userTyping]);
 
   useEffect(() => {
     resizeTextArea;
@@ -46,11 +53,23 @@ function ChatRoom() {
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
-    socket?.emit("typing", { room, username, isTyping: true });
+
+    socket?.emit("typing", {
+      room,
+      message: e.target.value,
+      author: username,
+      avatar: selectedAvatar,
+      isTyping: true,
+    });
   };
 
   const handleBlur = () => {
-    socket?.emit("typing", { room, username, isTyping: false });
+    socket?.emit("typing", {
+      room,
+      author: username,
+      avatar: selectedAvatar,
+      isTyping: false,
+    });
   };
 
   const sendMessage = async (e) => {
@@ -58,7 +77,7 @@ function ChatRoom() {
 
     if (currentMessage !== "") {
       const messageData = {
-        room: room,
+        room,
         author: username,
         message: currentMessage,
         avatar: selectedAvatar,
@@ -68,6 +87,13 @@ function ChatRoom() {
       await socket.emit("send_message", messageData);
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
+
+      socket.emit("typing", {
+        room,
+        author: username,
+        avatar: selectedAvatar,
+        isTyping: false, // User is not typing after sending the message
+      });
     }
   };
 
@@ -140,16 +166,15 @@ function ChatRoom() {
                       </div>
                     </div>
                   )}
-                  {isTyping && (
-                    <IsTyping
-                      avatar={messageContent.avatar}
-                      userName={username}
-                    />
-                  )}
                 </div>
               ))}
+
               <div ref={messagesEndRef}></div>
             </div>
+          )}
+
+          {isTyping && userTyping.isTyping && (
+            <IsTyping avatar={userTyping.avatar} userName={userTyping.author} />
           )}
         </div>
         <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
@@ -159,7 +184,8 @@ function ChatRoom() {
               rows={1}
               placeholder="Send a message"
               className=" w-full text-white bg-transparent placeholder:text-gray-300 resize-none custom-scroll outline-none"
-              onChange={(e) => setCurrentMessage(e.target.value)}
+              onChange={handleChange}
+              onBlur={handleBlur}
               value={currentMessage}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
