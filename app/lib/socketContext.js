@@ -18,6 +18,12 @@ export const SocketContextProvider = ({ children }) => {
     });
 
     setSocket(newSocket);
+
+    return () => {
+      if (newSocket) {
+        newSocket.disconnect();
+      }
+    };
   }, [roomId]);
 
   console.log("this is" + roomId);
