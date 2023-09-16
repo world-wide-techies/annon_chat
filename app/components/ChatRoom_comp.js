@@ -19,7 +19,7 @@ function ChatRoom() {
 
   const resizeTextArea = () => {
     textAreaRef.current.style.height = "auto";
-    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px"; 
   };
 
   const selectedAvatar =
@@ -47,7 +47,7 @@ function ChatRoom() {
   }, [socket, currentMessage, username, userTyping]);
 
   useEffect(() => {
-    resizeTextArea;
+    resizeTextArea();
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentMessage, messageList]);
 
@@ -100,7 +100,7 @@ function ChatRoom() {
   return (
     <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
-      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl md:h-5/6">
+      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[90vh] md:h-[88%]">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
             <div>
@@ -120,13 +120,13 @@ function ChatRoom() {
           ) : (
             <div
               className="overflow-y-auto custom-scroll"
-              style={{ height: "calc(100vh - 230px)" }}
+              style={{height: "calc(100vh - 230px)" }}
             >
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
-                    <div className="w-6/12 grid grid-cols-12 items-start my-4">
-                      <div className="col-span-1 rounded-full">
+                    <div className="w-8/12 md:w-6/12 grid grid-cols-12 items-start gap-3 my-4">
+                      <div className="col-span-2 rounded-full">
                         <Image
                           src={messageContent.avatar}
                           alt="profile img"
@@ -135,7 +135,7 @@ function ChatRoom() {
                           className="rounded-full"
                         />
                       </div>
-                      <div className="col-span-11 text-white font-roboto">
+                      <div className="col-span-10 md:col-span-11 text-white font-roboto">
                         <p className="text-sm">{messageContent.author}</p>
                         <div className="max-w-max mr-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tr-lg bg-white text-[#755BDF] break-words">
                           {messageContent.message}
@@ -146,8 +146,8 @@ function ChatRoom() {
                       </div>
                     </div>
                   ) : (
-                    <div className="w-6/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
-                      <div className="col-span-11 text-white font-roboto">
+                    <div className="w-8/12 md:w-6/12 grid grid-cols-12 grid-flow-col items-start justify-end self-end gap-3 my-2 mr-4">
+                      <div className="col-span-10 md:col-span-11 text-white font-roboto">
                         <div className="max-w-max ml-auto h-auto text-sm my-1 p-2 rounded-b-lg rounded-tl-lg chat-bg text-white break-words">
                           {messageContent.message}
                         </div>
@@ -155,7 +155,7 @@ function ChatRoom() {
                           {messageContent.time}
                         </p>
                       </div>
-                      <div className="col-span-1 rounded-full">
+                      <div className="col-span-2 md:col-span-1 rounded-full">
                         <Image
                           src={selectedAvatar}
                           alt="profile img"
@@ -177,13 +177,13 @@ function ChatRoom() {
             <IsTyping avatar={userTyping.avatar} userName={userTyping.author} />
           )}
         </div>
-        <form onSubmit={sendMessage} className="flex items-end space-x-6 ">
+        <form onSubmit={sendMessage} className="relative max-h-28 z-10 flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <textarea
               ref={textAreaRef}
               rows={1}
               placeholder="Send a message"
-              className=" w-full text-white bg-transparent placeholder:text-gray-300 resize-none custom-scroll outline-none"
+              className="max-h-24 w-full text-white bg-transparent placeholder:text-gray-300 resize-none overflow-y-auto custom-scroll outline-none"
               onChange={handleChange}
               onBlur={handleBlur}
               value={currentMessage}
