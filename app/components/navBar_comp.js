@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div>
       <div className="w-full h-[86px] px-[100px] py-4 bg-white bg-opacity-5 shadow justify-between items-center inline-flex">
-        <div className="text-center text-white text-[40px] font-medium leading-[54px] font-lexend">
+        <div className="text-center text-[#5741C3] text-[40px] font-medium leading-[54px] font-lexend">
           AnonChat!
         </div>
 

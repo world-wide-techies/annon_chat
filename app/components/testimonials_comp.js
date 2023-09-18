@@ -14,8 +14,12 @@ function Testimonials() {
         </div>
         <div className="lg:w-[1000px] px-10 flex flex-col space-y-7 justify-center mx-auto mt-[70px]">
           <div className=" md:w-[673px] shadow relative px-3 py-4 self-end chat-bg rounded-[11px] ">
-            <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
-              <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px]  " />
+            <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute -rotate-6">
+              <Image
+                src={CONTAINER1}
+                alt=""
+                className="w-[11px] h-[20px] pointer-events-none relative opacity-90"
+              />
             </div>
 
             <div className="text-white text-base font-normal leading-tight">
@@ -40,15 +44,18 @@ function Testimonials() {
                   src={CHECKER}
                   alt=""
                   className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute pointer-events-none"
-
                 />
               </div>
             </div>
           </div>
 
           <div className="md:w-[673px] relative self-start  px-3 py-4  bg-white rounded-[11px]">
-            <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute">
-              <Image src={CONTAINER} alt="" className="w-[11px] h-[20px] pointer-events-none" />
+            <div className="w-[11px] h-5 left-[-3px] bottom-[-1px] absolute -rotate-6">
+              <Image
+                src={CONTAINER}
+                alt=""
+                className="w-[11px] h-[20px] pointer-events-none "
+              />
             </div>
             <div className="text-neutral-800 text-base font-normal leading-tight">
               &quot;As a college student, AnonChat has been a lifesaver for
@@ -72,8 +79,12 @@ function Testimonials() {
           </div>
 
           <div className="md:w-[673px] relative self-end px-3 py-4 chat-bg rounded-[11px] ">
-            <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute">
-              <Image src={CONTAINER1} alt="" className="w-[11px] h-[20px] pointer-events-none" />
+            <div className="w-[11px] h-5 right-[-5px] bottom-[-1px] absolute -rotate-6">
+              <Image
+                src={CONTAINER1}
+                alt=""
+                className="w-[11px] h-[20px] pointer-events-none relative bg-inherit"
+              />
             </div>
 
             <div className="self-stretch text-white text-base font-normal leading-tight">
@@ -98,18 +109,26 @@ function Testimonials() {
                 <Image
                   src={CHECKER}
                   alt=""
-                  className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute pointer-events-none"
+                  className="w-4 h-[9.50px] left-[-0.22px] top-[1.74px] absolute pointer-events-none "
                 />
               </div>
             </div>
           </div>
         </div>
         <div className="flex mx-auto  w-[434px] h-[434px] left-[-20px] bottom-0 lg:absolute">
-          <Image src={USER1} alt="" className="pointer-events-none object-contain" />
+          <Image
+            src={USER1}
+            alt=""
+            className="pointer-events-none object-contain"
+          />
         </div>
 
         <div className="hidden lg:flex w-[558px] h-[558px] right-[-62px]  bottom-[-110px] absolute">
-          <Image src={USER2} alt="" className="object-contain pointer-events-none" />
+          <Image
+            src={USER2}
+            alt=""
+            className="object-contain pointer-events-none"
+          />
         </div>
       </div>
     </>
