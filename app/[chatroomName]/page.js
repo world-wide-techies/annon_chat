@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import ChatRoom from "../components/ChatRoom_comp";
 import { useSocketContext } from "../lib/socketContext";
 import JoinChatComp from "../components/JoinChat_comp";
@@ -11,6 +11,7 @@ export default function Chatroom() {
   const { chatroomName, setChatroomName } = useIdentityContext();
   const [joinChatRoom, setJoinChatRoom] = useState(false);
   const persistedRoomName = sessionStorage.getItem("chatroomName");
+
   useEffect(() => {
     if (chatroomName || persistedRoomName) {
       setShowChatRoom(true);
@@ -22,12 +23,10 @@ export default function Chatroom() {
   }, [chatroomName, setShowChatRoom, persistedRoomName]);
 
   return (
-    <>
-      <div>
-        {showChatRoom && <ChatRoom />}
+    <div>
+      {showChatRoom && <ChatRoom />}
 
-        {joinChatRoom && <JoinChatComp />}
-      </div>
-    </>
+      {joinChatRoom && <JoinChatComp />}
+    </div>
   );
 }

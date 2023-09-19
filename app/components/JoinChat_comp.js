@@ -29,12 +29,9 @@ export default function JoinChatComp() {
   const btnDisabled = !(username && gender && avatarSelected);
 
   useEffect(() => {
-    const urlPath = new URLSearchParams(window.location.search).get(
-      "queryParam"
-    );
-
+    const urlPath = window.location.pathname;
     if (!(chatroomName && room)) {
-      setRoom(urlPath);
+      setRoom(urlPath.match(/[^/]+$/)[0]);
     }
   }, [chatroomName, room, setRoom]);
 
@@ -62,7 +59,7 @@ export default function JoinChatComp() {
       } else {
         socket?.emit("join_room", room);
 
-        router.push(`/room?queryParam=${room}`);
+        router.push(`/${room}`);
       }
     }
   };

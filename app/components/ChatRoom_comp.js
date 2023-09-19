@@ -126,7 +126,7 @@ function ChatRoom() {
                 <div key={index} className="w-full flex flex-col">
                   {messageContent.author !== username ? (
                     <div className="w-8/12 md:w-6/12 grid grid-cols-12 items-start gap-3 my-4">
-                      <div className="col-span-2 rounded-full">
+                      <div className="col-span-2 md:col-span-1 rounded-full mx-auto">
                         <Image
                           src={messageContent.avatar}
                           alt="profile img"

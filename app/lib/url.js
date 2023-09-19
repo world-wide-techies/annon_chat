@@ -16,7 +16,7 @@ function getRandomPNGUrl(categoryName, gender) {
 
 const homeUrl =
   process.env.NEXT_PUBLIC_ENVIROMENT == "development"
-    ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}room?queryParam=`
-    : "anonchat247.netlify.app/room?queryParam=";
+    ? process.env.NEXT_PUBLIC_DEVELOPMENT_URL
+    : "anonchat247.netlify.app/";
 
 export { getRandomPNGUrl, homeUrl };
