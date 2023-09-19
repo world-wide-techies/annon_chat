@@ -5,7 +5,9 @@ import { useIdentityContext } from "../lib/identityContext";
 
 function ChatRoomNav({ selectedAvatar }) {
   const { chatroomName, setChatroomName } = useIdentityContext();
-
+ const handleClick = (e) => {
+  e.preventDefaulr
+ }
   return (
     <header className="px-8 lg:px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">
@@ -44,14 +46,13 @@ SEARCH ICON
             />
           </div>
           <div className="">
-            <Link href="/">
-              <button
-                className="bg-white px-3 py-1 rounded-3xl text-[#CD3636] font-lexend"
-                type="submit"
-              >
-                Exit Chat
-              </button>
-            </Link>
+            <button
+              className="bg-white px-3 py-1 rounded-3xl text-[#CD3636] font-lexend"
+              type="submit"
+              onClick={handleClick}
+            >
+              Exit Chat
+            </button>
           </div>
         </div>
       </nav>
