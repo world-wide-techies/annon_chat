@@ -59,7 +59,7 @@ export default function JoinChatComp() {
         console.log("Room is full");
       } else {
         socket?.emit("join_room", room);
-
+        sessionStorage.setItem("chatroomName", chatroomName);
         router.push(`/room/${room}`);
       }
     }
