@@ -27,6 +27,7 @@ export default function OnboardingComp() {
   const { socket, roomId, room, setRoom } = useSocketContext();
 
   useEffect(() => {
+    sessionStorage.setItem("chatroomName", chatroomName);
     setRoom(`${chatroomName}-${roomId}`);
     const chatLink = homeUrl + room;
     setInviteLink(chatLink);
@@ -62,7 +63,7 @@ export default function OnboardingComp() {
     e.preventDefault();
     if (username !== "" && chatroomName !== "" && roomId !== "") {
       socket.emit("join_room", room);
-      router.push(`/${room}`);
+      router.push(`/room/${room}`);
     }
   };
 
