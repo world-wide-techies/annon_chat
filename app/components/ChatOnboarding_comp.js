@@ -62,7 +62,7 @@ export default function OnboardingComp() {
     e.preventDefault();
     if (username !== "" && chatroomName !== "" && roomId !== "") {
       socket.emit("join_room", room);
-      router.push(`/${room}`);
+      router.push(`/room/${room}`);
     }
   };
 
