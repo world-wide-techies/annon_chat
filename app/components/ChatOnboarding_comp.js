@@ -27,6 +27,7 @@ export default function OnboardingComp() {
   const { socket, roomId, room, setRoom } = useSocketContext();
 
   useEffect(() => {
+    sessionStorage.setItem("chatroomName", chatroomName);
     setRoom(`${chatroomName}-${roomId}`);
     const chatLink = homeUrl + room;
     setInviteLink(chatLink);

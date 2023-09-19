@@ -2,12 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useIdentityContext } from "../lib/identityContext";
+import { useRouter } from "next/navigation";
 
 function ChatRoomNav({ selectedAvatar }) {
   const { chatroomName, setChatroomName } = useIdentityContext();
- const handleClick = (e) => {
-  e.preventDefaulr
- }
+  const router = useRouter();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem("chatroomName");
+    router.push("/");
+  };
   return (
     <header className="px-8 lg:px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">

@@ -60,7 +60,7 @@ export default function JoinChatComp() {
       } else {
         socket?.emit("join_room", room);
 
-        router.push(`/${room}`);
+        router.push(`/room/${room}`);
       }
     }
   };
