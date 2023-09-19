@@ -17,6 +17,6 @@ function getRandomPNGUrl(categoryName, gender) {
 const homeUrl =
   process.env.NEXT_PUBLIC_ENVIROMENT == "development"
     ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}room/`
-    : "anonchat247.netlify.app/room/";
+    : "https://annon-chat.vercel.app/room/";
 
 export { getRandomPNGUrl, homeUrl };
