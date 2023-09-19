@@ -8,7 +8,7 @@ export default function JoinCTA() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        router.push(`/${inviteLink.split("/")[1]}`);
+        router.push(inviteLink);
       }}
       className="mt-[31px] lg:flex gap-[15px] grid items-center justify-center"
     >
