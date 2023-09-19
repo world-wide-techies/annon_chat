@@ -29,9 +29,10 @@ export default function JoinChatComp() {
   const btnDisabled = !(username && gender && avatarSelected);
 
   useEffect(() => {
-    const urlPath = window.location.pathname;
+    const pathSegments = window.location.pathname.split("/");
+    const lastSegment = pathSegments[pathSegments.length - 1];
     if (!(chatroomName && room)) {
-      setRoom(urlPath.match(/[^/]+$/)[0]);
+      setRoom(lastSegment);
     }
   }, [chatroomName, room, setRoom]);
 

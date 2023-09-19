@@ -13,7 +13,7 @@ export default function Chatroom() {
   const persistedRoomName = sessionStorage.getItem("chatroomName");
 
   useEffect(() => {
-    if (chatroomName || persistedRoomName) {
+    if (chatroomName) {
       setShowChatRoom(true);
       setJoinChatRoom(false);
     } else {
