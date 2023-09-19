@@ -10,16 +10,16 @@ export default function Chatroom() {
   const { showChatRoom, setShowChatRoom, roomSize } = useSocketContext();
   const { chatroomName, setChatroomName } = useIdentityContext();
   const [joinChatRoom, setJoinChatRoom] = useState(false);
-
+  const persistedRoomName = sessionStorage.getItem("chatroomName");
   useEffect(() => {
-    if (chatroomName) {
+    if (chatroomName || persistedRoomName) {
       setShowChatRoom(true);
       setJoinChatRoom(false);
     } else {
       setJoinChatRoom(true);
       setShowChatRoom(false);
     }
-  }, [chatroomName, setShowChatRoom]);
+  }, [chatroomName, setShowChatRoom, persistedRoomName]);
 
   return (
     <>
