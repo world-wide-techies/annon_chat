@@ -98,7 +98,7 @@ function ChatRoom() {
   };
 
   return (
-    <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
+    <section className="w-full h-screen bg-hero-bg bg-cover mx-auto ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
       <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[90vh] md:h-[88%]">
         <div className="h-[90%]">
@@ -219,7 +219,7 @@ function ChatRoom() {
                   </div> */}
           </div>
           <button
-            className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF]  font-lexend"
+            className="bg-white px-6 py-1.5 rounded-3xl text-[#755BDF] font-lexend"
             type="submit"
           >
             Send

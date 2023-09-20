@@ -7,7 +7,7 @@ function ChatRoomNav({ selectedAvatar }) {
   const { chatroomName, setChatroomName } = useIdentityContext();
 
   return (
-    <header className="px-8 lg:px-24 py-4 border-b bg-white/25">
+    <header className="relative z-20 w-full px-8 lg:px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">
         <div className="text-white text-2xl">
           {chatroomName ? chatroomName : "Your Chat Room"}
