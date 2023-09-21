@@ -98,18 +98,18 @@ function ChatRoom() {
   };
 
   return (
-    <section className="w-full h-screen bg-hero-bg bg-cover mx-auto ">
+    <section className="relative w-full h-screen bg-hero-bg bg-cover mx-auto">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
-      <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[90vh] md:h-[88%]">
+      <div className="relative top-[75px] flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[90vh] md:h-[88%]">
         <div className="h-[90%]">
           {messageList.length === 0 ? (
             <div>
               <div className="w-full flex space-x-2 items-center justify-center text-gray-300">
-                <div className="w-3/12 md:w-4/12 lg:w-5/12 border-t border-gray-300"></div>
+                <div className="w-3/12 md:w-4/12 lg:w-[40%] border-t border-gray-300"></div>
                 <p className="text-[9px] lg:text-xs">
                   This is the start of your conversation
                 </p>
-                <div className="w-3/12 md:w-4/12 lg:w-5/12 border-t border-gray-300"></div>
+                <div className="w-3/12 md:w-4/12 lg:w-[40%] border-t border-gray-300"></div>
               </div>
               <div className="px-3 my-6 rounded-3xl border border-gray-300 max-w-lg text-white mx-auto py-2 text-xs text-center">
                 Chats are end-to-end encrypted. No one outside of this chat, not
@@ -177,7 +177,7 @@ function ChatRoom() {
             <IsTyping avatar={userTyping.avatar} userName={userTyping.author} />
           )}
         </div>
-        <form onSubmit={sendMessage} className="relative max-h-28 z-10 flex items-end space-x-6 ">
+        <form onSubmit={sendMessage} className="fixed bottom-12 tall:bottom-20 vtall:bottom-36 inset-x-6 lg:inset-x-28 max-h-28 z-10 flex items-end space-x-6 ">
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <textarea
               ref={textAreaRef}

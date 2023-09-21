@@ -14,7 +14,7 @@ function ChatRoomNav({ selectedAvatar }) {
     router.push("/");
   };
   return (
-    <header className="relative z-20 w-full px-8 lg:px-24 py-4 border-b bg-white/25">
+    <header className="fixed top-0 left-0 right-0 z-20 w-full px-8 lg:px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">
         <div className="text-white text-2xl">
           {chatroomName
@@ -25,7 +25,7 @@ function ChatRoomNav({ selectedAvatar }) {
         </div>
         <div className="flex items-center space-x-4">
           {/*
-SEARCH ICON
+          SEARCH ICON
         <div className=" p-2 rounded-full border-2 border-white text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
