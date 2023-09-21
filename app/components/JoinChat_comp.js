@@ -29,9 +29,10 @@ export default function JoinChatComp() {
   const btnDisabled = !(username && gender && avatarSelected);
 
   useEffect(() => {
-    const urlPath = window.location.pathname;
+    const pathSegments = window.location.pathname.split("/");
+    const lastSegment = pathSegments[pathSegments.length - 1];
     if (!(chatroomName && room)) {
-      setRoom(urlPath.match(/[^/]+$/)[0]);
+      setRoom(lastSegment);
     }
   }, [chatroomName, room, setRoom]);
 
@@ -58,8 +59,8 @@ export default function JoinChatComp() {
         console.log("Room is full");
       } else {
         socket?.emit("join_room", room);
-
-        router.push(`/${room}`);
+        sessionStorage.setItem("chatroomName", chatroomName);
+        router.push(`/room/${room}`);
       }
     }
   };
