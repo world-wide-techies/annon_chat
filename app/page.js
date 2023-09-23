@@ -7,7 +7,7 @@ import Testimonials from "./components/testimonials_comp";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex justify-center overflow-x-hidden">
+    <main className="min-h-screen flex justify-center overflow-x-hidden bg-[#7860DD]">
       <div className="max-w-screen-2xl">
         <Hero />
         <Features />
