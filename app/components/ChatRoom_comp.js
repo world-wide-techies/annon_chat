@@ -119,8 +119,8 @@ function ChatRoom() {
             </div>
           ) : (
             <div
-              className="overflow-y-auto custom-scroll"
-              style={{height: "calc(100vh - 230px)" }}
+              className="overflow-y-auto custom-scroll chat-box"
+              
             >
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
