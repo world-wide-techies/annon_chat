@@ -98,9 +98,9 @@ function ChatRoom() {
   };
 
   return (
-    <section className="w-full h-screen bg-hero-bg bg-cover mx-auto">
+    <section className="w-full md:h-screen bg-hero-bg bg-cover mx-auto">
     <ChatRoomNav selectedAvatar={selectedAvatar} />
-    <div className=" flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-5/6">
+    <div className=" flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[85vh] md:h-5/6">
       <div className="h-[90%]">
         {messageList.length === 0 ? (
           <div>
