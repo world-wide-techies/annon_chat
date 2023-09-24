@@ -88,11 +88,11 @@
 }
 
 .chat-box {
-  height: calc(100vh - 280px);
+  height: 90%
 }
 
 @media(min-width: 600px) {
   .chat-box {
-    height: calc(100vh - 230px);
+    height: 95%
   }
 }

@@ -14,7 +14,7 @@ function ChatRoomNav({ selectedAvatar }) {
     router.push("/");
   };
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 w-full px-8 lg:px-24 py-4 border-b bg-white/25">
+    <header className="w-full px-8 lg:px-24 py-4 border-b bg-white/25">
       <nav className="flex justify-between items-center">
         <div className="text-white text-2xl">
           {chatroomName
