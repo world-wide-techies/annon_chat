@@ -8,9 +8,8 @@ import IsTyping from "./IsTyping_comp";
 import { formattedTime } from "../lib/formattedTime";
 
 function ChatRoom() {
- 
   const { socket, roomSize, room } = useSocketContext();
-  const {username } = useIdentityContext();
+  const { username } = useIdentityContext();
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -19,7 +18,7 @@ function ChatRoom() {
 
   const resizeTextArea = () => {
     textAreaRef.current.style.height = "auto";
-    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px"; 
+    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
   };
 
   const selectedAvatar =
@@ -98,7 +97,7 @@ function ChatRoom() {
   };
 
   return (
-    <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto ">
+    <section className=" w-full h-screen bg-hero-bg bg-cover mx-auto max-w-screen-2xl ">
       <ChatRoomNav selectedAvatar={selectedAvatar} />
       <div className="flex flex-col items-stretch lg:mx-24 bg-white/25 p-4 border-b-2 border-x-2 border-white/25 rounded-b-3xl h-[90vh] md:h-[88%]">
         <div className="h-[90%]">
@@ -120,7 +119,7 @@ function ChatRoom() {
           ) : (
             <div
               className="overflow-y-auto custom-scroll"
-              style={{height: "calc(100vh - 230px)" }}
+              style={{ height: "calc(100vh - 230px)" }}
             >
               {messageList.map((messageContent, index) => (
                 <div key={index} className="w-full flex flex-col">
@@ -177,7 +176,10 @@ function ChatRoom() {
             <IsTyping avatar={userTyping.avatar} userName={userTyping.author} />
           )}
         </div>
-        <form onSubmit={sendMessage} className="relative max-h-28 z-10 flex items-end space-x-6 ">
+        <form
+          onSubmit={sendMessage}
+          className="relative max-h-28 z-10 flex items-end space-x-6 "
+        >
           <div className="flex items-center justify-between w-11/12 rounded-3xl border px-4 py-1.5">
             <textarea
               ref={textAreaRef}

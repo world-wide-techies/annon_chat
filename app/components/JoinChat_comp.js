@@ -71,7 +71,7 @@ export default function JoinChatComp() {
   };
 
   return (
-    <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden">
+    <section className="relative w-full h-full mx-auto bg-center bg-hero-bg bg-cover scroll-smooth antialiased overflow-hidden max-w-screen-2xl">
       <OnboardingNav />
       <div className="relative max-h-[1024px] mx-auto flex-shrink-0">
         <div className="relative mx-auto flex items-center justify-center gap-4">

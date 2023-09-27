@@ -3,7 +3,7 @@ import OnboardingComp from "../components/ChatOnboarding_comp";
 
 export default function Lobby() {
   return (
-    <main className="min-h-screen flex  mx-auto w-full overflow-x-hidden">
+    <main className="min-h-screen flex  mx-auto w-full overflow-x-hidden max-w-screen-2xl">
       <OnboardingComp />
       
     </main>
