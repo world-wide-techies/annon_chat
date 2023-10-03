@@ -87,3 +87,12 @@
   @apply bg-gray-200;
 }
 
+.chat-box {
+  height: 90%
+}
+
+@media(min-width: 600px) {
+  .chat-box {
+    height: 95%
+  }
+}
