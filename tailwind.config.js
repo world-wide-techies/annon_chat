@@ -27,6 +27,10 @@ module.exports = {
         "testimonials-bg": "url('/assets/backgrounds/testimonials_bg.png')",
         "finalCta-bg": "url('/assets/backgrounds/finalCta_bg.png')",
       },
+      screens: {
+        'tall': { 'raw': '(min-height: 900px)' },
+        'vtall': { 'raw': '(min-height: 1300px)'},
+      }
     },
   },
 
