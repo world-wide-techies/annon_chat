@@ -8,7 +8,7 @@ import featuresImg5 from "../../public/assets/images/features_img_5.png";
 
 function Features() {
   return (
-    <div>
+    <div className="bg-white py-6">
       <h2 className="text-center text-3xl md:text-4xl font-medium heading-text-color mb-6">
         Why Choose AnnonChat!
       </h2>
